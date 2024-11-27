@@ -4,6 +4,13 @@ import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Container } from "semantic-ui-react";
+import { Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
+import Page1 from "./pages/Page1"
+import Page2 from "./pages/Page2"
+import TripItinerary from "./pages/TripItinerary";
+import TripReview from "./pages/TripReview";
 
 function App(){
     const [trips, setTrips] = useState(    // this will be from db.json -- adding here for initial example
@@ -36,7 +43,13 @@ function App(){
                 <Header />
             </Headroom>
             <Container>
-                <Outlet context={trips} />
+                <Routes>
+                    <Route path="/" element={<Home trips={trips} />} />
+                    <Route path="/page-1" element={<Page1/>} />
+                    <Route path="/page-2" element={<Page2/>} />
+                    <Route path="/itinerary/:id" element={<TripItinerary trips={trips} />} />
+                    <Route path="/review/:id" element={<TripReview trips={trips} />} />
+                </Routes>
             </Container>
             <Footer />
         </>

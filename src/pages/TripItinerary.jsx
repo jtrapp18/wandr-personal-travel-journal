@@ -1,7 +1,7 @@
 import { useParams, useOutletContext } from "react-router-dom";
 
-const TripItinerary = () => {
-    const trips = useOutletContext();
+const TripItinerary = ({trips}) => {
+    // const trips = useOutletContext();
     const params = useParams();
   
     const trip = trips.find(trip => trip.id === parseInt(params.id));
