@@ -1,18 +1,27 @@
 import { Link, Outlet, useOutletContext } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
-// import { Navigate, useNavigate} from "react-router-dom";
+import { Navigate, useNavigate} from "react-router-dom";
 import TripItinerary from "./TripItinerary";
 import TripReview from "./TripReview";
 
 const Home = ({trips}) => {
     // const trips = useOutletContext();
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     // <Navigate to="/login" />
+
+    function goToPg2() {
+        // example of how to programmatically navigate to a specific page
+        navigate("/page-2");
+    }
 
     return (
         <main>
             This is the home page!
+
+            {/* below are examples of how to use programmatic navigation or conditional programmatic rendering */}
+            <button onClick={goToPg2}>This button takes you to page 2!</button>
+            {/* {true ? <Navigate to="/" /> : <Navigate to="/page-1" />} */}
             {/* <Outlet context={trips} /> */}
             <ul>
                 {trips.map(trip => 
