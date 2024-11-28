@@ -10,9 +10,9 @@ const Home = ({trips}) => {
 
     // <Navigate to="/login" />
 
-    function goToPg2() {
+    function goToNewTripPage() {
         // example of how to programmatically navigate to a specific page
-        navigate("/page-2");
+        navigate("/new-trip");
     }
 
     return (
@@ -20,7 +20,7 @@ const Home = ({trips}) => {
             This is the home page!
 
             {/* below are examples of how to use programmatic navigation or conditional programmatic rendering */}
-            <button onClick={goToPg2}>This button takes you to page 2!</button>
+            <button onClick={goToNewTripPage}>Add Trip</button>
             {/* {true ? <Navigate to="/" /> : <Navigate to="/page-1" />} */}
             {/* <Outlet context={trips} /> */}
             <ul>

@@ -21,7 +21,7 @@
             "complete": false
         }
     ],
-    "itinerary": [
+    "activities": [
         {
             "id": 1,
             "tripId": 1,

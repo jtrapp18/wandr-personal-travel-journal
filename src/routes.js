@@ -1,7 +1,7 @@
 // routes.js
 import App from "./App";
 import Home from "./pages/Home";
-import Page1 from "./pages/Page1";
+import NewTrip from "./pages/NewTrip";
 import Page2 from "./pages/Page2"
 import ErrorPage from "./pages/ErrorPage";
 import TripReview from "./pages/TripReview";
@@ -28,8 +28,8 @@ const routes = [
               ]
           }, 
           {
-              path: "/page-1",
-              element: <Page1 />
+              path: "/new-trip",
+              element: <NewTrip />
               // children: [
               //   {
               //       path: "/review/:id",

@@ -3,12 +3,12 @@ import { NavLink } from "react-router-dom";
 function NavLinks() {
   return (
     <div id="link-container">
-      <NavLink
-        to="/page-1"
+      {/* <NavLink
+        to="/new-trip"
         className="nav-link"
       >
         Page1
-      </NavLink>
+      </NavLink> */}
       <NavLink
         to="/page-2"
         className="nav-link"
