@@ -12,30 +12,15 @@ import Page2 from "./pages/Page2"
 import TripItinerary from "./pages/TripItinerary";
 import TripReview from "./pages/TripReview";
 
+import { getJSONByKey } from "./helper";
+
 function App(){
-    const [trips, setTrips] = useState(    // this will be from db.json -- adding here for initial example
-        [
-            {
-                "id": 1,
-                "image": "",
-                "start-date": "",
-                "end-date": "",
-                "rating": 0,
-                "review": "",
-                "location": "Paris",
-                "complete": false
-            },
-            {
-                "id": 2,
-                "image": "",
-                "start-date": "",
-                "end-date": "",
-                "rating": 0,
-                "review": "",
-                "location": "New York City",
-                "complete": false
-            }
-        ]);
+    const [trips, setTrips] = useState([]);
+
+    getJSONByKey("trips")
+    .then(setTrips)
+
+    if (trips.length===0) return <p>Loading...</p>
 
     return(
         <>
