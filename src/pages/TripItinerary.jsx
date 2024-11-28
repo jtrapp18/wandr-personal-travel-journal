@@ -1,4 +1,5 @@
 import { useParams, useOutletContext } from "react-router-dom";
+import { getEmbeddedJSONById } from "../helper";
 
 const TripItinerary = ({trips}) => {
     // const trips = useOutletContext();
