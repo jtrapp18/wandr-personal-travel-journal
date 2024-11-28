@@ -5,6 +5,7 @@ import routes from "./routes.js";
 import "semantic-ui-css/semantic.min.css";
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import "./helper.js"
 
 const router = createBrowserRouter(routes);
 
