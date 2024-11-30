@@ -1,5 +1,7 @@
 :root {
-  --green: #9DC183
+  --green: #9DC183;
+  --gray: #F0F0F0;
+  --blue: #458dbd;
 }
 
 body {
@@ -11,11 +13,16 @@ body {
 
 .nav-link {
   color: black;
-  font-size: 20px;
+  font-size: 15px;
   margin: 25px;
   font-weight: bold;
   text-decoration: none;
   text-align: right;
+}
+
+.nav-link img {
+  height: 30px;
+  vertical-align: middle;
 }
 
 .nav-link.active {
@@ -25,6 +32,11 @@ body {
 #logo-container {
   text-align: left;
 }
+
+/* #logo-container img {
+  height: 50px;
+  vertical-align: middle;
+} */
 
 #link-container {
   position: absolute;
@@ -39,22 +51,19 @@ span {
   display: block;
 }
 
-footer * {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-color: blue;
-}
-
 header, .nav-bar {
   width: 100%;
 }
 
 #ext-header {
-  height: 50px;
-  background-color: black;
+  height: 150px;
+  /* background-color: black; */
   color: white;
   width: 100%;
+  background-color: white;
+  background-image: url("../public/images/globes.jpeg");
+  background-size: cover;
+  background-position: center;
 }
 
 /* fix navigation bar on scroll */
@@ -62,7 +71,7 @@ header, .nav-bar {
   position: fixed;
   padding-top: 10px;
   background-color: var(--green);
-  height: 30px;
+  height: 45px;
   display: flex;
 }
 
@@ -73,7 +82,7 @@ header * {
 
 /* adjust based on the height of the header */
 .headroom-wrapper + * {
-  padding-top: 35px;
+  padding-top: 50px;
 }
 
 #end-note {
@@ -83,21 +92,39 @@ header * {
 
 footer {
   padding-top: 50px;
+  /* height: 300px; */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* background-color: var(--gray); */
+  background-color: white;
 }
 
+/* footer {
+  width: 100%;
+  background-color: white;
+  background-image: url("../public/images/landmarks.png");
+  background-size: cover;
+  background-position: bottom;
+} */
+
+#landmarks {
+  max-width: 100%;
+}
 
 .side-panel {
   padding: 20px;
   min-width: 200px;
   width: 20%;
-  height: calc(100vh - 200px);
+  /* height: calc(100vh - 200px); */
   display: block;
-  background-color: gray;
+  background-color: var(--gray);
+  border-right: 2px solid #C8C8C8;
 }
 
 #trips-main {
   width: 80%;
-  padding: 20px;
+  /* padding: 0px 20px 20px 20px; */
 }
 
 #search-bar {
@@ -105,13 +132,14 @@ footer {
   justify-content: center;
   align-items: center;
   height: 100px;
-  background-color: blue;
+  background-color: var(--blue);
+  /* margin: 0px; */
 }
 
 #search-bar input {
   border-radius: 20px;
   height: 45px;
-  width: 60%;
+  width: 80%;
   font-size: 16px;
   border: 1px solid #ccc;
   padding: 10px 15px;
@@ -175,6 +203,10 @@ label {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
+#trips-main > div {
+  padding: 20px;
+}
+
 .globe-container {
   justify-content: left;
 }
@@ -182,4 +214,9 @@ label {
 .trip-info-container {
   display: flex;
   justify-content: space-between;
+}
+
+#footer-divider {
+  /* width: 80%; */
+  width: 500px;
 }

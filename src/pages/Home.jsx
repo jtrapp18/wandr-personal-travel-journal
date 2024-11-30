@@ -31,20 +31,22 @@ const Home = ({trips}) => {
     })
 
     return (
-        <main>
-            <SearchBar
-                searchInput={searchInput}
-                setSearchInput={setSearchInput}
-            />
-            <div id="trips-container">
+        <main id="trips-container">
+            {/* <div id="trips-container"> */}
                 <SideBar
                     filterInput={filterInput}
                     setFilterInput={setFilterInput}
                 />
                 <section id="trips-main">
-                    <h1>My Trips</h1>
-
+                    <SearchBar
+                        searchInput={searchInput}
+                        setSearchInput={setSearchInput}
+                    />
+                    <div>
+                        <h1>My Trips</h1>
+                    </div>
                     <div id="card-container">
+                        
                         {showTrips.map(trip=>
                             <TripCard
                                 key={trip.id}
@@ -52,7 +54,7 @@ const Home = ({trips}) => {
                             />)}
                     </div>
                 </section>
-            </div>
+            {/* </div> */}
         </main>
     );
 }
