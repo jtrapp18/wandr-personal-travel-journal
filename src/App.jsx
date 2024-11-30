@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import Headroom from "react-headroom";
 import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
@@ -17,17 +17,19 @@ import { getJSONByKey } from "./helper";
 function App(){
     const [trips, setTrips] = useState([]);
 
-    getJSONByKey("trips")
-    .then(setTrips)
+    useEffect(()=>{
+        getJSONByKey("trips")
+        .then(setTrips)},
+    [])
 
-    if (trips.length===0) return <p>Loading...</p>
+    if (trips.length===0) return <p class="loading">Loading...</p>
 
     return(
         <>
             <Headroom>
                 <Header />
             </Headroom>
-            <Container>
+            {/* <Container> */}
                 <Routes>
                     <Route path="/" element={<Home trips={trips} />} />
                     <Route path="/new-trip" element={<NewTrip/>} />
@@ -35,7 +37,7 @@ function App(){
                     <Route path="/itinerary/:id" element={<TripItinerary trips={trips} />} />
                     <Route path="/review/:id" element={<TripReview trips={trips} />} />
                 </Routes>
-            </Container>
+            {/* </Container> */}
             <Footer />
         </>
     );

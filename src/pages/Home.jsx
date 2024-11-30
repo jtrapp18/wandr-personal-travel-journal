@@ -1,34 +1,58 @@
 import { Link, Outlet, useOutletContext } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import { Navigate, useNavigate} from "react-router-dom";
+import {useState} from "react";
 import TripItinerary from "./TripItinerary";
 import TripReview from "./TripReview";
+import SearchBar from "../components/SearchBar"
+import SideBar from "../components/SideBar";
 import { Card } from "semantic-ui-react";
 import TripCard from "../components/TripCard";
 
 const Home = ({trips}) => {
     // const trips = useOutletContext();
     const navigate = useNavigate();
+    const [searchInput, setSearchInput] = useState("");
+    const [filterInput, setFilterInput] = useState({
+        complete: true,
+        incomplete: true,
+    });
 
     // <Navigate to="/login" />
 
-    function goToNewTripPage() {
-        // example of how to programmatically navigate to a specific page
-        navigate("/new-trip");
-    }
+
+
+    const showTrips = trips.filter(trip=>{
+        const searchFilter = searchInput==="" ? true : trip.location.toLowerCase().includes(searchInput.toLowerCase());
+        const completeFilter = filterInput.complete ? true : !trip.complete;
+        const incompleteFilter = filterInput.incomplete ? true : trip.complete;
+
+        return searchFilter && completeFilter && incompleteFilter;   
+    })
 
     return (
         <main>
-            This is the home page!
-            <button onClick={goToNewTripPage}>Add Trip</button>
+            <SearchBar
+                searchInput={searchInput}
+                setSearchInput={setSearchInput}
+            />
+            <div id="trips-container">
+                <SideBar
+                    filterInput={filterInput}
+                    setFilterInput={setFilterInput}
+                />
+                <section id="trips-main">
+                    <h1>My Trips</h1>
 
-            <Card.Group>
-                {trips.map(trip=>
-                    <TripCard
-                        key={trip.id}
-                       {...trip} 
-                    />)}
-            </Card.Group>
+                    <div id="card-container">
+                        {showTrips.map(trip=>
+                            <TripCard
+                                key={trip.id}
+                            {...trip} 
+                            />)}
+                    </div>
+                </section>
+            </div>
         </main>
     );
 }

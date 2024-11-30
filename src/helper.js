@@ -109,4 +109,32 @@ function deleteJSONFromDb(dbKey, Id) {
   .catch(e => console.error(e));
 }
 
-export {getJSONByKey, getJSONById, getEmbeddedJSON, getEmbeddedJSONById, postJSONToDb, patchJSONToDb, deleteJSONFromDb};
+const apiKey = "BLbgpm4rGVFKAlK5lBvZ0ROthNRuGYb0"
+
+function getWeatherForecast(locationSearch) {
+  const locSearchRev = locationSearch.replace(/ /g, "%20");
+  const url = `http://dataservice.accuweather.com/locations/v1/cities/search?q=${locSearchRev}&apikey=${apiKey}`
+
+  return fetch(url)
+  .then(res => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+      return res.json();
+    })
+    .then(data=>getForecastByLocKey(data.Key))
+}
+
+function getForecastByLocKey(locationKey) {
+  const url = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${apiKey}`;
+
+  return fetch(url)
+  .then(res => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+      return res.json();
+    })
+}
+
+export {getJSONByKey, getJSONById, getEmbeddedJSON, getEmbeddedJSONById, postJSONToDb, patchJSONToDb, deleteJSONFromDb, getWeatherForecast};
