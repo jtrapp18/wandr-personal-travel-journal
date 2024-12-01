@@ -114,15 +114,16 @@ const apiKey = "BLbgpm4rGVFKAlK5lBvZ0ROthNRuGYb0"
 function getWeatherForecast(locationSearch) {
   const locSearchRev = locationSearch.replace(/ /g, "%20");
   const url = `http://dataservice.accuweather.com/locations/v1/cities/search?q=${locSearchRev}&apikey=${apiKey}`
+  console.log(url)
 
   return fetch(url)
   .then(res => {
       if (!res.ok) {
-        throw new Error(`HTTP error! Status: ${res.status}`);
+        throw new Error(`HTTP error finding location code! Status: ${res.status}`);
       }
       return res.json();
     })
-    .then(data=>getForecastByLocKey(data.Key))
+    .then(data=>getForecastByLocKey(data[0].Key))
 }
 
 function getForecastByLocKey(locationKey) {
@@ -131,10 +132,20 @@ function getForecastByLocKey(locationKey) {
   return fetch(url)
   .then(res => {
       if (!res.ok) {
-        throw new Error(`HTTP error! Status: ${res.status}`);
+        throw new Error(`HTTP error loading forecast! Status: ${res.status}`);
       }
       return res.json();
     })
 }
 
-export {getJSONByKey, getJSONById, getEmbeddedJSON, getEmbeddedJSONById, postJSONToDb, patchJSONToDb, deleteJSONFromDb, getWeatherForecast};
+function formatDate(dateString) {
+  const date = new Date(dateString);
+
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+
+  return `${month}/${day}/${year}`;
+}
+
+export {getJSONByKey, getJSONById, getEmbeddedJSON, getEmbeddedJSONById, postJSONToDb, patchJSONToDb, deleteJSONFromDb, getWeatherForecast, formatDate};
