@@ -5,10 +5,10 @@ import {useState, useEffect} from "react";
 const UpcomingTrips = ({trips}) => {
 
     const [tripIndex, setTripIndex] = useState(0);
-    const trip = trips[tripIndex];
+    const trip = trips[tripIndex] || null;
 
-    const prevImage = () => {setTripIndex(prevIndex => prevIndex === 0 ? prevIndex : prevIndex - 1)};
-    const nextImage = () => {setTripIndex(prevIndex => prevIndex === trips.length -1 ? prevIndex : prevIndex + 1)};
+    const prevImage = () => {setTripIndex(prevIndex => (prevIndex - 1 + trips.length) % trips.length)};
+    const nextImage = () => {setTripIndex(prevIndex => (prevIndex + 1) % trips.length)};
 
     if (trips.length===0) return <h1>No trips coming up in the next 5 days</h1>
 
