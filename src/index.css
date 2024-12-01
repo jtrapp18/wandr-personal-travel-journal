@@ -197,7 +197,7 @@ label {
   height: 15%;
 }
 
-#card-container {
+.card-container {
   display: grid;
   width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -219,4 +219,37 @@ label {
 #footer-divider {
   /* width: 80%; */
   width: 500px;
+}
+
+#upcoming-trips {
+  background-color: var(--gray);
+}
+
+.forecast-container {
+  display: flex;
+  overflow-x: scroll;
+}
+
+.forecast-card {
+  margin: 5px;
+  border: 1px solid black;
+}
+
+.forecast-card h3 {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.forecast-card p {
+  font-size: 10px;
+}
+
+.day-night-split {
+  display: flex;
+  padding-top: 5px;
+}
+
+.day-night-split div {
+  margin: 1px;
+  border: 1px solid gray;
 }

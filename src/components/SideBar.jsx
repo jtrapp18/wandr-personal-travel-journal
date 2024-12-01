@@ -3,9 +3,9 @@ import React from 'react';
 
 const SideBar = ({filterInput, setFilterInput}) => {
 
-    function handleChangeFilter(event) {
+    function handleChange(event) {
         const name = event.target.name;
-        const value = event.target.checked;
+        const value = event.target.type==="checkbox" ? event.target.checked : event.target.value;
 
         setFilterInput(prevFilter=>{
             return {
@@ -24,7 +24,7 @@ const SideBar = ({filterInput, setFilterInput}) => {
                     checked={filterInput.complete}
                     type="checkbox"
                     name="complete"
-                    onChange={handleChangeFilter}
+                    onChange={handleChange}
                 />
                 Complete
             </label>
@@ -33,28 +33,28 @@ const SideBar = ({filterInput, setFilterInput}) => {
                     checked={filterInput.incomplete}
                     type="checkbox"
                     name="incomplete"
-                    onChange={handleChangeFilter}
+                    onChange={handleChange}
                 />
                 Bucket List
             </label>
-            <h3>Trip Status</h3>
+            <h3>Dates</h3>
             <label>
+                Start Date
                 <input
-                    checked={filterInput.complete}
-                    type="checkbox"
-                    name="complete"
-                    onChange={handleChangeFilter}
+                    checked={filterInput.startDate}
+                    type="date"
+                    name="startDate"
+                    onChange={handleChange}
                 />
-                Complete
             </label>
             <label>
+                End Date
                 <input
-                    checked={filterInput.incomplete}
-                    type="checkbox"
-                    name="incomplete"
-                    onChange={handleChangeFilter}
+                    checked={filterInput.endDate}
+                    type="date"
+                    name="endDate"
+                    onChange={handleChange}
                 />
-                Bucket List
             </label>
         </section>
     );
