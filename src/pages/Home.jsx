@@ -48,17 +48,20 @@ const Home = ({trips}) => {
     return (
         <>
             <div>
+                <div className="show-hide" onClick={()=>setShowUpcoming(showUpcoming=>!showUpcoming)}>
+                    <span>
+                        {`${showUpcoming ? "Hide" : "Show"}
+                        Upcoming Trips`}
+                    </span>                    
+                    <span>
+                        {showUpcoming ? "▲" : "▼"}
+                    </span>
+                </div>
                 {showUpcoming && (
                     <UpcomingTrips 
                         trips={upcomingTrips}
                     />
                 )}
-                <div className="show-hide" onClick={()=>setShowUpcoming(showUpcoming=>!showUpcoming)}>
-                    <span>
-                        {showUpcoming ? "▲" : "▼"}
-                    </span>
-                    <span>{`${showUpcoming ? "Hide" : "Show"} Upcoming Trips`}</span>
-                </div>
             </div>
             
             <main id="trips-container">
