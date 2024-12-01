@@ -3,17 +3,17 @@ import { NavLink } from "react-router-dom";
 function NavLinks() {
   return (
     <div id="link-container">
-      {/* <NavLink
+      <NavLink
+        to="/"
+        className="nav-link home"
+      >
+        <img src="/images/passport.png" alt="passport"/>My Trips
+      </NavLink>
+      <NavLink
         to="/new-trip"
         className="nav-link"
       >
-        Page1
-      </NavLink> */}
-      <NavLink
-        to="/page-2"
-        className="nav-link"
-      >
-        Page2
+          <img src="/images/suitcase.png" alt="suitcase"/>Add to Bucketlist
       </NavLink>
     </div>
   );
