@@ -8,7 +8,6 @@ import UpcomingTrips from "../components/UpcomingTrips";
 const Home = ({trips}) => {
     const now = new Date();
 
-    // const trips = useOutletContext();
     const [showUpcoming, setShowUpcoming] = useState(false);
     const [searchInput, setSearchInput] = useState("");
     const [filterInput, setFilterInput] = useState({
@@ -16,6 +15,7 @@ const Home = ({trips}) => {
         incomplete: true,
         startDate: "",
         endDate: "",
+        rating: 0,
     });
 
     const upcomingTrips = trips.filter(trip => {
@@ -41,8 +41,9 @@ const Home = ({trips}) => {
         const incompleteFilter = filterInput.incomplete ? true : trip.complete;
         const startDateFilter = filterInput.startDate ? filterInput.startDate < trip.endDate : true;
         const endDateFilter = filterInput.endDate ? filterInput.endDate > trip.startDate : true;
+        const ratingFilter = filterInput.rating ? filterInput.rating <= trip.rating : true;
 
-        return searchFilter && completeFilter && incompleteFilter && startDateFilter && endDateFilter;   
+        return searchFilter && completeFilter && incompleteFilter && startDateFilter && endDateFilter && ratingFilter;   
     })
 
     return (

@@ -25,6 +25,13 @@ const UpcomingTrips = ({trips}) => {
                     location={trip.location}
                 />
             </div>
+            <button className="prev-btn" onClick={prevImage}>
+                &#8249;
+            </button>
+            <button className="next-btn" onClick={nextImage}>
+                &#8250;
+            </button>
+            <span id="trip-count">{`${tripIndex+1} of ${trips.length}`}</span>
         </div>
 )}
 
