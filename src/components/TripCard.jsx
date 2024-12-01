@@ -1,21 +1,12 @@
 import { Card } from "semantic-ui-react";
 import { Navigate, useNavigate} from "react-router-dom";
+import { formatDate } from "../helper";
 
-const TripCard = ({id, image, location, startDate, endDate, complete, rating}) => {
+const TripCard = ({id, image, location, startDate, endDate, complete, rating, prevImage=null, nextImage=null}) => {
     const navigate = useNavigate();
 
     function handleClick() {
         complete ? navigate(`/review/${id}`) : navigate(`/itinerary/${id}`);
-    }
-
-    function formatDate(dateString) {
-        const date = new Date(dateString);
-
-        const day = date.getDate();
-        const month = date.getMonth() + 1;
-        const year = date.getFullYear();
-
-        return `${month}/${day}/${year}`;
     }
 
     const stars = {
@@ -42,6 +33,17 @@ const TripCard = ({id, image, location, startDate, endDate, complete, rating}) =
             {/* <details>
                 <p>{`Rating: ${stars[rating]}`}</p>
             </details> */}
+
+            {prevImage && (
+                <button className="prev-btn" onClick={prevImage}>
+                    &#8249;
+                </button>
+            )}
+            {nextImage && (
+                <button className="next-btn" onClick={nextImage}>
+                    &#8250;
+                </button>
+            )}
         </article>
     );
 }

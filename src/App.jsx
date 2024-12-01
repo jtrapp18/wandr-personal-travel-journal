@@ -22,7 +22,7 @@ function App(){
         .then(setTrips)},
     [])
 
-    if (trips.length===0) return <p class="loading">Loading...</p>
+    if (trips.length===0) return <p className="loading">Loading...</p>
 
     return(
         <>
