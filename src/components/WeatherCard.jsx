@@ -6,8 +6,7 @@ const WeatherCard = ({date, tempMin, tempMax, descrDay, iconDay, descrNight, ico
         <div className="forecast-card">
             <div className="forecast-summary">
                 <p>{`Date: ${date}`}</p>
-                <p>{`Min: ${tempMin}°F`}</p>
-                <p>{`Max: ${tempMax}°F`}</p>
+                <p>{`Min: ${tempMin}°F | Max: ${tempMax}°F`}</p>
             </div>
             <div className="day-night-split">
                 <div>

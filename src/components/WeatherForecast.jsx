@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getWeatherForecast, formatDate } from '../helper';
 import WeatherCard from './WeatherCard';
 
-const WeatherForecast = ({location, startDate}) => {
+const WeatherForecast = ({location}) => {
     const [fiveDayForecast, setFiveDayForecast] = useState([]);
 
     function findIcon(number) {
@@ -27,7 +27,7 @@ const WeatherForecast = ({location, startDate}) => {
             console.log(weatherArr);
             setFiveDayForecast(weatherArr);
         })
-    }, [])
+    }, [location])
 
     if (fiveDayForecast.length===0) return <p>Loading forecast...</p>
 
