@@ -32,13 +32,16 @@ const WeatherForecast = ({location}) => {
     if (fiveDayForecast.length===0) return <p>Loading forecast...</p>
 
     return (
-        <div class="forecast-container">
-            {fiveDayForecast.map(day=>
-                <WeatherCard
-                    key={day.date}
-                    {...day}
-                />
-            )}
+        <div className="forecast-container">
+            <h3>{`5-day Forecast for ${location}`}</h3>
+            <div className="forecast-main">
+                {fiveDayForecast.map(day=>
+                    <WeatherCard
+                        key={day.date}
+                        {...day}
+                    />
+                )}
+            </div>
         </div>
     );
 }

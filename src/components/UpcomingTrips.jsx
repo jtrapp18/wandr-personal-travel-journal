@@ -14,20 +14,16 @@ const UpcomingTrips = ({trips}) => {
 
     return (
         <div id="upcoming-container">
-            <div>
-                <h1>Trips coming up in the next 5 days</h1>
-            </div>
+            <h1>Trips coming up in the next 5 days</h1>            
             <div id="upcoming-main">
-                <div className="upcoming-card-container">
-                    <TripCard 
-                        {...trip}
-                        prevImage={prevImage}
-                        nextImage={nextImage}
-                    />
-                    <WeatherForecast
-                        location={trip.location}
-                    />
-                </div>
+                <TripCard 
+                    {...trip}
+                    prevImage={prevImage}
+                    nextImage={nextImage}
+                />
+                <WeatherForecast
+                    location={trip.location}
+                />
             </div>
         </div>
 )}
