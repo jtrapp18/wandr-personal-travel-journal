@@ -1,26 +1,33 @@
 import TripCard from "./TripCard";
 import WeatherForecast from "./WeatherForecast";
+import {useState, useEffect} from "react";
 
 const UpcomingTrips = ({trips}) => {
+
+    const [tripIndex, setTripIndex] = useState(0);
+    const trip = trips[tripIndex];
+
+    const prevImage = () => {setTripIndex(prevIndex => prevIndex === 0 ? prevIndex : prevIndex - 1)};
+    const nextImage = () => {setTripIndex(prevIndex => prevIndex === trips.length -1 ? prevIndex : prevIndex + 1)};
+
+    if (trips.length===0) return <h1>No trips coming up in the next 5 days</h1>
+
     return (
-        <div id="upcoming-trips">
+        <div id="upcoming-container">
             <div>
                 <h1>Trips coming up in the next 5 days</h1>
             </div>
-            <div>
-                {trips.map(trip => (
-                <>
+            <div id="upcoming-main">
+                <div className="upcoming-card-container">
                     <TripCard 
-                        key={trip.id} 
-                        {...trip} 
+                        {...trip}
+                        prevImage={prevImage}
+                        nextImage={nextImage}
                     />
                     <WeatherForecast
-                        key={trip.id}
                         location={trip.location}
-                        startDate={trip.startDate}
                     />
-                </>
-                ))}
+                </div>
             </div>
         </div>
 )}

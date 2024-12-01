@@ -1,9 +1,5 @@
-import { Link, Outlet, useOutletContext } from "react-router-dom";
-import { Routes, Route } from "react-router-dom";
-import { Navigate, useNavigate} from "react-router-dom";
-import {useState} from "react";
-import TripItinerary from "./TripItinerary";
-import TripReview from "./TripReview";
+
+import {useState, useEffect} from "react";
 import SearchBar from "../components/SearchBar"
 import SideBar from "../components/SideBar";
 import TripCard from "../components/TripCard";
@@ -13,7 +9,7 @@ const Home = ({trips}) => {
     const now = new Date();
 
     // const trips = useOutletContext();
-    const navigate = useNavigate();
+    const [showUpcoming, setShowUpcoming] = useState(false);
     const [searchInput, setSearchInput] = useState("");
     const [filterInput, setFilterInput] = useState({
         complete: true,
@@ -21,8 +17,6 @@ const Home = ({trips}) => {
         startDate: "",
         endDate: "",
     });
-
-    // <Navigate to="/login" />
 
     const upcomingTrips = trips.filter(trip => {
         const fiveDaysFromNow = new Date();
@@ -35,8 +29,12 @@ const Home = ({trips}) => {
         return tripStartDate >= now && tripStartDate <= fiveDaysFromNow;
       });
 
-      console.log("Upcoming", upcomingTrips)
-
+    useEffect(()=> {
+        if (upcomingTrips.length > 0) {
+            setShowUpcoming(true);
+        };
+    }, [])
+    
     const showTrips = trips.filter(trip=>{
         const searchFilter = searchInput==="" ? true : trip.location.toLowerCase().includes(searchInput.toLowerCase());
         const completeFilter = filterInput.complete ? true : !trip.complete;
@@ -49,7 +47,20 @@ const Home = ({trips}) => {
 
     return (
         <>
-            {upcomingTrips.length > 0 && (<UpcomingTrips trips={upcomingTrips}/>)}
+            <div>
+                {showUpcoming && (
+                    <UpcomingTrips 
+                        trips={upcomingTrips}
+                    />
+                )}
+                <div className="show-hide" onClick={()=>setShowUpcoming(showUpcoming=>!showUpcoming)}>
+                    <span>
+                        {showUpcoming ? "▲" : "▼"}
+                    </span>
+                    <span>{`${showUpcoming ? "Hide" : "Show"} Upcoming Trips`}</span>
+                </div>
+            </div>
+            
             <main id="trips-container">
                 <SideBar
                     filterInput={filterInput}
@@ -67,7 +78,7 @@ const Home = ({trips}) => {
                         {showTrips.map(trip=>
                             <TripCard
                                 key={trip.id}
-                            {...trip} 
+                                {...trip} 
                             />)}
                     </div>
                 </section>

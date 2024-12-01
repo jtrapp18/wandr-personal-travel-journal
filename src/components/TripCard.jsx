@@ -2,7 +2,7 @@ import { Card } from "semantic-ui-react";
 import { Navigate, useNavigate} from "react-router-dom";
 import { formatDate } from "../helper";
 
-const TripCard = ({id, image, location, startDate, endDate, complete, rating}) => {
+const TripCard = ({id, image, location, startDate, endDate, complete, rating, prevImage, nextImage}) => {
     const navigate = useNavigate();
 
     function handleClick() {
@@ -33,6 +33,8 @@ const TripCard = ({id, image, location, startDate, endDate, complete, rating}) =
             {/* <details>
                 <p>{`Rating: ${stars[rating]}`}</p>
             </details> */}
+            <button onClick={prevImage}>Prev</button>
+            <button onClick={nextImage}>Next</button>
         </article>
     );
 }
