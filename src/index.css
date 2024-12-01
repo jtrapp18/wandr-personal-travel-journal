@@ -13,6 +13,45 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.rating-filter {
+  display: flex;
+  font-size: 25px;
+}
+
+.clear-filter {
+  font-style: italic;
+  color: gray;
+  size: 10px;
+}
+
+.clear-filter:hover {
+  font-weight: bold;
+  cursor: pointer;
+  color: red;
+}
+
+.star {
+  font-size: 2rem; /* Adjust star size */
+  cursor: pointer;
+  color: gray; /* Empty star color */
+}
+
+.rating-filter:hover .star {
+  color: black;
+}
+
+.star:hover ~ .star {
+  color: gray;  /* Ensure all stars after the hovered star are gray */
+}
+
+.star.filled {
+  color: black; /* Filled star color */
+}
+
+.trip-card:has(details[open]) {
+  padding-bottom: 75px;
+}
+
 .nav-link {
   color: black;
   font-size: 15px;
@@ -103,14 +142,16 @@ footer {
 .side-panel {
   padding: 20px;
   min-width: 200px;
-  width: 20%;
+  max-width: 20%;
+  width: 15%;
   display: block;
   background-color: var(--gray);
   border-right: 2px solid #C8C8C8;
+  resize: horizontal;
 }
 
 #trips-main {
-  width: 80%;
+  flex: 1;
 }
 
 #search-bar {
@@ -170,13 +211,17 @@ label {
   color: white;
 }
 
-.trip-card:hover .prev-btn,
-.trip-card:hover .next-btn {
+#upcoming-container {
+  position: relative;
+}
+
+#upcoming-container:hover .prev-btn,
+#upcoming-container:hover .next-btn {
   opacity: 1;
 }
 
-.trip-card .prev-btn, 
-.trip-card .next-btn {
+#upcoming-container .prev-btn, 
+#upcoming-container .next-btn {
   opacity: 0;
   position: absolute;
   top: 40%;
@@ -189,11 +234,11 @@ label {
   cursor: pointer;
 }
 
-.trip-card .prev-btn {
+#upcoming-container .prev-btn {
   left: 10px;
 }
 
-.trip-card .next-btn {
+#upcoming-container .next-btn {
   right: 10px;
 }
 
@@ -237,7 +282,12 @@ label {
 #upcoming-main {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 2fr));
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  overflow: visible;
+}
+
+#trip-count {
+  text-align: end;
 }
 
 .forecast-container {
