@@ -1,3 +1,4 @@
+/* Basic settings */
 :root {
   --green: #9DC183;
   --dark-green: #75a851;
@@ -13,43 +14,72 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.rating-filter {
+header {
+  align-items: center;
+}
+
+footer {
   display: flex;
-  font-size: 25px;
+  flex-direction: column;
+  padding-top: 50px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: white;
+  border-top: 2px solid gray;
 }
 
-.clear-filter {
-  font-style: italic;
-  color: gray;
-  size: 10px;
+span {
+  display: block;
 }
 
-.clear-filter:hover {
-  font-weight: bold;
-  cursor: pointer;
-  color: red;
+label {
+  display: block;
 }
 
-.star {
-  font-size: 2rem; /* Adjust star size */
-  cursor: pointer;
-  color: gray; /* Empty star color */
+/* Formatting header */
+
+.headroom-wrapper + * {
+  padding-top: 45px; /* adjust based on the height of the header */
 }
 
-.rating-filter:hover .star {
-  color: black;
+header * {
+  margin-bottom: 0;
 }
 
-.star:hover ~ .star {
-  color: gray;  /* Ensure all stars after the hovered star are gray */
+#ext-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 175px;
+  color: white;
+  width: 100%;
+  background-color: white;
 }
 
-.star.filled {
-  color: black; /* Filled star color */
+#ext-header img {
+  height: 100%;
 }
 
-.trip-card:has(details[open]) {
-  padding-bottom: 75px;
+#logo-container {
+  text-align: left;
+}
+
+#link-container {
+  position: absolute;
+  right: 0;
+}
+
+.nav-bar {
+  position: fixed;
+  padding-top: 10px;
+  background-color: var(--green);
+  height: 45px;
+  display: flex;
+}
+
+header, .nav-bar {
+  width: 100%;
 }
 
 .nav-link {
@@ -70,98 +100,46 @@ body {
   text-decoration: overline;
 }
 
-#logo-container {
-  text-align: left;
-}
-
-#link-container {
-  position: absolute;
-  right: 0;
-}
-
-header {
-  align-items: center;
-}
-
-#ext-header img {
-  height: 100%;
-}
-
-span {
-  display: block;
-}
-
-header, .nav-bar {
-  width: 100%;
-}
-
-
-#ext-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 175px;
-  /* background-color: black; */
-  color: white;
-  width: 100%;
-  background-color: white;
-  /* background-image: url("../public/images/globes.jpeg"); */
-  /* background-image: url("../public/images/ai_airplane.jpeg"); */
-  /* background-image: url("../public/images/wandr.png"); */
-  /* background-size: cover; */
-  /* background-position: center center; */
-}
-
-/* fix navigation bar on scroll */
-.nav-bar {
-  position: fixed;
-  padding-top: 10px;
-  background-color: var(--green);
-  height: 45px;
-  display: flex;
-}
-
-/* include to remove unwanted space between main header and nav */
-header * {
-  margin-bottom: 0;
-}
-
-/* adjust based on the height of the header */
-.headroom-wrapper + * {
-  padding-top: 45px;
-}
+/* Formatting footer */
 
 #end-note {
-  background-color: black;
-  color: white;
+  background-color: var(--blue);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px 10px 10px 30px;
 }
 
-footer {
+#end-note div {
   display: flex;
   flex-direction: column;
-  padding-top: 50px;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-color: white;
-  border-top: 2px solid gray;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-footer span {
-  width: 100%;
-}
-
-footer a {
+#end-note * {
   color: white;
+}
+
+#end-note p {
+  font-size: 10px;
+  margin-top: 10px;
 }
 
 .logo {
-  height: 50px;
+  width: 75px;
 }
 
 #landmarks {
   max-width: 100%;
 }
+
+#footer-divider {
+  max-width: 700px;
+}
+
+/* Formatting side panel */
 
 .side-panel {
   padding: 20px;
@@ -174,9 +152,28 @@ footer a {
   resize: horizontal;
 }
 
-#trips-main {
-  flex: 1;
+.rating-filter {
+  display: flex;
+  font-size: 25px;
 }
+
+.clear-filter {
+  font-style: italic;
+  color: gray;
+  size: 10px;
+}
+
+.star {
+  font-size: 2rem; /* Adjust star size */
+  cursor: pointer;
+  color: gray; /* Empty star color */
+}
+
+.star.filled {
+  color: black; /* Filled star color */
+}
+
+/* Formatting search bar */
 
 #search-bar {
   display: flex;
@@ -195,28 +192,31 @@ footer a {
   padding: 10px 15px;
 }
 
+/* Formatting trip cards */
+
 #trips-container {
   display: flex;
 }
 
-label {
-  display: block;
+#trips-main {
+  flex: 1;
 }
 
-.loading {
-  font-size: 75px;
-  font-weight: bold;
-}
-
-.grayscale {
-  filter: grayscale(100%) brightness(1.2);
+#trips-main > div {
+  padding: 20px;
 }
 
 .trip-card {
-  /* max-width: 600px; */
   height: 300px;
   padding: 10px;
   position: relative;
+}
+
+.trip-card p.globe {
+  bottom: 0px;
+  right: 0px;
+  font-size: 25px;
+  height: 15%;
 }
 
 .trip-card img {
@@ -233,6 +233,39 @@ label {
   background-color: rgba(0,0,0,.5);
   margin-left: 5px;
   color: white;
+}
+
+.trip-card:has(details[open]) {
+  padding-bottom: 75px;
+}
+
+.globe-container {
+  justify-content: left;
+}
+
+.grayscale {
+  filter: grayscale(100%) brightness(1.2);
+}
+
+.trip-info-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+/* Formatting upcoming trips  */
+
+.show-hide {
+  cursor: pointer;
+  display: flex;
+  background-color: var(--dark-green);
+  justify-content: end;
+  padding-right: 20px;
 }
 
 #upcoming-container {
@@ -266,36 +299,6 @@ label {
   right: 10px;
 }
 
-.trip-card p.globe {
-  bottom: 0px;
-  right: 0px;
-  font-size: 25px;
-  height: 15%;
-}
-
-.card-container {
-  display: grid;
-  width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-}
-
-#trips-main > div {
-  padding: 20px;
-}
-
-.globe-container {
-  justify-content: left;
-}
-
-.trip-info-container {
-  display: flex;
-  justify-content: space-between;
-}
-
-#footer-divider {
-  max-width: 700px;
-}
-
 #upcoming-container {
   background-color: var(--gray);
   justify-content: center;
@@ -313,6 +316,8 @@ label {
 #trip-count {
   text-align: end;
 }
+
+/* Formatting weather forecast */
 
 .forecast-container {
   padding: 5px;
@@ -334,7 +339,6 @@ label {
   border-radius: 10px;
   text-align: center;
 }
-
 
 .forecast-card h2 {
   width: 100%;
@@ -383,10 +387,37 @@ label {
   color: white;
 }
 
-.show-hide {
+/* Formatting loading page */
+
+.loading {
+  font-size: 75px;
+  font-weight: bold;
+}
+
+/* Misc hover effects */
+
+.home:hover, .logo:hover {
+  zoom: 105%;
+}
+
+#end-note a:hover {
+  color: var(--navy);
+}
+
+.clear-filter:hover {
+  font-weight: bold;
   cursor: pointer;
-  display: flex;
-  background-color: var(--dark-green);
-  justify-content: end;
-  padding-right: 20px;
+  color: red;
+}
+
+.rating-filter:hover .star {
+  color: black;
+}
+
+.star:hover ~ .star {
+  color: gray;  /* Ensure all stars after the hovered star are gray */
+}
+
+.trip-card:hover {
+  zoom: 105%;
 }
