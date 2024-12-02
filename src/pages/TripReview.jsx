@@ -34,8 +34,8 @@ const TripReview = ({ trips, onSaveReview }) => {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    await updateReview(id, review); // Update both rating and review
-    onSaveReview(id, review); // Callback to save review locally or update state
+    await updateReview(id, review);
+    onSaveReview(id, review); 
     setIsSubmitted(true);
   }
 
