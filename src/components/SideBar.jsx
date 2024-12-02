@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const SideBar = ({filterInput, setFilterInput}) => {
 
     function handleChange(event) {
@@ -13,6 +12,44 @@ const SideBar = ({filterInput, setFilterInput}) => {
                 [name]: value,
             }
         });
+    }
+
+    function updateRating(rating) {
+        setFilterInput(prevFilter=>{
+            return {
+                ...prevFilter,
+                ["rating"]: rating,
+            }
+        });
+    }
+
+    const clearFilter = (filterType) => {
+
+        switch (filterType) {
+            case "status":
+                setFilterInput(prevFilter=>{
+                    return {
+                        ...prevFilter,
+                        ["complete"]: true,
+                        ["incomplete"]: true,
+                    }
+                });
+                break;
+            case "dates":
+                setFilterInput(prevFilter=>{
+                    return {
+                        ...prevFilter,
+                        ["startDate"]: "",
+                        ["endDate"]: "",
+                    }
+                });
+                break;
+            case "rating":
+                updateRating(0)
+                break;
+            default:
+                break;
+        }
     }
 
     return (
@@ -37,25 +74,36 @@ const SideBar = ({filterInput, setFilterInput}) => {
                 />
                 Bucket List
             </label>
+            <p class="clear-filter" onClick={()=>clearFilter("status")}>clear status filter</p>
             <h3>Dates</h3>
-            <label>
-                Start Date
-                <input
-                    checked={filterInput.startDate}
-                    type="date"
-                    name="startDate"
-                    onChange={handleChange}
-                />
-            </label>
-            <label>
-                End Date
-                <input
-                    checked={filterInput.endDate}
-                    type="date"
-                    name="endDate"
-                    onChange={handleChange}
-                />
-            </label>
+            <label for="startDate">Start Date</label>
+            <input
+                value={filterInput.startDate}
+                type="date"
+                name="startDate"
+                onChange={handleChange}
+            />
+            <label for="endDate">End Date</label>
+            <input
+                value={filterInput.endDate}
+                type="date"
+                name="endDate"
+                onChange={handleChange}
+            />
+            <p class="clear-filter" onClick={()=>clearFilter("dates")}>clear dates filter</p>
+            <h3>Minimum Rating</h3>
+            <span class="rating-filter">
+                {Array.from({ length: 5 }, (_, index) => (
+                    <p
+                        key={index}
+                        className={`star ${filterInput.rating >= index + 1 ? 'filled' : ''}`}
+                        onClick={() => updateRating(index + 1)}
+                    >
+                        ★
+                    </p>
+                ))}
+            </span>
+            <p class="clear-filter" onClick={()=>clearFilter("rating")}>clear rating filter</p>
         </section>
     );
 }
