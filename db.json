@@ -1,71 +1,71 @@
 {
-  "trips":[
-      {
-          "id": 1,
-          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/800px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
-          "startDate": "2024-12-02",
-          "endDate": "2024-12-04",
-          "rating": 0,
-          "review": "",
-          "photos": [],
-          "location": "Paris",
-          "attendees": [],
-          "description": "",
-          "complete": false,
-          "itinerary": ""
-      },
-      {
-          "id": 2,
-          "image": "https://idsb.tmgrup.com.tr/ly/uploads/images/2024/04/09/thumbs/800x531/323101.jpg",
-          "startDate": "2024-12-03",
-          "endDate": "2024-12-04",
-          "rating": 5,
-          "review": "",
-          "photos": [],
-          "location": "New York City",
-          "attendees": [],
-          "description": "",
-          "complete": true,
-          "itinerary": ""
-      },
-      {
-        "id": 3,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/800px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
-        "startDate": "2024-11-30",
-        "endDate": "2024-12-04",
-        "rating": 0,
-        "review": "",
-        "photos": [],
-        "location": "Paris",
-        "attendees": [],
-        "description": "",
-        "complete": false,
-        "itinerary": ""
+  "trips": [
+    {
+      "id": 1,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/800px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
+      "startDate": "2024-12-02",
+      "endDate": "2024-12-04",
+      "rating": 0,
+      "review": "",
+      "photos": [],
+      "location": "Paris",
+      "attendees": [],
+      "description": "",
+      "complete": false,
+      "itinerary": ""
     },
     {
-        "id": 4,
-        "image": "https://idsb.tmgrup.com.tr/ly/uploads/images/2024/04/09/thumbs/800x531/323101.jpg",
-        "startDate": "2024-11-30",
-        "endDate": "2024-12-04",
-        "rating": 0,
-        "review": "",
-        "photos": [],
-        "location": "New York City",
-        "attendees": [],
-        "description": "",
-        "complete": true,
-        "itinerary": ""
+      "id": 2,
+      "image": "https://idsb.tmgrup.com.tr/ly/uploads/images/2024/04/09/thumbs/800x531/323101.jpg",
+      "startDate": "2024-12-03",
+      "endDate": "2024-12-04",
+      "rating": 5,
+      "review": "",
+      "photos": [],
+      "location": "New York City",
+      "attendees": [],
+      "description": "",
+      "complete": true,
+      "itinerary": ""
+    },
+    {
+      "id": 3,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/800px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
+      "startDate": "2024-11-30",
+      "endDate": "2024-12-04",
+      "rating": 0,
+      "review": "",
+      "photos": [],
+      "location": "Paris",
+      "attendees": [],
+      "description": "",
+      "complete": false,
+      "itinerary": ""
+    },
+    {
+      "id": 4,
+      "image": "https://idsb.tmgrup.com.tr/ly/uploads/images/2024/04/09/thumbs/800x531/323101.jpg",
+      "startDate": "2024-11-30",
+      "endDate": "2024-12-04",
+      "rating": 5,
+      "review": "great",
+      "photos": [],
+      "location": "New York City",
+      "attendees": [],
+      "description": "",
+      "complete": true,
+      "itinerary": ""
     }
   ],
   "activities": [
-      {
-          "id": 1,
-          "tripId": 1,
-          "activity": "",
-          "description": "",
-          "startDate": "",
-          "endDate": "",
-          "comments": ""
-      }
+    {
+      "id": 1,
+      "tripId": 1,
+      "activity": "",
+      "description": "",
+      "startDate": "",
+      "endDate": "",
+      "comments": ""
+    }
   ]
 }
