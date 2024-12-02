@@ -7,7 +7,7 @@ function NavLinks() {
         to="/new-trip"
         className="nav-link"
       >
-          <img src="/images/icons/suitcase.png" alt="suitcase"/>Add to Bucketlist
+          <img src="/images/icons/suitcase.png" alt="suitcase"/>Add to Bucket List
       </NavLink>
     </div>
   );

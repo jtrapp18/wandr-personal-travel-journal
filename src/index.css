@@ -5,6 +5,7 @@
   --gray: #F0F0F0;
   --blue: #458dbd;
   --navy: #142f41;
+  --yellow: #FFFDD0;
 }
 
 body {
@@ -35,6 +36,10 @@ span {
 
 label {
   display: block;
+}
+
+button {
+  cursor: pointer;
 }
 
 /* Formatting header */
@@ -235,10 +240,6 @@ header, .nav-bar {
   color: white;
 }
 
-.trip-card:has(details[open]) {
-  padding-bottom: 75px;
-}
-
 .globe-container {
   justify-content: left;
 }
@@ -394,7 +395,94 @@ header, .nav-bar {
   font-weight: bold;
 }
 
+/* Formatting new trip page */
+
+#new-trip-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+#new-trip-container form {
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+  max-width: 800px;
+  min-width: 700px;
+}
+
+#new-trip-container label, #new-trip-container button {
+  font-size: 20px;
+  position: relative;
+  width: 100%;
+  margin: 10px 0px 10px 0px;
+  font-weight: bold;
+}
+
+#new-trip-container input, #new-trip-container textarea {
+  position: absolute;
+  width: 80%;
+  right: 0;
+}
+
+#new-trip-container textarea {
+  height: 100px;
+}
+
+#new-trip-descr {
+  padding-bottom: 100px;
+}
+
+#new-trip-container mark {
+  background-color: var(--yellow);
+  position: relative;
+  left: 0;
+  width: 100%;
+}
+
+#new-attendee input {
+  /* width: 75%; */
+}
+
+#new-attendee button {
+  /* width: 5%; */
+  position: absolute;
+  right: 0;
+  width: 30px;
+  top: 0;
+  margin: 0;
+  border: 2px solid black;
+  background-color: var(--dark-green);
+}
+
+#new-attendees {
+  display: flex;
+  justify-content: end;
+}
+
+#new-attendees span {
+  padding: 0px 10px 0px 10px;
+  margin: 10px 0px 10px 10px;
+  background-color: var(--green);
+  border: 2px solid var(--dark-green);
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.tempMsg {
+  font-size: 25px;
+  color: var(--dark-green);
+  font-style: italic;
+}
+
 /* Misc hover effects */
+
+button:hover {
+  background-color: var(--navy);
+  color: var(--gray);
+}
 
 .home:hover, .logo:hover {
   zoom: 105%;
@@ -419,5 +507,20 @@ header, .nav-bar {
 }
 
 .trip-card:hover {
-  zoom: 105%;
+  /* zoom: 105%; */
+}
+
+#new-trip-container input:hover, #new-trip-container textarea:hover {
+  background-color: var(--yellow);
+}
+
+/* other conditional formatting */
+
+.trip-card:has(details[open]) {
+  padding-bottom: 75px;
+}
+
+#new-trip-container input:focus, #new-trip-container textarea:focus {
+  border: 3px solid var(--navy);
+  background-color: var(--yellow);
 }
