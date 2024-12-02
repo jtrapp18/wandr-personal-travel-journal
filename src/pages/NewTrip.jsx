@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import Attendees from "../components/Attendees";
 
 function NewTrip({onAddTrip}) {
     const emptyObj = {
@@ -71,7 +72,6 @@ function NewTrip({onAddTrip}) {
         review: "",
         photos: [],
         complete: false,
-        attendees: [],
       }
 
       fetch("http://localhost:6001/trips", {
@@ -117,15 +117,9 @@ function NewTrip({onAddTrip}) {
         <label id="new-attendee">
             Attendees: 
             <input type="text" name="attendee" placeholder="Add Person" value={attendee} onChange={changePerson} />
-            <button onClick={addPerson}>+</button>
+            <button type="button" onClick={addPerson}>+</button>
         </label>
-        <div id="new-attendees">
-        {formData.attendees.map(attendee=>
-            <span key={attendee}>
-                {attendee}
-            </span>
-        )}
-        </div>
+        <Attendees attendees={formData.attendees}/>
         <button type="submit">Add Trip to Bucket List</button>
         {tempMsg && <p className="tempMsg">{tempMsg}</p>}
         {!passVal && (

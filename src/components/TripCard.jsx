@@ -1,8 +1,8 @@
-import { Card } from "semantic-ui-react";
 import { Navigate, useNavigate} from "react-router-dom";
 import { formatDate } from "../helper";
+import Attendees from "./Attendees";
 
-const TripCard = ({id, image, location, startDate, endDate, complete, rating}) => {
+const TripCard = ({id, image, location, description, startDate, endDate, attendees, complete, rating}) => {
     const navigate = useNavigate();
 
     function handleClick() {
@@ -18,6 +18,18 @@ const TripCard = ({id, image, location, startDate, endDate, complete, rating}) =
         5: "★★★★★"
     }
 
+    let addlDetails
+
+    if (complete) {
+        addlDetails = 
+            <p>
+                {`Rating: ${stars[rating]}`}
+            </p>
+    }
+    else {
+        addlDetails = null
+    }
+
     return (
         <article className="trip-card" >
             <h2>{location}</h2>
@@ -31,7 +43,9 @@ const TripCard = ({id, image, location, startDate, endDate, complete, rating}) =
                 </div>
             </div>
             <details>
-                <p>{`Rating: ${stars[rating]}`}</p>
+                <p>{description}</p>
+                <Attendees attendees={attendees}/>
+                {addlDetails}
             </details>
         </article>
     );
