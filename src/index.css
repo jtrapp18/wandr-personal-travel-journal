@@ -46,7 +46,7 @@ details {
   cursor: pointer;
 }
 
-details * {
+details p {
   color: var(--dark-green);
 }
 
@@ -450,10 +450,6 @@ header, .nav-bar {
   width: 100%;
 }
 
-#new-attendee input {
-  /* width: 75%; */
-}
-
 #new-attendee button {
   /* width: 5%; */
   position: absolute;
@@ -492,6 +488,10 @@ button:hover {
   color: var(--gray);
 }
 
+details summary:hover {
+  font-weight: bold;
+}
+
 .home:hover, .logo:hover {
   zoom: 105%;
 }
@@ -518,12 +518,22 @@ button:hover {
   zoom: 130%;
 }
 
-.side-panel input[type="date"]:hover {
+.side-panel input[type="checkbox"]:hover {
+  background-color: var(--navy);
+}
+
+#new-trip-container input:hover, #new-trip-container textarea:hover, 
+#search-bar input:hover, .side-panel input[type="date"]:hover {
   background-color: var(--yellow);
 }
 
-#new-trip-container input:hover, #new-trip-container textarea:hover {
-  background-color: var(--yellow);
+.forecast-card:hover {
+  zoom: 130%;
+  width: 30%;
+}
+
+.show-hide span:hover {
+  font-weight: bold;
 }
 
 /* other conditional formatting */
@@ -532,7 +542,8 @@ button:hover {
   padding-bottom: 75px;
 }
 
-#new-trip-container input:focus, #new-trip-container textarea:focus {
+#new-trip-container input:focus, #new-trip-container textarea:focus, 
+#search-bar input:focus, .side-panel input[type="date"]:focus {
   border: 3px solid var(--navy);
   background-color: var(--yellow);
 }

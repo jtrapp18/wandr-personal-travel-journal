@@ -43,6 +43,7 @@ const TripCard = ({id, image, location, description, startDate, endDate, attende
                 </div>
             </div>
             <details>
+                <summary>Details</summary>
                 <p>{description}</p>
                 <Attendees attendees={attendees}/>
                 {addlDetails}
