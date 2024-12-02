@@ -6,7 +6,7 @@ const Header = () => {
     return (
         <header>
             <div id="ext-header">
-                <img src="/images/logo_header.png" alt="logo" />
+                <img src="/images/logos/logo_header.png" alt="logo" />
             </div>
             <NavBar />
         </header>

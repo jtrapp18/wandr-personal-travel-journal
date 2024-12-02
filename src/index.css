@@ -151,8 +151,12 @@ footer span {
   width: 100%;
 }
 
-#logo {
-  height: 100px;
+footer a {
+  color: white;
+}
+
+.logo {
+  height: 50px;
 }
 
 #landmarks {
