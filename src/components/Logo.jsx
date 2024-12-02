@@ -7,7 +7,7 @@ function Logo() {
           to="/"
           className="nav-link home"
         >
-          <img src="/images/wandr.png" alt="home"/>
+          <img src="/images/logos/wandr.png" alt="home"/>
         </NavLink>
       </div>
   );
