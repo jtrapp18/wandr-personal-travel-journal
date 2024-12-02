@@ -74,7 +74,7 @@ const SideBar = ({filterInput, setFilterInput}) => {
                 />
                 Bucket List
             </label>
-            <p class="clear-filter" onClick={()=>clearFilter("status")}>clear status filter</p>
+            <p className="clear-filter" onClick={()=>clearFilter("status")}>clear status filter</p>
             <h3>Dates</h3>
             <label for="startDate">Start Date</label>
             <input
@@ -90,9 +90,9 @@ const SideBar = ({filterInput, setFilterInput}) => {
                 name="endDate"
                 onChange={handleChange}
             />
-            <p class="clear-filter" onClick={()=>clearFilter("dates")}>clear dates filter</p>
+            <p className="clear-filter" onClick={()=>clearFilter("dates")}>clear dates filter</p>
             <h3>Minimum Rating</h3>
-            <span class="rating-filter">
+            <span className="rating-filter">
                 {Array.from({ length: 5 }, (_, index) => (
                     <p
                         key={index}
@@ -103,7 +103,7 @@ const SideBar = ({filterInput, setFilterInput}) => {
                     </p>
                 ))}
             </span>
-            <p class="clear-filter" onClick={()=>clearFilter("rating")}>clear rating filter</p>
+            <p className="clear-filter" onClick={()=>clearFilter("rating")}>clear rating filter</p>
         </section>
     );
 }
