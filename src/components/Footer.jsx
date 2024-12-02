@@ -4,9 +4,12 @@ const Footer = () => {
     return (
         <footer>
             <img id="footer-divider" src="/images/plane.png" alt="airplane"/>
-            <p>This is a footer!</p>
             <img id="landmarks" src="/images/landmarks.png" alt="landmarks"></img>
-            <span id="end-note">Our project</span>
+            <span id="end-note">
+                {/* <h2>WANDR</h2> */}
+                <a href="mailto:jacqueline.trapp18@gmail.com; second@mail.example">Contact Us</a>
+            </span>
+            {/* <img id="logo" src="/images/logo.jpg" alt="logo" /> */}
         </footer>
     );
 }
