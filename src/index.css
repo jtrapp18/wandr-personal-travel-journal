@@ -42,6 +42,14 @@ button {
   cursor: pointer;
 }
 
+details {
+  cursor: pointer;
+}
+
+details * {
+  color: var(--dark-green);
+}
+
 /* Formatting header */
 
 .headroom-wrapper + * {
@@ -506,8 +514,12 @@ button:hover {
   color: gray;  /* Ensure all stars after the hovered star are gray */
 }
 
-.trip-card:hover {
-  /* zoom: 105%; */
+.trip-card:hover h2{
+  zoom: 130%;
+}
+
+.side-panel input[type="date"]:hover {
+  background-color: var(--yellow);
 }
 
 #new-trip-container input:hover, #new-trip-container textarea:hover {
