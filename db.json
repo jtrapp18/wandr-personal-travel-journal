@@ -1,71 +1,110 @@
 {
-  "trips":[
-      {
-          "id": 1,
-          "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/800px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
-          "startDate": "2024-12-02",
-          "endDate": "2024-12-04",
-          "rating": 0,
-          "review": "",
-          "photos": [],
-          "location": "Paris",
-          "attendees": [],
-          "description": "",
-          "complete": false,
-          "itinerary": ""
-      },
-      {
-          "id": 2,
-          "image": "https://idsb.tmgrup.com.tr/ly/uploads/images/2024/04/09/thumbs/800x531/323101.jpg",
-          "startDate": "2024-12-03",
-          "endDate": "2024-12-04",
-          "rating": 5,
-          "review": "",
-          "photos": [],
-          "location": "New York City",
-          "attendees": [],
-          "description": "",
-          "complete": true,
-          "itinerary": ""
-      },
-      {
-        "id": 3,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/800px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
-        "startDate": "2024-11-30",
-        "endDate": "2024-12-04",
-        "rating": 0,
-        "review": "",
-        "photos": [],
-        "location": "Paris",
-        "attendees": [],
-        "description": "",
-        "complete": false,
-        "itinerary": ""
+  "trips": [
+    {
+      "id": 1,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/800px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
+      "startDate": "2024-12-02",
+      "endDate": "2024-12-04",
+      "rating": 0,
+      "review": "",
+      "photos": [],
+      "location": "Paris",
+      "attendees": [],
+      "description": "",
+      "complete": false,
+      "itinerary": ""
     },
     {
-        "id": 4,
-        "image": "https://idsb.tmgrup.com.tr/ly/uploads/images/2024/04/09/thumbs/800x531/323101.jpg",
-        "startDate": "2024-11-30",
-        "endDate": "2024-12-04",
-        "rating": 0,
-        "review": "",
-        "photos": [],
-        "location": "New York City",
-        "attendees": [],
-        "description": "",
-        "complete": true,
-        "itinerary": ""
+      "id": 2,
+      "image": "https://idsb.tmgrup.com.tr/ly/uploads/images/2024/04/09/thumbs/800x531/323101.jpg",
+      "startDate": "2024-12-03",
+      "endDate": "2024-12-04",
+      "rating": 5,
+      "review": "",
+      "photos": [],
+      "location": "New York City",
+      "attendees": [],
+      "description": "",
+      "complete": true,
+      "itinerary": ""
+    },
+    {
+      "id": 3,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/800px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
+      "startDate": "2024-11-30",
+      "endDate": "2024-12-04",
+      "rating": 0,
+      "review": "",
+      "photos": [],
+      "location": "Paris",
+      "attendees": [],
+      "description": "",
+      "complete": false,
+      "itinerary": ""
+    },
+    {
+      "id": 4,
+      "image": "https://idsb.tmgrup.com.tr/ly/uploads/images/2024/04/09/thumbs/800x531/323101.jpg",
+      "startDate": "2024-11-30",
+      "endDate": "2024-12-04",
+      "rating": 0,
+      "review": "",
+      "photos": [],
+      "location": "New York City",
+      "attendees": [],
+      "description": "",
+      "complete": true,
+      "itinerary": ""
+    },
+    {
+      "image": "https://anatomie.com/cdn/shop/articles/Sydney_img_3733.jpg?v=1593546026",
+      "startDate": "2024-12-04",
+      "endDate": "2024-12-26",
+      "location": "Sydney",
+      "attendees": [],
+      "description": "Visit Sydney Australia with friends for fun!",
+      "rating": 0,
+      "review": "",
+      "photos": [],
+      "complete": false,
+      "id": 5
+    },
+    {
+      "image": "https://cdn.britannica.com/71/73371-050-9DFAEC1E/Reykjavik-Iceland.jpg",
+      "startDate": "2025-01-02",
+      "endDate": "2025-01-10",
+      "location": "Reykjavik",
+      "attendees": [],
+      "description": "Going to Iceland to tour",
+      "rating": 0,
+      "review": "",
+      "photos": [],
+      "complete": false,
+      "id": 6
+    },
+    {
+      "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.earthtrekkers.com%2Fedinburgh-scotland-two-day-itinerary%2F&psig=AOvVaw0PQtsc_yklCO8WXQSixXzz&ust=1733249947183000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPjmwa7ZiYoDFQAAAAAdAAAAABAJ",
+      "startDate": "2025-02-02",
+      "endDate": "2025-02-11",
+      "location": "Edinburgh",
+      "attendees": [],
+      "description": "Going to see the castles",
+      "rating": 0,
+      "review": "",
+      "photos": [],
+      "complete": false,
+      "id": 7
     }
   ],
   "activities": [
-      {
-          "id": 1,
-          "tripId": 1,
-          "activity": "",
-          "description": "",
-          "startDate": "",
-          "endDate": "",
-          "comments": ""
-      }
+    {
+      "id": 1,
+      "tripId": 1,
+      "activity": "",
+      "description": "",
+      "startDate": "",
+      "endDate": "",
+      "comments": ""
+    }
   ]
 }
