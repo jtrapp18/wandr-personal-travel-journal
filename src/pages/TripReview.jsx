@@ -25,11 +25,41 @@ const TripReview = ({ trips, onSaveReview }) => {
     }));
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    onSaveReview(id, review); 
-    setIsSubmitted(true); 
+  function handleStarClick(rating) {
+    setReview((prevReview) => ({
+      ...prevReview,
+      rating,
+    }));
   }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    await updateRating(id, review.rating);
+    onSaveReview(id, review);
+    setIsSubmitted(true);
+  }
+
+  const updateRating = async (tripId, newRating) => {
+    try {
+      const response = await fetch(`http://localhost:6001/trips/${tripId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ rating: newRating }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+      }
+
+      const updatedTrip = await response.json();
+      console.log("Rating updated:", updatedTrip);
+
+    } catch (error) {
+      console.error("Failed to update rating:", error);
+    }
+  };
 
   return (
     <main>
@@ -67,22 +97,18 @@ const TripReview = ({ trips, onSaveReview }) => {
           </label>
           <br />
           <label>
-            Rating: 
-            <select
-              name="rating" //will eventially change this to be something other than number review (suitcase emoji?)
-              value={review.rating}
-              onChange={handleChange}
-              required
-            >
-              <option value="" disabled>
-                Select a rating 
-              </option>
-              {[1, 2, 3, 4, 5].map((num) => (
-                <option key={num} value={num}>
-                  {num}
-                </option>
+            Rating:
+            <div className="rating-filter">
+              {Array.from({ length: 5 }, (_, index) => (
+                <span
+                  key={index}
+                  className={`star ${review.rating > index ? 'filled' : ''}`}
+                  onClick={() => handleStarClick(index + 1)}
+                >
+                  ★
+                </span>
               ))}
-            </select>
+            </div>
           </label>
           <br />
           <button type="submit">Submit Review</button>

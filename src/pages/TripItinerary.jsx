@@ -1,72 +1,50 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { getEmbeddedJSONById, patchJSONToDb, postJSONToDb } from "../helper.js";
 
-const TripItinerary = () => {
+const TripItinerary = ({trips}) => {
   const { id } = useParams();
   const [itinerary, setItinerary] = useState("");
   const [activities, setActivities] = useState([]);
   const [newActivity, setNewActivity] = useState("");
   const [trip, setTrip] = useState(null); 
+  // const trip = trips.find((trip) => trip.id === parseInt(id)); 
 
   
   useEffect(() => {
-    const fetchTrip = async () => {
+    const fetchTripWithActivities = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/trips/${id}`);
-        const data = await response.json();
-        setTrip(data); 
-        setItinerary(data.itinerary || ""); 
+        const data = await getEmbeddedJSONById("trips", id, "activities");
+        setTrip(data);
+        setItinerary(data.itinerary || "");
+        setActivities(data.activities || []);
       } catch (error) {
-        console.error("Error fetching trip:", error);
+        console.error("Error fetching trip with activities:", error);
       }
     };
 
-    const fetchActivities = async () => {
-      try {
-        const response = await fetch(
-          `http://localhost:3000/activities?tripId=${id}`
-        );
-        const data = await response.json();
-        setActivities(data);
-      } catch (error) {
-        console.error("Error fetching activities:", error);
-      }
-    };
-
-    fetchTrip();
-    fetchActivities();
+    fetchTripWithActivities();
   }, [id]);
 
-  
   const handleSaveItinerary = async () => {
     try {
-      await fetch(`http://localhost:3000/trips/${id}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ itinerary }),
-      });
+      await patchJSONToDb("trips", id, { itinerary });
       console.log("Itinerary saved successfully!");
     } catch (error) {
       console.error("Error saving itinerary:", error);
     }
   };
 
-
   const handleAddActivity = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/activities`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ tripId: id, activity: newActivity }),
-      });
-      const activity = await response.json();
+      const newActivityObj = { tripId: parseInt(id), activity: newActivity };
+      const activity = await postJSONToDb("activities", newActivityObj);
       setActivities((prev) => [...prev, activity]);
       setNewActivity("");
     } catch (error) {
       console.error("Error adding activity:", error);
     }
   };
-
 
   if (!trip) return <div>Loading...</div>;
 
@@ -76,7 +54,7 @@ const TripItinerary = () => {
       <textarea
         value={itinerary}
         onChange={(e) => setItinerary(e.target.value)}
-        placeholder="Add your itinerary details..."
+        placeholder="Ad your itinerary details"
       />
       <button onClick={handleSaveItinerary}>Save Itinerary</button>
 
