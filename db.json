@@ -11,7 +11,8 @@
           "location": "Paris",
           "attendees": [],
           "description": "",
-          "complete": false
+          "complete": false,
+          "itinerary": ""
       },
       {
           "id": 2,
@@ -24,7 +25,8 @@
           "location": "New York City",
           "attendees": [],
           "description": "",
-          "complete": true
+          "complete": true,
+          "itinerary": ""
       },
       {
         "id": 3,
@@ -37,7 +39,8 @@
         "location": "Paris",
         "attendees": [],
         "description": "",
-        "complete": false
+        "complete": false,
+        "itinerary": ""
     },
     {
         "id": 4,
@@ -50,7 +53,8 @@
         "location": "New York City",
         "attendees": [],
         "description": "",
-        "complete": true
+        "complete": true,
+        "itinerary": ""
     }
   ],
   "activities": [

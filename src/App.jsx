@@ -24,6 +24,23 @@ function App(){
 
     if (trips.length===0) return <p className="loading">Loading...</p>
 
+
+    const handleSaveReview = (id, review) => {
+        setTrips((prevTrips) =>
+          prevTrips.map((trip) =>
+            trip.id === parseInt(id) ? { ...trip, review } : trip
+          )
+        );
+      };
+
+      const handleSaveItinerary = (id, itinerary) => {
+        setTrips((prevTrips) =>
+          prevTrips.map((trip) =>
+            trip.id === parseInt(id) ? { ...trip, itinerary } : trip
+          )
+        );
+      };
+
     return(
         <>
             <Headroom>
@@ -34,9 +51,15 @@ function App(){
                     <Route path="/" element={<Home trips={trips} />} />
                     <Route path="/new-trip" element={<NewTrip/>} />
                     <Route path="/page-2" element={<Page2/>} />
-                    <Route path="/itinerary/:id" element={<TripItinerary trips={trips} />} />
-                    <Route path="/review/:id" element={<TripReview trips={trips} />} />
-                </Routes>
+                    <Route
+                        path="/itinerary/:id"
+                        element={<TripItinerary trips={trips} onSaveItinerary={handleSaveItinerary} />}
+                    />                  
+                    <Route
+                        path="/review/:id"
+                        element={<TripReview trips={trips} onSaveReview={handleSaveReview} />}
+                    />                
+                 </Routes>
             {/* </Container> */}
             <Footer />
         </>
