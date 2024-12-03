@@ -19,7 +19,7 @@
       "image": "https://idsb.tmgrup.com.tr/ly/uploads/images/2024/04/09/thumbs/800x531/323101.jpg",
       "startDate": "2024-12-03",
       "endDate": "2024-12-04",
-      "rating": 5,
+      "rating": 3,
       "review": "",
       "photos": [],
       "location": "New York City",
@@ -29,32 +29,72 @@
       "itinerary": ""
     },
     {
-      "id": 3,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/800px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
-      "startDate": "2024-11-30",
-      "endDate": "2024-12-04",
+      "image": "https://anatomie.com/cdn/shop/articles/Sydney_img_3733.jpg?v=1593546026",
+      "startDate": "2024-12-04",
+      "endDate": "2024-12-26",
+      "location": "Sydney",
+      "attendees": [],
+      "description": "Visit Sydney Australia with friends for fun!",
       "rating": 0,
       "review": "",
       "photos": [],
-      "location": "Paris",
-      "attendees": [],
-      "description": "",
       "complete": false,
-      "itinerary": ""
+      "id": 5
     },
     {
-      "id": 4,
-      "image": "https://idsb.tmgrup.com.tr/ly/uploads/images/2024/04/09/thumbs/800x531/323101.jpg",
-      "startDate": "2024-11-30",
-      "endDate": "2024-12-04",
-      "rating": 5,
-      "review": "great",
-      "photos": [],
-      "location": "New York City",
+      "image": "https://cdn.britannica.com/71/73371-050-9DFAEC1E/Reykjavik-Iceland.jpg",
+      "startDate": "2025-01-02",
+      "endDate": "2025-01-10",
+      "location": "Reykjavik",
       "attendees": [],
-      "description": "",
-      "complete": true,
-      "itinerary": ""
+      "description": "Going to Iceland to tour",
+      "rating": 0,
+      "review": "",
+      "photos": [],
+      "complete": false,
+      "id": 6
+    },
+    {
+      "image": "https://cdn.britannica.com/61/179661-138-6F13E02A/Overview-Athens.jpg?w=800&h=450&c=crop",
+      "startDate": "2025-04-04",
+      "endDate": "2025-04-30",
+      "location": "Athens",
+      "attendees": [],
+      "description": "Site seeing",
+      "rating": 0,
+      "review": "",
+      "photos": [],
+      "complete": false,
+      "id": 7
+    },
+    {
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnF2yjLCZonTuZ0fT6HN-S9Wl49mTI-pfhQw&s",
+      "startDate": "2025-05-02",
+      "endDate": "2025-05-31",
+      "location": "Tokyo",
+      "attendees": [],
+      "description": "visit various temples and gardens",
+      "rating": 0,
+      "review": "",
+      "photos": [],
+      "complete": false,
+      "id": 8
+    },
+    {
+      "image": "https://images.musement.com/cover/0002/49/london-jpeg_header-148518.jpeg?w=1200&h=630&q=95&fit=crop",
+      "startDate": "2025-07-05",
+      "endDate": "2025-07-18",
+      "location": "London",
+      "attendees": [
+        "Kelsey",
+        "Jacqueline"
+      ],
+      "description": "Visit museums, historic sites, and restaurants",
+      "rating": 0,
+      "review": "",
+      "photos": [],
+      "complete": false,
+      "id": 9
     }
   ],
   "activities": [
@@ -66,11 +106,6 @@
       "startDate": "",
       "endDate": "",
       "comments": ""
-    },
-    {
-      "tripId": 1,
-      "activity": "croissants",
-      "id": 2
     }
   ]
 }
