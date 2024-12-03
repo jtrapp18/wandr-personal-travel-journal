@@ -34,19 +34,22 @@ const TripReview = ({ trips, onSaveReview }) => {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    await updateRating(id, review.rating);
-    onSaveReview(id, review);
+    await updateReview(id, review);
+    onSaveReview(id, review); 
     setIsSubmitted(true);
   }
 
-  const updateRating = async (tripId, newRating) => {
+  const updateReview = async (tripId, reviewData) => {
     try {
       const response = await fetch(`http://localhost:6001/trips/${tripId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ rating: newRating }),
+        body: JSON.stringify({
+          rating: reviewData.rating,
+          review: reviewData.description,
+        }),
       });
 
       if (!response.ok) {
@@ -54,10 +57,10 @@ const TripReview = ({ trips, onSaveReview }) => {
       }
 
       const updatedTrip = await response.json();
-      console.log("Rating updated:", updatedTrip);
+      console.log("Review updated:", updatedTrip);
 
     } catch (error) {
-      console.error("Failed to update rating:", error);
+      console.error("Failed to update review:", error);
     }
   };
 
@@ -102,7 +105,7 @@ const TripReview = ({ trips, onSaveReview }) => {
               {Array.from({ length: 5 }, (_, index) => (
                 <span
                   key={index}
-                  className={`star ${review.rating > index ? 'filled' : ''}`}
+                  className={`star ${review.rating > index ? "filled" : ""}`}
                   onClick={() => handleStarClick(index + 1)}
                 >
                   ★
