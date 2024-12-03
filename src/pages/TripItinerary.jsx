@@ -8,6 +8,9 @@ const TripItinerary = ({ trips }) => {
   const [activities, setActivities] = useState([]);
   const [newActivity, setNewActivity] = useState("");
   const [trip, setTrip] = useState(null); 
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [attendees, setAttendees] = useState("");
 
   useEffect(() => {
     const fetchTripWithActivities = async () => {
@@ -16,11 +19,14 @@ const TripItinerary = ({ trips }) => {
         setTrip(data);
         setItinerary(data.itinerary || "");
         setActivities(data.activities || []);
+        setStartDate(data.startDate || "");
+        setEndDate(data.endDate || "");
+        setAttendees(data.attendees || "");
       } catch (error) {
         console.error("Error fetching trip with activities:", error);
       }
     };
-
+  
     fetchTripWithActivities();
   }, [id]);
 
@@ -49,6 +55,35 @@ const TripItinerary = ({ trips }) => {
   return (
     <main className="itinerary-main">
       <h1 className="itinerary-title">Plan your itinerary for {trip.location}</h1>
+  
+      <label>
+        Start Date:
+        <input
+          type="date"
+          value={startDate}
+          onChange={(e) => setStartDate(e.target.value)}
+        />
+      </label>
+  
+      <label>
+        End Date:
+        <input
+          type="date"
+          value={endDate}
+          onChange={(e) => setEndDate(e.target.value)}
+        />
+      </label>
+  
+      <label>
+        Attendees:
+        <input
+          type="text"
+          value={attendees}
+          onChange={(e) => setAttendees(e.target.value)}
+          placeholder="Enter attendees"
+        />
+      </label>
+  
       <textarea
         className="itinerary-textarea"
         value={itinerary}
