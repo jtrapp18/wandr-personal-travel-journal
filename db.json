@@ -20,10 +20,14 @@
       "startDate": "2024-12-03",
       "endDate": "2024-12-04",
 <<<<<<< HEAD
+<<<<<<< HEAD
       "rating": 3,
 =======
       "rating": 5,
 >>>>>>> kelseybranch
+=======
+      "rating": 3,
+>>>>>>> 2c61275a3a0688fa46187305054ce7fe6a77300f
       "review": "",
       "photos": [],
       "location": "New York City",
@@ -34,6 +38,9 @@
     },
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2c61275a3a0688fa46187305054ce7fe6a77300f
       "image": "https://anatomie.com/cdn/shop/articles/Sydney_img_3733.jpg?v=1593546026",
       "startDate": "2024-12-04",
       "endDate": "2024-12-26",
@@ -100,6 +107,7 @@
       "photos": [],
       "complete": false,
       "id": 9
+<<<<<<< HEAD
 =======
       "id": 3,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/800px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
@@ -128,6 +136,8 @@
       "complete": true,
       "itinerary": ""
 >>>>>>> kelseybranch
+=======
+>>>>>>> 2c61275a3a0688fa46187305054ce7fe6a77300f
     }
   ],
   "activities": [
