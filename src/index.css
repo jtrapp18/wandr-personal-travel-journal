@@ -514,6 +514,40 @@ details summary:hover {
   color: gray;  /* Ensure all stars after the hovered star are gray */
 }
 
+/* formatting for review and itinerary pages*/
+
+.itinerary-main, .review-main {
+  padding: 50px;
+  background-color: var(--gray);
+}
+
+.itinerary-title, .review-title {
+  color: var(--navy);
+}
+
+.save-button, .add-activity-button, .submit-button {
+  background-color: var(--green);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.activities-list, .activity-item, .activity-input {
+  margin: 10px 0;
+}
+
+.review-form {
+  margin-top: 20px;
+}
+
+.review-submitted {
+  background-color: var(--blue);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  
 .trip-card:hover h2{
   zoom: 130%;
 }
