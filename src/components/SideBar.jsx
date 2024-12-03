@@ -1,4 +1,39 @@
 import React from 'react';
+import Stars from "./Stars"
+import styled from 'styled-components';
+import { ConditionalHighlight } from "../MiscStyling";
+
+const SidePanelContainer = styled.section`
+    padding: 20px;
+    min-width: 200px;
+    max-width: 20%;
+    width: 15%;
+    display: block;
+    background-color: var(--gray);
+    border-right: 2px solid #C8C8C8;
+    resize: horizontal;
+
+    input[type="date"] {
+        ${ConditionalHighlight};
+    }
+
+    &input[type="checkbox"]:hover {
+        background-color: var(--navy);
+    }
+}
+`;
+
+const ClearFilter = styled.p`
+    font-style: italic;
+    color: gray;
+    size: 10px;
+
+    &:hover {
+        font-weight: bold;
+        cursor: pointer;
+        color: red;
+    }
+`;
 
 const SideBar = ({filterInput, setFilterInput}) => {
 
@@ -53,7 +88,7 @@ const SideBar = ({filterInput, setFilterInput}) => {
     }
 
     return (
-        <section className="side-panel">
+        <SidePanelContainer className="side-panel">
             <h2>Apply Filters</h2>
             <h3>Trip Status</h3>
             <label>
@@ -74,7 +109,7 @@ const SideBar = ({filterInput, setFilterInput}) => {
                 />
                 Bucket List
             </label>
-            <p className="clear-filter" onClick={()=>clearFilter("status")}>clear status filter</p>
+            <ClearFilter onClick={()=>clearFilter("status")}>clear status filter</ClearFilter>
             <h3>Dates</h3>
             <label for="startDate">Start Date</label>
             <input
@@ -90,21 +125,11 @@ const SideBar = ({filterInput, setFilterInput}) => {
                 name="endDate"
                 onChange={handleChange}
             />
-            <p className="clear-filter" onClick={()=>clearFilter("dates")}>clear dates filter</p>
+            <ClearFilter onClick={()=>clearFilter("dates")}>clear dates filter</ClearFilter>
             <h3>Minimum Rating</h3>
-            <span className="rating-filter">
-                {Array.from({ length: 5 }, (_, index) => (
-                    <p
-                        key={index}
-                        className={`star ${filterInput.rating >= index + 1 ? 'filled' : ''}`}
-                        onClick={() => updateRating(index + 1)}
-                    >
-                        ★
-                    </p>
-                ))}
-            </span>
-            <p className="clear-filter" onClick={()=>clearFilter("rating")}>clear rating filter</p>
-        </section>
+            <Stars rating={filterInput.rating} handleStarClick={updateRating}/>
+            <ClearFilter onClick={()=>clearFilter("rating")}>clear rating filter</ClearFilter>
+        </SidePanelContainer>
     );
 }
 

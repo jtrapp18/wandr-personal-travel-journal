@@ -1,15 +1,20 @@
-import { NavLink } from "react-router-dom";
+import { StyledNavLink } from "../MiscStyling";
+import styled from "styled-components";
+
+const LinkContainer = styled.div`
+  position: absolute;
+  right: 0;
+`
 
 function NavLinks() {
   return (
-    <div id="link-container">
-      <NavLink
+    <LinkContainer>
+      <StyledNavLink
         to="/new-trip"
-        className="nav-link"
       >
           <img src="/images/icons/suitcase.png" alt="suitcase"/>Add to Bucket List
-      </NavLink>
-    </div>
+      </StyledNavLink>
+    </LinkContainer>
   );
 };
 

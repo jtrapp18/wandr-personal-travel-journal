@@ -4,6 +4,37 @@ import SearchBar from "../components/SearchBar"
 import SideBar from "../components/SideBar";
 import TripCard from "../components/TripCard";
 import UpcomingTrips from "../components/UpcomingTrips";
+import styled from "styled-components";
+
+const ShowHide = styled.div`
+    cursor: pointer;
+    display: flex;
+    background-color: var(--dark-green);
+    justify-content: end;
+    padding-right: 20px;
+
+    span:hover {
+      font-weight: bold;
+    }
+`;
+
+const TripsContainer = styled.main`
+  display: flex;
+`
+
+const TripsMain = styled.section`
+  flex: 1;
+
+  > div {
+    padding: 20px;
+  }
+`
+
+const TripCardContainer = styled.div`
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+`
 
 const Home = ({trips}) => {
     const now = new Date();
@@ -49,7 +80,7 @@ const Home = ({trips}) => {
     return (
         <>
             <div>
-                <div className="show-hide" onClick={()=>setShowUpcoming(showUpcoming=>!showUpcoming)}>
+                <ShowHide onClick={()=>setShowUpcoming(showUpcoming=>!showUpcoming)}>
                     <span>
                         {`${showUpcoming ? "Hide" : "Show"}
                         Upcoming Trips`}
@@ -57,7 +88,7 @@ const Home = ({trips}) => {
                     <span>
                         {showUpcoming ? "▲" : "▼"}
                     </span>
-                </div>
+                </ShowHide>
                 {showUpcoming && (
                     <UpcomingTrips 
                         trips={upcomingTrips}
@@ -65,12 +96,12 @@ const Home = ({trips}) => {
                 )}
             </div>
             
-            <main id="trips-container">
+            <TripsContainer>
                 <SideBar
                     filterInput={filterInput}
                     setFilterInput={setFilterInput}
                 />
-                <section id="trips-main">
+                <TripsMain>
                     <SearchBar
                         searchInput={searchInput}
                         setSearchInput={setSearchInput}
@@ -78,15 +109,15 @@ const Home = ({trips}) => {
                     <div>
                         <h1>My Trips</h1>
                     </div>
-                    <div className="card-container">
+                    <TripCardContainer>
                         {showTrips.map(trip=>
                             <TripCard
                                 key={trip.id}
                                 {...trip} 
                             />)}
-                    </div>
-                </section>
-            </main>
+                    </TripCardContainer>
+                </TripsMain>
+            </TripsContainer>
         </>
     );
 }
