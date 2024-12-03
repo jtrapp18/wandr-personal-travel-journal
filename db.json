@@ -29,7 +29,9 @@
       "rating": 3,
 >>>>>>> 2c61275a3a0688fa46187305054ce7fe6a77300f
       "review": "",
-      "photos": [],
+      "photos": [
+        "20231002_082732.jpg"
+      ],
       "location": "New York City",
       "attendees": [],
       "description": "",
@@ -150,5 +152,6 @@
       "endDate": "",
       "comments": ""
     }
-  ]
+  ],
+  "uploadFiles": []
 }

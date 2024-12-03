@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import ImageUpload from "../components/ImageUpload";
+import PhotoGallery from "../components/PhotoGallery";
 
-const TripReview = ({ trips, onSaveReview }) => {
+const TripReview = ({ trips, onSaveReview, handleAddPhoto }) => {
   const { id } = useParams(); 
   const trip = trips.find((trip) => trip.id === parseInt(id)); 
 
@@ -117,6 +119,8 @@ const TripReview = ({ trips, onSaveReview }) => {
           <button className="submit-button" type="submit">Submit Review</button>
         </form>
       )}
+      <ImageUpload trip={trip} handleAddPhoto={handleAddPhoto}/>
+      <PhotoGallery photos={trip.photos}/>
     </main>
   );
 }
