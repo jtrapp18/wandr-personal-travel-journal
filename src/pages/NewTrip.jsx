@@ -1,5 +1,70 @@
 import React, {useState} from "react";
 import Attendees from "../components/Attendees";
+import styled from "styled-components";
+import { ConditionalHighlight } from "../MiscStyling";
+
+const NewTripContainer = styled.main`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;  
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    max-width: 800px;
+    min-width: 700px;
+  }
+
+  label, button {
+    font-size: 20px;
+    position: relative;
+    width: 100%;
+    margin: 10px 0px 10px 0px;
+    font-weight: bold;
+  }
+
+  input, textarea {
+    position: absolute;
+    width: 80%;
+    right: 0;
+    ${ConditionalHighlight};
+  }
+
+  textarea {
+    height: 100px;
+  }
+
+  mark {
+    background-color: var(--yellow);
+    position: relative;
+    left: 0;
+    width: 100%;
+  }
+
+  button[type='button'] {
+    position: absolute;
+    right: 0;
+    width: 30px;
+    top: 0;
+    margin: 0;
+    border: 2px solid black;
+    background-color: var(--dark-green);
+  }
+
+`;
+
+const DescriptionLabel = styled.label`
+  padding-bottom: 100px;
+`
+
+const TempMessage = styled.p`
+  font-size: 25px;
+  color: var(--dark-green);
+  font-style: italic;
+`
 
 function NewTrip({onAddTrip}) {
     const emptyObj = {
@@ -91,7 +156,7 @@ function NewTrip({onAddTrip}) {
   }
 
   return (
-    <div id="new-trip-container">
+    <NewTripContainer>
       <h2>New Trip</h2>
       <form onSubmit={handleSubmit}>
         <label>
@@ -110,18 +175,18 @@ function NewTrip({onAddTrip}) {
             End Date: 
             <input type="date" name="endDate" placeholder="End Date" value={formData.endDate} onChange={handleChange}/>
         </label>
-        <label id="new-trip-descr">
+        <DescriptionLabel>
             Description: 
             <textarea name="description" placeholder="Description" value={formData.description} onChange={handleChange}></textarea>
-        </label>
-        <label id="new-attendee">
+        </DescriptionLabel>
+        <label>
             Attendees: 
             <input type="text" name="attendee" placeholder="Add Person" value={attendee} onChange={changePerson} />
             <button type="button" onClick={addPerson}>+</button>
         </label>
         <Attendees attendees={formData.attendees}/>
         <button type="submit">Add Trip to Bucket List</button>
-        {tempMsg && <p className="tempMsg">{tempMsg}</p>}
+        {tempMsg && <TempMessage>{tempMsg}</TempMessage>}
         {!passVal && (
         <mark>
           <p>Please fill in the following items and resubmit:</p>
@@ -132,7 +197,7 @@ function NewTrip({onAddTrip}) {
         </mark>
       )}
       </form>
-    </div>
+    </NewTripContainer>
   );
 }
 

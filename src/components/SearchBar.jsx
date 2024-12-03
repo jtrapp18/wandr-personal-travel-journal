@@ -1,4 +1,23 @@
+import styled from "styled-components";
+import { ConditionalHighlight } from "../MiscStyling";
 
+const SearchContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: var(--blue);
+
+    input {
+        border-radius: 20px;
+        height: 45px;
+        width: 80%;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        padding: 10px 15px;
+        ${ConditionalHighlight};
+    }
+`
 
 const SearchBar = ({searchInput, setSearchInput}) => {
     
@@ -7,7 +26,7 @@ const SearchBar = ({searchInput, setSearchInput}) => {
     }
 
     return (
-        <div id="search-bar">
+        <SearchContainer>
             <input 
                 value={searchInput}
                 type="text"
@@ -15,7 +34,7 @@ const SearchBar = ({searchInput, setSearchInput}) => {
                 placeholder="Type location to search..."
                 onChange={handleChangeSearch}
             />
-        </div>
+        </SearchContainer>
     );
 }
 
