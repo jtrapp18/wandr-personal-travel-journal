@@ -19,7 +19,11 @@
       "image": "https://idsb.tmgrup.com.tr/ly/uploads/images/2024/04/09/thumbs/800x531/323101.jpg",
       "startDate": "2024-12-03",
       "endDate": "2024-12-04",
+<<<<<<< HEAD
       "rating": 3,
+=======
+      "rating": 5,
+>>>>>>> kelseybranch
       "review": "",
       "photos": [],
       "location": "New York City",
@@ -29,6 +33,7 @@
       "itinerary": ""
     },
     {
+<<<<<<< HEAD
       "image": "https://anatomie.com/cdn/shop/articles/Sydney_img_3733.jpg?v=1593546026",
       "startDate": "2024-12-04",
       "endDate": "2024-12-26",
@@ -95,6 +100,34 @@
       "photos": [],
       "complete": false,
       "id": 9
+=======
+      "id": 3,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/800px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
+      "startDate": "2024-11-30",
+      "endDate": "2024-12-04",
+      "rating": 0,
+      "review": "",
+      "photos": [],
+      "location": "Paris",
+      "attendees": [],
+      "description": "",
+      "complete": false,
+      "itinerary": ""
+    },
+    {
+      "id": 4,
+      "image": "https://idsb.tmgrup.com.tr/ly/uploads/images/2024/04/09/thumbs/800x531/323101.jpg",
+      "startDate": "2024-11-30",
+      "endDate": "2024-12-04",
+      "rating": 5,
+      "review": "great",
+      "photos": [],
+      "location": "New York City",
+      "attendees": [],
+      "description": "",
+      "complete": true,
+      "itinerary": ""
+>>>>>>> kelseybranch
     }
   ],
   "activities": [

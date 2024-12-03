@@ -2,15 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getEmbeddedJSONById, patchJSONToDb, postJSONToDb } from "../helper.js";
 
-const TripItinerary = ({trips}) => {
+const TripItinerary = ({ trips }) => {
   const { id } = useParams();
   const [itinerary, setItinerary] = useState("");
   const [activities, setActivities] = useState([]);
   const [newActivity, setNewActivity] = useState("");
   const [trip, setTrip] = useState(null); 
-  // const trip = trips.find((trip) => trip.id === parseInt(id)); 
 
-  
   useEffect(() => {
     const fetchTripWithActivities = async () => {
       try {
@@ -54,7 +52,7 @@ const TripItinerary = ({trips}) => {
       <textarea
         value={itinerary}
         onChange={(e) => setItinerary(e.target.value)}
-        placeholder="Ad your itinerary details"
+        placeholder="Add your itinerary details"
       />
       <button onClick={handleSaveItinerary}>Save Itinerary</button>
 
