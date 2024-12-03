@@ -49,6 +49,14 @@ function App(){
         );
       };
 
+      const handleAddPhoto = (id, photo) => {
+        setTrips((prevTrips) =>
+          prevTrips.map((trip) =>
+            trip.id === parseInt(id) ? { ...trip, photos: [...trip.photos, photo] } : trip
+          )
+        );
+      };
+
     return(
         <>
             <Headroom>
@@ -65,7 +73,7 @@ function App(){
                     />                  
                     <Route
                         path="/review/:id"
-                        element={<TripReview trips={trips} onSaveReview={handleSaveReview} />}
+                        element={<TripReview trips={trips} onSaveReview={handleSaveReview} handleAddPhoto={handleAddPhoto}/>}
                     />                
                  </Routes>
             {/* </Container> */}
