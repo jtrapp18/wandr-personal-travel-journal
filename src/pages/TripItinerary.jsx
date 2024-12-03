@@ -2,15 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getEmbeddedJSONById, patchJSONToDb, postJSONToDb } from "../helper.js";
 
-const TripItinerary = ({trips}) => {
+const TripItinerary = ({ trips }) => {
   const { id } = useParams();
   const [itinerary, setItinerary] = useState("");
   const [activities, setActivities] = useState([]);
   const [newActivity, setNewActivity] = useState("");
   const [trip, setTrip] = useState(null); 
-  // const trip = trips.find((trip) => trip.id === parseInt(id)); 
 
-  
   useEffect(() => {
     const fetchTripWithActivities = async () => {
       try {
@@ -49,28 +47,30 @@ const TripItinerary = ({trips}) => {
   if (!trip) return <div>Loading...</div>;
 
   return (
-    <main>
-      <h1>Plan your itinerary for {trip.location}</h1>
+    <main className="itinerary-main">
+      <h1 className="itinerary-title">Plan your itinerary for {trip.location}</h1>
       <textarea
+        className="itinerary-textarea"
         value={itinerary}
         onChange={(e) => setItinerary(e.target.value)}
-        placeholder="Ad your itinerary details"
+        placeholder="Add your itinerary details"
       />
-      <button onClick={handleSaveItinerary}>Save Itinerary</button>
-
-      <h2>Activities</h2>
-      <ul>
+      <button className="save-button" onClick={handleSaveItinerary}>Save Itinerary</button>
+  
+      <h2 className="activities-title">Activities</h2>
+      <ul className="activities-list">
         {activities.map((act) => (
-          <li key={act.id}>{act.activity}</li>
+          <li key={act.id} className="activity-item">{act.activity}</li>
         ))}
       </ul>
       <input
         type="text"
+        className="activity-input"
         value={newActivity}
         onChange={(e) => setNewActivity(e.target.value)}
         placeholder="Add new activity"
       />
-      <button onClick={handleAddActivity}>Add Activity</button>
+      <button className="add-activity-button" onClick={handleAddActivity}>Add Activity</button>
     </main>
   );
 };
