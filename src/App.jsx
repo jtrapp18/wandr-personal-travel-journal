@@ -24,6 +24,12 @@ function App(){
 
     if (trips.length===0) return <p className="loading">Loading...</p>
 
+    const addTrip = (trip) => {
+      setTrips((prevTrips) => [
+        ...prevTrips, trip
+      ]
+      );
+    }
 
     const handleSaveReview = (id, review) => {
         setTrips((prevTrips) =>
@@ -49,7 +55,7 @@ function App(){
             {/* <Container> */}
                 <Routes>
                     <Route path="/" element={<Home trips={trips} />} />
-                    <Route path="/new-trip" element={<NewTrip/>} />
+                    <Route path="/new-trip" element={<NewTrip onAddTrip={addTrip}/>} />
                     <Route path="/page-2" element={<Page2/>} />
                     <Route
                         path="/itinerary/:id"
