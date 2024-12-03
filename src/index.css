@@ -67,3 +67,71 @@ button:hover {
 .star:hover ~ .star {
   color: gray;  /* Ensure all stars after the hovered star are gray */
 }
+
+/* formatting for review and itinerary pages*/
+
+.itinerary-main, .review-main {
+  padding: 50px;
+  background-color: var(--gray);
+}
+
+.itinerary-title, .review-title {
+  color: var(--navy);
+}
+
+.save-button, .add-activity-button, .submit-button {
+  background-color: var(--green);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.activities-list, .activity-item, .activity-input {
+  margin: 10px 0;
+}
+
+.review-form {
+  margin-top: 20px;
+}
+
+.review-submitted {
+  background-color: var(--blue);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  
+.trip-card:hover h2{
+  zoom: 130%;
+}
+
+.side-panel input[type="checkbox"]:hover {
+  background-color: var(--navy);
+}
+
+#new-trip-container input:hover, #new-trip-container textarea:hover, 
+#search-bar input:hover, .side-panel input[type="date"]:hover {
+  background-color: var(--yellow);
+}
+
+.forecast-card:hover {
+  zoom: 130%;
+  width: 30%;
+}
+
+.show-hide span:hover {
+  font-weight: bold;
+}
+
+/* other conditional formatting */
+
+.trip-card:has(details[open]) {
+  padding-bottom: 75px;
+}
+
+#new-trip-container input:focus, #new-trip-container textarea:focus, 
+#search-bar input:focus, .side-panel input[type="date"]:focus {
+  border: 3px solid var(--navy);
+  background-color: var(--yellow);
+}
