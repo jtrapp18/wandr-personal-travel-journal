@@ -65,17 +65,17 @@ const TripReview = ({ trips, onSaveReview }) => {
   };
 
   return (
-    <main>
-      <h1>Review Your Trip to {trip.location}</h1>
+    <main className="review-main">
+      <h1 className="review-title">Review Your Trip to {trip.location}</h1>
       {isSubmitted ? (
-        <div>
+        <div className="review-submitted">
           <h2>Review Submitted!</h2>
           <p>{`Title: ${review.title}`}</p>
           <p>{`Description: ${review.description}`}</p>
           <p>{`Rating: ${review.rating}/5`}</p>
         </div>
       ) : (
-        <form onSubmit={handleSubmit}>
+        <form className="review-form" onSubmit={handleSubmit}>
           <label>
             Review Title:
             <input
@@ -114,11 +114,11 @@ const TripReview = ({ trips, onSaveReview }) => {
             </div>
           </label>
           <br />
-          <button type="submit">Submit Review</button>
+          <button className="submit-button" type="submit">Submit Review</button>
         </form>
       )}
     </main>
   );
-};
+}
 
 export default TripReview;

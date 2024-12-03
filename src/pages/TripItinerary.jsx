@@ -47,28 +47,30 @@ const TripItinerary = ({ trips }) => {
   if (!trip) return <div>Loading...</div>;
 
   return (
-    <main>
-      <h1>Plan your itinerary for {trip.location}</h1>
+    <main className="itinerary-main">
+      <h1 className="itinerary-title">Plan your itinerary for {trip.location}</h1>
       <textarea
+        className="itinerary-textarea"
         value={itinerary}
         onChange={(e) => setItinerary(e.target.value)}
         placeholder="Add your itinerary details"
       />
-      <button onClick={handleSaveItinerary}>Save Itinerary</button>
-
-      <h2>Activities</h2>
-      <ul>
+      <button className="save-button" onClick={handleSaveItinerary}>Save Itinerary</button>
+  
+      <h2 className="activities-title">Activities</h2>
+      <ul className="activities-list">
         {activities.map((act) => (
-          <li key={act.id}>{act.activity}</li>
+          <li key={act.id} className="activity-item">{act.activity}</li>
         ))}
       </ul>
       <input
         type="text"
+        className="activity-input"
         value={newActivity}
         onChange={(e) => setNewActivity(e.target.value)}
         placeholder="Add new activity"
       />
-      <button onClick={handleAddActivity}>Add Activity</button>
+      <button className="add-activity-button" onClick={handleAddActivity}>Add Activity</button>
     </main>
   );
 };
