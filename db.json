@@ -66,6 +66,11 @@
       "startDate": "",
       "endDate": "",
       "comments": ""
+    },
+    {
+      "tripId": 1,
+      "activity": "croissants",
+      "id": 2
     }
   ]
 }
