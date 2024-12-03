@@ -1,6 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { getWeatherForecast, formatDate } from '../helper';
 import WeatherCard from './WeatherCard';
+import styled from 'styled-components';
+
+const ForecastContainer = styled.div`
+  padding: 5px;
+  align-items: center;
+`;
+
+const ForecastMain = styled.div`
+  display: flex;
+`;
 
 const WeatherForecast = ({location}) => {
     const [fiveDayForecast, setFiveDayForecast] = useState([]);
@@ -32,17 +42,17 @@ const WeatherForecast = ({location}) => {
     if (fiveDayForecast.length===0) return <p>Loading forecast...</p>
 
     return (
-        <div className="forecast-container">
+        <ForecastContainer>
             <h3>{`5-day Forecast for ${location}`}</h3>
-            <div className="forecast-main">
+            <ForecastMain>
                 {fiveDayForecast.map(day=>
                     <WeatherCard
                         key={day.date}
                         {...day}
                     />
                 )}
-            </div>
-        </div>
+            </ForecastMain>
+        </ForecastContainer>
     );
 }
 

@@ -1,15 +1,25 @@
-import { NavLink } from "react-router-dom";
+import { StyledNavLink } from "../MiscStyling";
+import styled from "styled-components";
+import { HoverZoom } from "../MiscStyling";
+
+const LogoContainer = styled.div` 
+  text-align: left;
+
+  img {
+    ${HoverZoom}
+  }
+`
 
 function Logo() {
   return (
-      <div id="logo-container">
-        <NavLink
+      <LogoContainer>
+        <StyledNavLink
           to="/"
-          className="nav-link home"
+          className="home"
         >
           <img src="/images/logos/wandr.png" alt="home"/>
-        </NavLink>
-      </div>
+        </StyledNavLink>
+      </LogoContainer>
   );
 };
 
