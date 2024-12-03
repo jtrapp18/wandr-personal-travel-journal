@@ -71,8 +71,14 @@ button:hover {
 /* formatting for review and itinerary pages*/
 
 .itinerary-main, .review-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 50px;
   background-color: var(--gray);
+  max-width: 600px; 
+  margin: auto;
 }
 
 .itinerary-title, .review-title {
