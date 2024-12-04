@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getEmbeddedJSONById, patchJSONToDb, postJSONToDb } from "../helper.js";
 
-const TripItinerary = ({ trips }) => {
+const TripItinerary = () => {
+
   const { id } = useParams();
   const [itinerary, setItinerary] = useState("");
   const [activities, setActivities] = useState([]);

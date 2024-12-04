@@ -21,7 +21,9 @@
       "endDate": "2024-12-04",
       "rating": 3,
       "review": "",
-      "photos": [],
+      "photos": [
+        "https://res.cloudinary.com/djd2t7uvb/image/upload/v1733287077/oo9wibnnqv7sieqeze5g.jpg"
+      ],
       "location": "New York City",
       "attendees": [],
       "description": "",
@@ -81,30 +83,17 @@
       "id": 8
     },
     {
-      "image": "https://images.musement.com/cover/0002/49/london-jpeg_header-148518.jpeg?w=1200&h=630&q=95&fit=crop",
-      "startDate": "2025-07-05",
-      "endDate": "2025-07-18",
-      "location": "London",
-      "attendees": [
-        "Kelsey",
-        "Jacqueline"
-      ],
-      "description": "Visit museums, historic sites, and restaurants",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/800px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
+      "startDate": "2024-11-30",
+      "endDate": "2024-12-04",
+      "location": "Paris",
+      "attendees": [],
+      "description": "",
       "rating": 0,
       "review": "",
       "photos": [],
       "complete": false,
       "id": 9,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/800px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
-      "startDate": "2024-11-30",
-      "endDate": "2024-12-04",
-      "rating": 0,
-      "review": "",
-      "photos": [],
-      "location": "Paris",
-      "attendees": [],
-      "description": "",
-      "complete": false,
       "itinerary": ""
     },
     {
@@ -132,5 +121,6 @@
       "endDate": "",
       "comments": ""
     }
-  ]
+  ],
+  "uploadFiles": []
 }

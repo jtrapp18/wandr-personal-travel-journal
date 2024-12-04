@@ -2,12 +2,7 @@ import {useState, useEffect} from "react";
 import Headroom from "react-headroom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import NewTrip from "./pages/NewTrip"
-import Page2 from "./pages/Page2"
-import TripItinerary from "./pages/TripItinerary";
-import TripReview from "./pages/TripReview";
+import {Outlet} from "react-router-dom";
 import styled from "styled-components";
 import { getJSONByKey } from "./helper";
 
@@ -49,26 +44,26 @@ function App(){
         );
       };
 
+      const handleAddPhoto = (id, photo) => {
+        setTrips((prevTrips) =>
+          prevTrips.map((trip) =>
+            trip.id === parseInt(id) ? { ...trip, photos: [...trip.photos, photo] } : trip
+          )
+        );
+      };
+
     return(
         <>
             <Headroom>
                 <Header />
             </Headroom>
-            {/* <Container> */}
-                <Routes>
-                    <Route path="/" element={<Home trips={trips} />} />
-                    <Route path="/new-trip" element={<NewTrip onAddTrip={addTrip}/>} />
-                    <Route path="/page-2" element={<Page2/>} />
-                    <Route
-                        path="/itinerary/:id"
-                        element={<TripItinerary trips={trips} onSaveItinerary={handleSaveItinerary} />}
-                    />                  
-                    <Route
-                        path="/review/:id"
-                        element={<TripReview trips={trips} onSaveReview={handleSaveReview} />}
-                    />                
-                 </Routes>
-            {/* </Container> */}
+            <Outlet context={{ 
+                trips, 
+                addTrip, 
+                handleSaveItinerary, 
+                handleSaveReview, 
+                handleAddPhoto 
+              }} />
             <Footer />
         </>
     );
