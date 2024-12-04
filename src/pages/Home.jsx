@@ -6,6 +6,7 @@ import TripCard from "../components/TripCard";
 import UpcomingTrips from "../components/UpcomingTrips";
 import styled from "styled-components";
 import {useOutletContext} from "react-router-dom";
+import {isPastDate} from "../helper"
 
 const ShowHide = styled.div`
     cursor: pointer;
@@ -39,7 +40,6 @@ const TripCardContainer = styled.div`
 
 const Home = () => {
     const {trips} = useOutletContext();
-    const now = new Date();
 
     const [searchInput, setSearchInput] = useState("");
     const [filterInput, setFilterInput] = useState({
@@ -51,22 +51,27 @@ const Home = () => {
     });
 
     const upcomingTrips = trips.filter(trip => {
+        const now = new Date();
+        now.setHours(0, 0, 0, 0);
+    
         const fiveDaysFromNow = new Date();
         fiveDaysFromNow.setDate(now.getDate() + 5);
-      
-        const tripStartDate = new Date(trip.startDate);
-        console.log(fiveDaysFromNow)
-        console.log(tripStartDate)
 
-        return tripStartDate >= now && tripStartDate <= fiveDaysFromNow;
-      });
+        const tripStartDate = new Date(trip.startDate);
+        tripStartDate.setHours(0, 0, 0, 0);
+
+        const tripEndDate = new Date(trip.endDate);
+        tripEndDate.setHours(0, 0, 0, 0);
+    
+        return (tripStartDate <= fiveDaysFromNow && tripEndDate >= now);
+    });
 
     const [showUpcoming, setShowUpcoming] = useState(upcomingTrips.length > 0);
 
     const showTrips = trips.filter(trip=>{
         const searchFilter = searchInput==="" ? true : trip.location.toLowerCase().includes(searchInput.toLowerCase());
-        const completeFilter = filterInput.complete ? true : !trip.complete;
-        const incompleteFilter = filterInput.incomplete ? true : trip.complete;
+        const completeFilter = filterInput.complete ? true : !isPastDate(trip.endDate);
+        const incompleteFilter = filterInput.incomplete ? true : isPastDate(trip.endDate);
         const startDateFilter = filterInput.startDate ? filterInput.startDate < trip.endDate : true;
         const endDateFilter = filterInput.endDate ? filterInput.endDate > trip.startDate : true;
         const ratingFilter = filterInput.rating ? filterInput.rating <= trip.rating : true;
