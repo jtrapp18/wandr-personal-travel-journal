@@ -40,7 +40,7 @@ const TripReview = () => {
   async function handleSubmit(event) {
     event.preventDefault();
     await updateReview(id, review);
-    onSaveReview(id, review); 
+    onSaveReview(id, review);
     setIsSubmitted(true);
   }
 
@@ -72,6 +72,10 @@ const TripReview = () => {
   return (
     <main className="review-main">
       <h1 className="review-title">Review Your Trip to {trip.location}</h1>
+      <div className="trip-details">
+        <p><strong>Trip Dates:</strong> {trip.startDate} to {trip.endDate}</p>
+        <p><strong>Attendees:</strong> {trip.attendees.length > 0 ? trip.attendees.join(', ') : 'No attendees listed'}</p>
+      </div>
       {isSubmitted ? (
         <div className="review-submitted">
           <h2>Review Submitted!</h2>
