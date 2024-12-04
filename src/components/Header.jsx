@@ -16,13 +16,13 @@ const ExtendedHeader = styled.div`
   }
 `;
 
-const Header = ({ onLoginClick }) => {
+const Header = ({ user, onLoginClick, onLogoutClick }) => {
   return (
     <header>
       <ExtendedHeader>
         <img src="/images/logos/logo_header.png" alt="logo" />
       </ExtendedHeader>
-      <NavBar onLoginClick={onLoginClick} />
+      <NavBar user={user} onLoginClick={onLoginClick} onLogoutClick={onLogoutClick} />
     </header>
   );
 }
