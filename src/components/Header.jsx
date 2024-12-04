@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from "./NavBar"
+import NavBar from "./NavBar";
 import styled from 'styled-components';
 
 const ExtendedHeader = styled.div`
@@ -14,18 +14,17 @@ const ExtendedHeader = styled.div`
   img {
     height: 100%;
   }
-`
+`;
 
-const Header = () => {
-
-    return (
-        <header>
-            <ExtendedHeader>
-                <img src="/images/logos/logo_header.png" alt="logo" />
-            </ExtendedHeader>
-            <NavBar />
-        </header>
-    );
+const Header = ({ onLoginClick }) => {
+  return (
+    <header>
+      <ExtendedHeader>
+        <img src="/images/logos/logo_header.png" alt="logo" />
+      </ExtendedHeader>
+      <NavBar onLoginClick={onLoginClick} />
+    </header>
+  );
 }
 
 export default Header;
