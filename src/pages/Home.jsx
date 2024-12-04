@@ -5,6 +5,7 @@ import SideBar from "../components/SideBar";
 import TripCard from "../components/TripCard";
 import UpcomingTrips from "../components/UpcomingTrips";
 import styled from "styled-components";
+import {useOutletContext} from "react-router-dom";
 
 const ShowHide = styled.div`
     cursor: pointer;
@@ -36,7 +37,8 @@ const TripCardContainer = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 `
 
-const Home = ({trips}) => {
+const Home = () => {
+    const {trips} = useOutletContext();
     const now = new Date();
 
     const [showUpcoming, setShowUpcoming] = useState(false);
@@ -64,7 +66,7 @@ const Home = ({trips}) => {
         if (upcomingTrips.length > 0) {
             setShowUpcoming(true);
         };
-    }, [])
+    }, [upcomingTrips])
     
     const showTrips = trips.filter(trip=>{
         const searchFilter = searchInput==="" ? true : trip.location.toLowerCase().includes(searchInput.toLowerCase());

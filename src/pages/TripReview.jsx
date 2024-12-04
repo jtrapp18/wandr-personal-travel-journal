@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import ImageUpload from "../components/ImageUpload";
 import PhotoGallery from "../components/PhotoGallery";
+import { useOutletContext } from "react-router-dom";
 
-const TripReview = ({ trips, onSaveReview, handleAddPhoto }) => {
+const TripReview = () => {
+  const {trips, onSaveReview, handleAddPhoto} = useOutletContext();
+
   const { id } = useParams(); 
   const trip = trips.find((trip) => trip.id === parseInt(id)); 
 

@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import Attendees from "../components/Attendees";
 import styled from "styled-components";
 import { ConditionalHighlight } from "../MiscStyling";
+import { useOutletContext } from "react-router-dom";
 
 const NewTripContainer = styled.main`
   display: flex;
@@ -66,14 +67,16 @@ const TempMessage = styled.p`
   font-style: italic;
 `
 
-function NewTrip({onAddTrip}) {
-    const emptyObj = {
-        image: "",
-        startDate: "",
-        endDate: "",
-        location: "",
-        attendees: [],
-        description: "",
+function NewTrip() {
+  const {onAddTrip} = useOutletContext();
+
+  const emptyObj = {
+      image: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      attendees: [],
+      description: "",
     }
     const [formData, setFormData] = useState(emptyObj);
     const [attendee, setAttendee] = useState("");
