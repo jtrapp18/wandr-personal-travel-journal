@@ -17,6 +17,10 @@ const Star = styled.p`
     color: gray;
     margin: 0;
 
+    &.filled {
+        color: black;
+    }
+
     &:hover ~.star {
         color: gray;
     }

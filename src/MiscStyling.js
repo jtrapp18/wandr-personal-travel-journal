@@ -83,13 +83,6 @@ const StyledForm = styled.form`
   justify-content: center;
   align-items: center;
 
-  .review-submitted {
-    background-color: var(--blue);
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-  }
-
   label {
     width: 100%;
     position: relative;
