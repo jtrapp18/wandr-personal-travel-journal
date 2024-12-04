@@ -3,6 +3,22 @@ import { useParams } from "react-router-dom";
 import UploadImage from "../components/UploadImage";
 import PhotoGallery from "../components/PhotoGallery";
 import { useOutletContext } from "react-router-dom";
+import styled from "styled-components";
+import { StyledForm, IndivTripMain, StyledButton } from "../MiscStyling";
+import Stars from "../components/Stars"
+import { formatDate } from "../helper";
+
+const DescriptionLabel = styled.label`
+  padding-bottom: 100px;
+`
+
+const RatingLabel = styled.label`
+  align-items: center;
+
+  span {
+    margin-left: 50px;
+  }
+`
 
 const TripReview = () => {
   const {trips, onSaveReview, handleAddPhoto} = useOutletContext();
@@ -12,8 +28,8 @@ const TripReview = () => {
 
   const [review, setReview] = useState({
     title: "",
-    description: "",
-    rating: 0,
+    description: trip.review,
+    rating: trip.rating,
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -70,10 +86,10 @@ const TripReview = () => {
   };
 
   return (
-    <main className="review-main">
+    <IndivTripMain>
       <h1 className="review-title">Review Your Trip to {trip.location}</h1>
       <div className="trip-details">
-        <p><strong>Trip Dates:</strong> {trip.startDate} to {trip.endDate}</p>
+        <p><strong>Trip Dates:</strong> {formatDate(trip.startDate)} to {formatDate(trip.endDate)}</p>
         <p><strong>Attendees:</strong> {trip.attendees.length > 0 ? trip.attendees.join(', ') : 'No attendees listed'}</p>
       </div>
       {isSubmitted ? (
@@ -84,7 +100,7 @@ const TripReview = () => {
           <p>{`Rating: ${review.rating}/5`}</p>
         </div>
       ) : (
-        <form className="review-form" onSubmit={handleSubmit}>
+        <StyledForm onSubmit={handleSubmit}>
           <label>
             Review Title:
             <input
@@ -97,7 +113,7 @@ const TripReview = () => {
             />
           </label>
           <br />
-          <label>
+          <DescriptionLabel>
             Description:
             <textarea
               name="description"
@@ -106,29 +122,20 @@ const TripReview = () => {
               placeholder="How was your trip?"
               required
             />
-          </label>
+          </DescriptionLabel>
           <br />
-          <label>
-            Rating:
-            <div className="rating-filter">
-              {Array.from({ length: 5 }, (_, index) => (
-                <span
-                  key={index}
-                  className={`star ${review.rating > index ? "filled" : ""}`}
-                  onClick={() => handleStarClick(index + 1)}
-                >
-                  ★
-                </span>
-              ))}
-            </div>
-          </label>
+            <RatingLabel>
+              Rating:
+              <Stars rating={review.rating} handleStarClick={handleStarClick}/>
+            </RatingLabel>
           <br />
-          <button className="submit-button" type="submit">Submit Review</button>
-        </form>
+          <StyledButton type="submit">Submit Review</StyledButton>
+        </StyledForm>
       )}
+      <hr/>
       <UploadImage trip={trip} handleAddPhoto={handleAddPhoto}/>
       <PhotoGallery photos={trip.photos}/>
-    </main>
+    </IndivTripMain>
   );
 }
 

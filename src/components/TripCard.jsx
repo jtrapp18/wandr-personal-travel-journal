@@ -6,6 +6,7 @@ import styled from "styled-components";
 const StyledTripCard = styled.article`
     height: 300px;
     padding: 10px;
+    margin-bottom: 10px;
     position: relative;
 
     img {
