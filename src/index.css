@@ -31,6 +31,12 @@ details {
   cursor: pointer;
 }
 
+hr { 
+  border: .5px solid grey;
+  margin: 20px 0;
+  width: 100%;
+}
+
 /* Formatting header */
 
 .headroom-wrapper + * {
@@ -44,33 +50,9 @@ button:hover {
   color: var(--gray);
 }
 
-/* Formatting side panel */
-
-.rating-filter {
-  display: flex;
-  font-size: 25px;
-}
-.star {
-  font-size: 2rem; /* Adjust star size */
-  cursor: pointer;
-  color: gray; /* Empty star color */
-}
-
-.star.filled {
-  color: black; /* Filled star color */
-}
-
-.rating-filter:hover .star {
-  color: black;
-}
-
-.star:hover ~ .star {
-  color: gray;  /* Ensure all stars after the hovered star are gray */
-}
-
 /* formatting for review and itinerary pages*/
 
-.itinerary-main, .review-main {
+.itinerary-main {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,7 +63,7 @@ button:hover {
   margin: auto;
 }
 
-.itinerary-title, .review-title {
+.itinerary-title {
   color: var(--navy);
 }
 
@@ -96,15 +78,4 @@ button:hover {
 
 .activities-list, .activity-item, .activity-input {
   margin: 10px 0;
-}
-
-.review-form {
-  margin-top: 20px;
-}
-
-.review-submitted {
-  background-color: var(--blue);
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
 }

@@ -1,10 +1,17 @@
 import { useEffect, useRef } from "react";
 import { patchJSONToDb } from "../helper";
 import styled from "styled-components";
+import { StyledButton } from "../MiscStyling";
 
-const PhotoContainer = styled.div`
-    padding: 20px 20px 20px 0px
-
+const UploadContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px 20px 0px;
+    width: 90%;
+    max-width: 700px;
+    min-width: 500px;
 `
 
 const UploadImage = ({trip, handleAddPhoto}) => {
@@ -37,12 +44,12 @@ const UploadImage = ({trip, handleAddPhoto}) => {
     }, [trip, handleAddPhoto])
 
     return (
-        <PhotoContainer>
+        <UploadContainer>
             <h2>Upload photos from trip</h2>
-            <button onClick={() => widgetRef.current.open()}>
+            <StyledButton onClick={() => widgetRef.current.open()}>
                 Select Photo(s)
-            </button>
-        </PhotoContainer>
+            </StyledButton>
+        </UploadContainer>
     )
 }
 

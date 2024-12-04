@@ -1,37 +1,17 @@
 import TripCard from "./TripCard";
 import WeatherForecast from "./WeatherForecast";
-import {useState} from "react";
 import styled from "styled-components";
+import GalleryLoop from "../hooks/galleryLoop";
+import { PrevButton, NextButton } from "../MiscStyling";
 
 const UpcomingTripContainer = styled.div`
     position: relative;
-        background-color: var(--gray);
-        justify-content: center;
-        overflow-x: scroll;
-        padding: 20px;
+    background-color: var(--gray);
+    justify-content: center;
+    overflow-x: scroll;
+    padding: 20px;
 
-    .prev-btn, .next-btn {
-        opacity: 0;
-        position: absolute;
-        top: 40%;
-        background: transparent;
-        color: white;
-        font-size: 50px;
-        font-weight: bold;
-        background-color: rgba(0,0,0,.5);
-        border: none;
-        cursor: pointer;
-    }
-
-    .prev-btn {
-        left: 10px;
-    }
-
-    .next-btn {
-        right: 10px;
-    }
-
-    &:hover .prev-btn, :hover .next-btn {
+    &:hover button {
         opacity: 1;
     }
     `;
@@ -49,11 +29,7 @@ const TripCount = styled.span`
 
 const UpcomingTrips = ({trips}) => {
 
-    const [tripIndex, setTripIndex] = useState(0);
-    const trip = trips[tripIndex] || null;
-
-    const prevImage = () => {setTripIndex(prevIndex => (prevIndex - 1 + trips.length) % trips.length)};
-    const nextImage = () => {setTripIndex(prevIndex => (prevIndex + 1) % trips.length)};
+    const [tripIndex, , trip, prevImage, nextImage] = GalleryLoop(trips);
 
     if (trips.length===0) return <h1>No trips coming up in the next 5 days</h1>
 
@@ -70,12 +46,12 @@ const UpcomingTrips = ({trips}) => {
                     location={trip.location}
                 />
             </UpcomingTripsMain>
-            <button className="prev-btn" onClick={prevImage}>
+            <PrevButton onClick={prevImage}>
                 &#8249;
-            </button>
-            <button className="next-btn" onClick={nextImage}>
+            </PrevButton>
+            <NextButton onClick={nextImage}>
                 &#8250;
-            </button>
+            </NextButton>
             <TripCount>{`${tripIndex+1} of ${trips.length}`}</TripCount>
         </UpcomingTripContainer>
 )}
