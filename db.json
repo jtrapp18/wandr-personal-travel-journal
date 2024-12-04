@@ -19,15 +19,7 @@
       "image": "https://idsb.tmgrup.com.tr/ly/uploads/images/2024/04/09/thumbs/800x531/323101.jpg",
       "startDate": "2024-12-03",
       "endDate": "2024-12-04",
-<<<<<<< HEAD
-<<<<<<< HEAD
       "rating": 3,
-=======
-      "rating": 5,
->>>>>>> kelseybranch
-=======
-      "rating": 3,
->>>>>>> 2c61275a3a0688fa46187305054ce7fe6a77300f
       "review": "",
       "photos": [
         "20231002_082732.jpg"
@@ -39,10 +31,6 @@
       "itinerary": ""
     },
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 2c61275a3a0688fa46187305054ce7fe6a77300f
       "image": "https://anatomie.com/cdn/shop/articles/Sydney_img_3733.jpg?v=1593546026",
       "startDate": "2024-12-04",
       "endDate": "2024-12-26",
@@ -108,10 +96,7 @@
       "review": "",
       "photos": [],
       "complete": false,
-      "id": 9
-<<<<<<< HEAD
-=======
-      "id": 3,
+      "id": 9,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/800px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
       "startDate": "2024-11-30",
       "endDate": "2024-12-04",
@@ -137,9 +122,6 @@
       "description": "",
       "complete": true,
       "itinerary": ""
->>>>>>> kelseybranch
-=======
->>>>>>> 2c61275a3a0688fa46187305054ce7fe6a77300f
     }
   ],
   "activities": [
