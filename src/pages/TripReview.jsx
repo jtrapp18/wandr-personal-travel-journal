@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import ImageUpload from "../components/ImageUpload";
+import UploadImage from "../components/UploadImage";
 import PhotoGallery from "../components/PhotoGallery";
+import { useOutletContext } from "react-router-dom";
 
-const TripReview = ({ trips, onSaveReview, handleAddPhoto }) => {
+const TripReview = () => {
+  const {trips, onSaveReview, handleAddPhoto} = useOutletContext();
+
   const { id } = useParams(); 
   const trip = trips.find((trip) => trip.id === parseInt(id)); 
 
@@ -119,7 +122,7 @@ const TripReview = ({ trips, onSaveReview, handleAddPhoto }) => {
           <button className="submit-button" type="submit">Submit Review</button>
         </form>
       )}
-      <ImageUpload trip={trip} handleAddPhoto={handleAddPhoto}/>
+      <UploadImage trip={trip} handleAddPhoto={handleAddPhoto}/>
       <PhotoGallery photos={trip.photos}/>
     </main>
   );
