@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import ImageUpload from "../components/ImageUpload";
+import UploadImage from "../components/UploadImage";
 import PhotoGallery from "../components/PhotoGallery";
 import { useOutletContext } from "react-router-dom";
 
@@ -122,7 +122,7 @@ const TripReview = () => {
           <button className="submit-button" type="submit">Submit Review</button>
         </form>
       )}
-      <ImageUpload trip={trip} handleAddPhoto={handleAddPhoto}/>
+      <UploadImage trip={trip} handleAddPhoto={handleAddPhoto}/>
       <PhotoGallery photos={trip.photos}/>
     </main>
   );

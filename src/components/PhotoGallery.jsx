@@ -6,7 +6,7 @@ const PhotoGallery = ({photos}) => {
         <Card.Group>
             {photos.map(photo=>
                 <Card key={photo}>
-                    <img src={`/images/uploads/${photo}`} alt={photo} />
+                    <img src={photo} alt={photo} />
                 </Card>
             )}
         </Card.Group>
