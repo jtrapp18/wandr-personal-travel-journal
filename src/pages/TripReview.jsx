@@ -20,8 +20,16 @@ const RatingLabel = styled.label`
   }
 `
 
+const SubmittedReview = styled.div`
+  background-color: var(--blue);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 20px;
+`
+
 const TripReview = () => {
-  const {trips, onSaveReview, handleAddPhoto} = useOutletContext();
+  const {trips, handleSaveReview, handleAddPhoto} = useOutletContext();
 
   const { id } = useParams(); 
   const trip = trips.find((trip) => trip.id === parseInt(id)); 
@@ -56,7 +64,7 @@ const TripReview = () => {
   async function handleSubmit(event) {
     event.preventDefault();
     await updateReview(id, review);
-    onSaveReview(id, review);
+    handleSaveReview(id, review);
     setIsSubmitted(true);
   }
 
@@ -93,12 +101,12 @@ const TripReview = () => {
         <p><strong>Attendees:</strong> {trip.attendees.length > 0 ? trip.attendees.join(', ') : 'No attendees listed'}</p>
       </div>
       {isSubmitted ? (
-        <div className="review-submitted">
+        <SubmittedReview>
           <h2>Review Submitted!</h2>
           <p>{`Title: ${review.title}`}</p>
           <p>{`Description: ${review.description}`}</p>
           <p>{`Rating: ${review.rating}/5`}</p>
-        </div>
+        </SubmittedReview>
       ) : (
         <StyledForm onSubmit={handleSubmit}>
           <label>
