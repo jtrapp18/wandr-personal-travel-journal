@@ -49,33 +49,3 @@ button:hover {
   background-color: var(--navy);
   color: var(--gray);
 }
-
-/* formatting for review and itinerary pages*/
-
-.itinerary-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 50px;
-  background-color: var(--gray);
-  max-width: 600px; 
-  margin: auto;
-}
-
-.itinerary-title {
-  color: var(--navy);
-}
-
-.save-button, .add-activity-button, .submit-button {
-  background-color: var(--green);
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.activities-list, .activity-item, .activity-input {
-  margin: 10px 0;
-}

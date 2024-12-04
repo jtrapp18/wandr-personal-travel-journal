@@ -64,8 +64,6 @@ function NewTrip() {
     }
 
     function addPerson() {
-        console.log("trying to add", attendee)
-
         setFormData(prevData=> {
             return {
                 ...prevData,
