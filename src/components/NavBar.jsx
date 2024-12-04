@@ -21,7 +21,7 @@ const ActionsContainer = styled.div`
   margin-right: 20px;
 `;
 
-const LoginButton = styled.button`
+const Button = styled.button`
   background-color: black;
   color: var(--green);
   border: none;
@@ -32,13 +32,17 @@ const LoginButton = styled.button`
   border-radius: 4px;
 `;
 
-function NavBar({ onLoginClick }) {
+function NavBar({ user, onLoginClick, onLogoutClick }) {
   return (
     <StyledNavBar>
       <Logo />
       <ActionsContainer>
         <NavLinks />
-        <LoginButton onClick={onLoginClick}>Login</LoginButton>
+        {user ? (
+          <Button onClick={onLogoutClick}>Logout</Button>
+        ) : (
+          <Button onClick={onLoginClick}>Login</Button>
+        )}
       </ActionsContainer>
     </StyledNavBar>
   );
