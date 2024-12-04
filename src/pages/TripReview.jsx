@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import ImageUpload from "../components/ImageUpload"; // Ensure this path is correct
+import PhotoGallery from "../components/PhotoGallery"; // Ensure this path is correct
 
-const TripReview = ({ trips, onSaveReview }) => {
-  const { id } = useParams(); 
-  const trip = trips.find((trip) => trip.id === parseInt(id)); 
+const TripReview = ({ trips, onSaveReview, handleAddPhoto }) => {
+  const { id } = useParams();
+  const trip = trips.find((trip) => trip.id === parseInt(id));
 
   const [review, setReview] = useState({
     title: "",
@@ -35,7 +37,7 @@ const TripReview = ({ trips, onSaveReview }) => {
   async function handleSubmit(event) {
     event.preventDefault();
     await updateReview(id, review);
-    onSaveReview(id, review); 
+    onSaveReview(id, review);
     setIsSubmitted(true);
   }
 
@@ -67,6 +69,10 @@ const TripReview = ({ trips, onSaveReview }) => {
   return (
     <main className="review-main">
       <h1 className="review-title">Review Your Trip to {trip.location}</h1>
+      <div className="trip-details">
+        <p><strong>Trip Dates:</strong> {trip.startDate} to {trip.endDate}</p>
+        <p><strong>Attendees:</strong> {trip.attendees.length > 0 ? trip.attendees.join(', ') : 'No attendees listed'}</p>
+      </div>
       {isSubmitted ? (
         <div className="review-submitted">
           <h2>Review Submitted!</h2>
@@ -117,6 +123,8 @@ const TripReview = ({ trips, onSaveReview }) => {
           <button className="submit-button" type="submit">Submit Review</button>
         </form>
       )}
+      <ImageUpload trip={trip} handleAddPhoto={handleAddPhoto} />
+      <PhotoGallery photos={trip.photos} />
     </main>
   );
 }
