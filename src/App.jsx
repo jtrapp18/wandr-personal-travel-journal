@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import { getJSONByKey } from './helper';
-import Login from './components/Login'; // Ensure this path is correct
+import Login from './components/Login';
 
 const Loading = styled.p`
   font-size: 75px;
@@ -25,52 +25,44 @@ function App() {
 
   const handleLogin = (userData) => {
     setUser(userData);
-    setShowLogin(false); // Hide login form after login
+    setShowLogin(false);
   };
 
-  const addTrip = (trip) => {
-    setTrips((prevTrips) => [...prevTrips, trip]);
+  const handleLogout = () => {
+    setUser(null);
   };
 
-  const handleSaveReview = (id, review) => {
-    setTrips((prevTrips) =>
-      prevTrips.map((trip) =>
-        trip.id === parseInt(id) ? { ...trip, review } : trip
-      )
-    );
-  };
-
-  const handleSaveItinerary = (id, itinerary) => {
-    setTrips((prevTrips) =>
-      prevTrips.map((trip) =>
-        trip.id === parseInt(id) ? { ...trip, itinerary } : trip
-      )
-    );
-  };
-
-  const handleAddPhoto = (id, photo) => {
-    setTrips((prevTrips) =>
-      prevTrips.map((trip) =>
-        trip.id === parseInt(id) ? { ...trip, photos: [...trip.photos, photo] } : trip
-      )
-    );
-  };
+  console.log(user); // Debug: Check if user state updates
 
   return (
     <>
       <Headroom>
-        <Header onLoginClick={() => setShowLogin(true)} />
+        <Header onLoginClick={() => setShowLogin(true)} onLogoutClick={handleLogout} user={user} />
       </Headroom>
       {showLogin && <Login onLogin={handleLogin} />}
-      <Outlet
-        context={{
-          trips,
-          addTrip,
-          handleSaveItinerary,
-          handleSaveReview,
-          handleAddPhoto,
-        }}
-      />
+      {!showLogin && (
+        <Outlet
+          context={{
+            trips,
+            addTrip: (trip) => setTrips((prevTrips) => [...prevTrips, trip]),
+            handleSaveItinerary: (id, itinerary) => setTrips((prevTrips) =>
+              prevTrips.map((trip) =>
+                trip.id === parseInt(id) ? { ...trip, itinerary } : trip
+              )
+            ),
+            handleSaveReview: (id, review) => setTrips((prevTrips) =>
+              prevTrips.map((trip) =>
+                trip.id === parseInt(id) ? { ...trip, review } : trip
+              )
+            ),
+            handleAddPhoto: (id, photo) => setTrips((prevTrips) =>
+              prevTrips.map((trip) =>
+                trip.id === parseInt(id) ? { ...trip, photos: [...trip.photos, photo] } : trip
+              )
+            ),
+          }}
+        />
+      )}
       <Footer />
     </>
   );
