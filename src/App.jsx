@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import { getJSONByKey } from './helper';
-import Login from './components/Login'; // Ensure this path is correct
+import Login from './components/Login'; 
 
 const Loading = styled.p`
   font-size: 75px;
@@ -14,8 +14,8 @@ const Loading = styled.p`
 
 function App() {
   const [trips, setTrips] = useState([]);
-  const [user, setUser] = useState(null); // User starts as null to require login
-  const [showLogin, setShowLogin] = useState(true); // Show login initially
+  const [user, setUser] = useState(null); 
+  const [showLogin, setShowLogin] = useState(true); 
 
   useEffect(() => {
     getJSONByKey('trips').then(setTrips);
@@ -25,12 +25,12 @@ function App() {
 
   const handleLogin = (userData) => {
     setUser(userData);
-    setShowLogin(false); // Hide login form after successful login
+    setShowLogin(false); 
   };
 
   const handleLogout = () => {
-    setUser(null); // Set user to null to require login again
-    setShowLogin(true); // Show login form on logout
+    setUser(null); 
+    setShowLogin(true); 
   };
 
   return (
