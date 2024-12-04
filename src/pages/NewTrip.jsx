@@ -1,51 +1,17 @@
 import React, {useState} from "react";
 import Attendees from "../components/Attendees";
 import styled from "styled-components";
-import { ConditionalHighlight } from "../MiscStyling";
+import { IndivTripMain, StyledForm, StyledButton } from "../MiscStyling";
 import { useOutletContext } from "react-router-dom";
 
-const NewTripContainer = styled.main`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;  
-
-  form {
-    display: flex;
-    flex-direction: column;
-    width: 55%;
-    max-width: 800px;
-    min-width: 700px;
-  }
-
-  label, button {
-    font-size: 20px;
-    position: relative;
-    width: 100%;
-    margin: 10px 0px 10px 0px;
-    font-weight: bold;
-  }
-
-  input, textarea {
-    position: absolute;
-    width: 80%;
-    right: 0;
-    ${ConditionalHighlight};
-  }
-
-  textarea {
-    height: 100px;
-  }
-
-  mark {
+const StyledMark = styled.mark`
     background-color: var(--yellow);
     position: relative;
     left: 0;
     width: 100%;
-  }
+`
 
-  button[type='button'] {
+const AddPersonBtn = styled.button`
     position: absolute;
     right: 0;
     width: 30px;
@@ -53,8 +19,6 @@ const NewTripContainer = styled.main`
     margin: 0;
     border: 2px solid black;
     background-color: var(--dark-green);
-  }
-
 `;
 
 const DescriptionLabel = styled.label`
@@ -159,48 +123,56 @@ function NewTrip() {
   }
 
   return (
-    <NewTripContainer>
-      <h2>New Trip</h2>
-      <form onSubmit={handleSubmit}>
+    <IndivTripMain>
+      <h1>Add New Trip to Bucket List</h1>
+      <StyledForm onSubmit={handleSubmit}>
         <label>
             Location: 
             <input type="text" name="location" placeholder="Trip Location" value={formData.location} onChange={handleChange}/>
         </label>
+        <br />
         <label>
             Image: 
             <input type="text" name="image" placeholder="Image URL" value={formData.image} onChange={handleChange}/>
         </label>
+        <br />
         <label>
             Start Date: 
             <input type="date" name="startDate" placeholder="Start Date" value={formData.startDate} onChange={handleChange}/>
         </label>
+        <br />
         <label>
             End Date: 
             <input type="date" name="endDate" placeholder="End Date" value={formData.endDate} onChange={handleChange}/>
         </label>
+        <br />
         <DescriptionLabel>
             Description: 
             <textarea name="description" placeholder="Description" value={formData.description} onChange={handleChange}></textarea>
         </DescriptionLabel>
+        <br />
         <label>
             Attendees: 
             <input type="text" name="attendee" placeholder="Add Person" value={attendee} onChange={changePerson} />
-            <button type="button" onClick={addPerson}>+</button>
+            <AddPersonBtn type="button" onClick={addPerson}>+</AddPersonBtn>
         </label>
+        <br />
         <Attendees attendees={formData.attendees}/>
-        <button type="submit">Add Trip to Bucket List</button>
+        <br />
+        <StyledButton type="submit">Add Trip to Bucket List</StyledButton>
+        <br />
         {tempMsg && <TempMessage>{tempMsg}</TempMessage>}
         {!passVal && (
-        <mark>
+        <StyledMark>
           <p>Please fill in the following items and resubmit:</p>
           <ul>
             {missingItems().map(item=>
               <li key={item}>{item}</li>)}
           </ul>
-        </mark>
+        </StyledMark>
       )}
-      </form>
-    </NewTripContainer>
+      </StyledForm>
+    </IndivTripMain>
   );
 }
 

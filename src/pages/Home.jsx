@@ -41,7 +41,6 @@ const Home = () => {
     const {trips} = useOutletContext();
     const now = new Date();
 
-    const [showUpcoming, setShowUpcoming] = useState(false);
     const [searchInput, setSearchInput] = useState("");
     const [filterInput, setFilterInput] = useState({
         complete: true,
@@ -62,12 +61,8 @@ const Home = () => {
         return tripStartDate >= now && tripStartDate <= fiveDaysFromNow;
       });
 
-    useEffect(()=> {
-        if (upcomingTrips.length > 0) {
-            setShowUpcoming(true);
-        };
-    }, [upcomingTrips])
-    
+    const [showUpcoming, setShowUpcoming] = useState(upcomingTrips.length > 0);
+
     const showTrips = trips.filter(trip=>{
         const searchFilter = searchInput==="" ? true : trip.location.toLowerCase().includes(searchInput.toLowerCase());
         const completeFilter = filterInput.complete ? true : !trip.complete;

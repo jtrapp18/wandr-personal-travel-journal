@@ -3,8 +3,8 @@
     {
       "id": 1,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/800px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
-      "startDate": "2024-12-02",
-      "endDate": "2024-12-04",
+      "startDate": "2024-12-06",
+      "endDate": "2024-12-08",
       "rating": 0,
       "review": "",
       "photos": [],
@@ -17,12 +17,14 @@
     {
       "id": 2,
       "image": "https://idsb.tmgrup.com.tr/ly/uploads/images/2024/04/09/thumbs/800x531/323101.jpg",
-      "startDate": "2024-12-03",
+      "startDate": "2024-12-05",
       "endDate": "2024-12-04",
       "rating": 3,
       "review": "",
       "photos": [
-            ],
+        "https://res.cloudinary.com/djd2t7uvb/image/upload/v1733330783/b7jgd2szfb53buww4qic.jpg",
+        "https://res.cloudinary.com/djd2t7uvb/image/upload/v1733331894/h0rcybmqallsyhsbrsf7.jpg"
+      ],
       "location": "New York City",
       "attendees": [
         "Kelsey"
