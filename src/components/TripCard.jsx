@@ -2,6 +2,7 @@ import { useNavigate} from "react-router-dom";
 import { formatDate } from "../helper";
 import Attendees from "./Attendees";
 import styled from "styled-components";
+import { isPastDate } from "../helper";
 
 const StyledTripCard = styled.article`
     height: 300px;
@@ -63,11 +64,11 @@ const GlobeContainer = styled.div`
   justify-content: left;
 `
 
-const TripCard = ({id, image, location, description, startDate, endDate, attendees, complete, rating}) => {
+const TripCard = ({id, image, location, description, startDate, endDate, attendees, rating}) => {
     const navigate = useNavigate();
 
     function handleClick() {
-        complete ? navigate(`/review/${id}`) : navigate(`/itinerary/${id}`);
+        isPastDate(endDate) ? navigate(`/review/${id}`) : navigate(`/itinerary/${id}`);
     }
 
     const stars = {
@@ -81,7 +82,7 @@ const TripCard = ({id, image, location, description, startDate, endDate, attende
 
     let addlDetails
 
-    if (complete) {
+    if (isPastDate(endDate)) {
         addlDetails = 
             <p>
                 {`Rating: ${stars[rating]}`}
@@ -100,7 +101,7 @@ const TripCard = ({id, image, location, description, startDate, endDate, attende
                     <p>{`${formatDate(startDate)}-${formatDate(endDate)}`}</p>
                 </div>
                 <GlobeContainer>
-                    <p className={complete ? "globe" : "globe grayscale"}>🌍</p>
+                    <p className={isPastDate(endDate) ? "globe" : "globe grayscale"}>🌍</p>
                 </GlobeContainer>
             </TripInfo>
             <details>

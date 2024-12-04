@@ -138,4 +138,14 @@ function formatDate(dateString) {
   return `${month}/${day}/${year}`;
 }
 
-export {getJSONByKey, getJSONById, getEmbeddedJSON, getEmbeddedJSONById, postJSONToDb, patchJSONToDb, deleteJSONFromDb, getWeatherForecast, formatDate};
+function isPastDate(dateString) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const compareDate = new Date(dateString);
+  compareDate.setHours(0, 0, 0, 0);
+
+  return compareDate < today;
+}
+
+export {getJSONByKey, getJSONById, getEmbeddedJSON, getEmbeddedJSONById, postJSONToDb, patchJSONToDb, deleteJSONFromDb, getWeatherForecast, formatDate, isPastDate};
