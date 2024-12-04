@@ -49,3 +49,43 @@ button:hover {
   background-color: var(--navy);
   color: var(--gray);
 }
+
+/* Error Page Styles */
+.error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: var(--gray);
+  color: var(--navy);
+  text-align: center;
+  padding: 20px;
+}
+
+.error-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: var(--navy);
+}
+
+.error-message {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  max-width: 600px;
+}
+
+.error-button {
+  background-color: var(--green);
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: background-color 0.3s;
+}
+
+.error-button:hover {
+  background-color: var(--dark-green);
+}
