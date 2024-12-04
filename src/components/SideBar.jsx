@@ -53,7 +53,7 @@ const SideBar = ({filterInput, setFilterInput}) => {
         setFilterInput(prevFilter=>{
             return {
                 ...prevFilter,
-                ["rating"]: rating,
+                rating: rating,
             }
         });
     }
@@ -65,8 +65,8 @@ const SideBar = ({filterInput, setFilterInput}) => {
                 setFilterInput(prevFilter=>{
                     return {
                         ...prevFilter,
-                        ["complete"]: true,
-                        ["incomplete"]: true,
+                        complete: true,
+                        incomplete: true,
                     }
                 });
                 break;
@@ -74,8 +74,8 @@ const SideBar = ({filterInput, setFilterInput}) => {
                 setFilterInput(prevFilter=>{
                     return {
                         ...prevFilter,
-                        ["startDate"]: "",
-                        ["endDate"]: "",
+                        startDate: "",
+                        endDate: "",
                     }
                 });
                 break;
