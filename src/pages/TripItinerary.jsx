@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useOutletContext, useParams } from "react-router-dom";
 import { getEmbeddedJSONById, patchJSONToDb, postJSONToDb } from "../helper.js";
 import { StyledForm, IndivTripMain, StyledButton } from "../MiscStyling";
 import styled from "styled-components";
@@ -20,11 +20,9 @@ const AddPersonBtn = styled.button`
     background-color: var(--dark-green);
 `;
 
-// const .activities-list, .activity-item, .activity-input {
-//   margin: 10px 0;
-// }
-
 const TripItinerary = () => {
+  const {handleSaveTripEdits} = useOutletContext();
+
   const { id } = useParams();
   const [description, setDescription] = useState("");
   const [activities, setActivities] = useState([]);
@@ -56,8 +54,9 @@ const TripItinerary = () => {
 
   const handleSaveItinerary = async () => {
     try {
-      await patchJSONToDb("trips", id, { description, attendees });
+      await patchJSONToDb("trips", id, { startDate, endDate, description, attendees });
       console.log("Itinerary saved successfully!");
+      handleSaveTripEdits(id, { startDate, endDate, description, attendees });
     } catch (error) {
       console.error("Error saving itinerary:", error);
     }
@@ -130,7 +129,7 @@ const TripItinerary = () => {
           />
         </DescriptionLabel>
         <br />
-        <StyledButton className="save-button" onClick={handleSaveItinerary}>Save Itinerary</StyledButton>
+        <StyledButton type="button" onClick={handleSaveItinerary}>Save Itinerary</StyledButton>
       </StyledForm>  
       <hr />
       <StyledForm>               
@@ -165,7 +164,7 @@ const TripItinerary = () => {
           />
         </label>
         <br />
-        <StyledButton onClick={handleAddActivity}>Add Activity</StyledButton>
+        <StyledButton type="button" onClick={handleAddActivity}>Add Activity</StyledButton>
       </StyledForm>
     </IndivTripMain>
   );
