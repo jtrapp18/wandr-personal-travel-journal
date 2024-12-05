@@ -32,7 +32,7 @@ const TempMessage = styled.p`
 `
 
 function NewTrip() {
-  const {onAddTrip} = useOutletContext();
+  const {addTrip} = useOutletContext();
 
   const emptyObj = {
       image: "",
@@ -111,7 +111,7 @@ function NewTrip() {
       })
       .then(res=>res.json())
       .then(trip=>{
-        onAddTrip(trip);
+        addTrip(trip);
         setFormData(emptyObj);
         console.log("Added:", trip);
         showMessage(trip.location);

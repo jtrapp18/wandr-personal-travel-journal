@@ -19,11 +19,15 @@ const StyledTripCard = styled.article`
         cursor: pointer;
     }
 
-    h2 {
+    h2, .rating {
         position: absolute;
         background-color: rgba(0,0,0,.5);
         margin-left: 5px;
         color: white;
+    }
+
+    span {
+        top: 75%;
     }
 
     p.globe {
@@ -39,6 +43,8 @@ const StyledTripCard = styled.article`
 
     details p {
       color: var(--dark-green);
+      margin: 0;
+      padding: 0;
     }
 
     &:hover h2 {
@@ -51,6 +57,10 @@ const StyledTripCard = styled.article`
 
     &:has(details[open]) {
         padding-bottom: 75px;
+    }
+
+    &:has(details[open]) span {
+        top: 55%;
     }
 `
 
@@ -72,29 +82,18 @@ const TripCard = ({id, image, location, description, startDate, endDate, attende
     }
 
     const stars = {
-        0: "☆☆☆☆☆",
-        1: "★☆☆☆☆",
-        2: "★★☆☆☆",
-        3: "★★★☆☆",
-        4: "★★★★☆",
-        5: "★★★★★"
-    }
-
-    let addlDetails
-
-    if (isPastDate(endDate)) {
-        addlDetails = 
-            <p>
-                {`Rating: ${stars[rating]}`}
-            </p>
-    }
-    else {
-        addlDetails = null
+        0: "☆ ☆ ☆ ☆ ☆",
+        1: "★ ☆ ☆ ☆ ☆",
+        2: "★ ★ ☆ ☆ ☆",
+        3: "★ ★ ★ ☆ ☆",
+        4: "★ ★ ★ ★ ☆",
+        5: "★ ★ ★ ★ ★"
     }
 
     return (
         <StyledTripCard>
-            <h2>{location}</h2>
+            <h2>{location}</h2>    
+                {isPastDate(endDate) && <span className="rating">{stars[rating]}</span>}     
             <img src={image} alt={image} onClick={handleClick} />
             <TripInfo>
                 <div>
@@ -108,7 +107,6 @@ const TripCard = ({id, image, location, description, startDate, endDate, attende
                 <summary>Details</summary>
                 <p>{description}</p>
                 <Attendees attendees={attendees}/>
-                {addlDetails}
             </details>
         </StyledTripCard>
     );
