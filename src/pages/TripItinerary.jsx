@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from "react";
-<<<<<<< HEAD
-import { useParams } from "react-router-dom";
-import { getEmbeddedJSONById, patchJSONToDb, postJSONToDb } from "../helper.js";
-import { StyledForm, IndivTripMain, StyledButton } from "../MiscStyling";
-=======
 import { useOutletContext, useParams } from "react-router-dom";
 import { getEmbeddedJSONById, patchJSONToDb, postJSONToDb } from "../helper.js";
 import { StyledForm, IndivTripMain, StyledButton, TempMessage, AddPersonBtn } from "../MiscStyling";
->>>>>>> 513628d361cdf383b6fa2f109ce78de0bce17b23
 import styled from "styled-components";
 import { formatDate } from "../helper.js";
 import Attendees from "../components/Attendees.jsx";
@@ -16,30 +10,11 @@ const DescriptionLabel = styled.label`
   padding-bottom: 100px;
 `
 
-<<<<<<< HEAD
-const AddPersonBtn = styled.button`
-    position: absolute;
-    right: 0;
-    width: 30px;
-    top: 0;
-    margin: 0;
-    border: 2px solid black;
-    background-color: var(--dark-green);
-`;
-
-// const .activities-list, .activity-item, .activity-input {
-//   margin: 10px 0;
-// }
-
-const TripItinerary = () => {
-  const { id } = useParams();
-=======
 const TripItinerary = () => {
   const {handleSaveTripEdits} = useOutletContext();
 
   const { id } = useParams();
   const [tempMsg, setTempMsg] = useState("");
->>>>>>> 513628d361cdf383b6fa2f109ce78de0bce17b23
   const [description, setDescription] = useState("");
   const [activities, setActivities] = useState([]);
   const [newActivity, setNewActivity] = useState("");
@@ -70,15 +45,10 @@ const TripItinerary = () => {
 
   const handleSaveItinerary = async () => {
     try {
-<<<<<<< HEAD
-      await patchJSONToDb("trips", id, { description, attendees });
-      console.log("Itinerary saved successfully!");
-=======
       await patchJSONToDb("trips", id, { startDate, endDate, description, attendees });
       console.log("Itinerary saved successfully!");
       handleSaveTripEdits(id, { startDate, endDate, description, attendees });
       showMessage(trip.location);
->>>>>>> 513628d361cdf383b6fa2f109ce78de0bce17b23
     } catch (error) {
       console.error("Error saving itinerary:", error);
     }
@@ -104,8 +74,6 @@ const TripItinerary = () => {
     }
   };
 
-<<<<<<< HEAD
-=======
   const showMessage = (location) => {
     setTempMsg(`Changes to ${location} trip successfully saved`);
 
@@ -115,7 +83,6 @@ const TripItinerary = () => {
     }, 2000);
   };
 
->>>>>>> 513628d361cdf383b6fa2f109ce78de0bce17b23
   if (!trip) return <div>Loading...</div>;
 
   return (
@@ -163,14 +130,9 @@ const TripItinerary = () => {
           />
         </DescriptionLabel>
         <br />
-<<<<<<< HEAD
-        <StyledButton className="save-button" onClick={handleSaveItinerary}>Save Itinerary</StyledButton>
-      </StyledForm>  
-=======
         <StyledButton type="button" onClick={handleSaveItinerary}>Save Itinerary</StyledButton>
       </StyledForm>
       {tempMsg && <TempMessage>{tempMsg}</TempMessage>}
->>>>>>> 513628d361cdf383b6fa2f109ce78de0bce17b23
       <hr />
       <StyledForm>               
       <h2 className="activities-title">Activities</h2>
@@ -204,11 +166,7 @@ const TripItinerary = () => {
           />
         </label>
         <br />
-<<<<<<< HEAD
-        <StyledButton onClick={handleAddActivity}>Add Activity</StyledButton>
-=======
         <StyledButton type="button" onClick={handleAddActivity}>Add Activity</StyledButton>
->>>>>>> 513628d361cdf383b6fa2f109ce78de0bce17b23
       </StyledForm>
     </IndivTripMain>
   );
