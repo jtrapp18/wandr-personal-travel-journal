@@ -1,5 +1,5 @@
 
-import {useState, useEffect} from "react";
+import {useState} from "react";
 import SearchBar from "../components/SearchBar"
 import SideBar from "../components/SideBar";
 import TripCard from "../components/TripCard";

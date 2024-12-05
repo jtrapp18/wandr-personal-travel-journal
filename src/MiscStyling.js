@@ -111,4 +111,21 @@ const NextButton = styled.button`
     right: 10px;
 `
 
-export {ConditionalHighlight, HoverZoom, StyledNavLink, StyledForm, IndivTripMain, StyledButton, PrevButton, NextButton};
+const TempMessage = styled.p`
+  margin-top: 10px;
+  font-size: 20px;
+  color: var(--dark-green);
+  font-style: italic;
+`
+
+const AddPersonBtn = styled.button`
+    position: absolute;
+    right: 0;
+    width: 30px;
+    top: 0;
+    margin: 0;
+    border: 2px solid black;
+    background-color: var(--dark-green);
+`;
+
+export {ConditionalHighlight, HoverZoom, StyledNavLink, StyledForm, IndivTripMain, StyledButton, PrevButton, NextButton, TempMessage, AddPersonBtn};

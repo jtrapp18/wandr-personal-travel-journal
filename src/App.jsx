@@ -45,14 +45,14 @@ function App() {
           context={{
             trips,
             addTrip: (trip) => setTrips((prevTrips) => [...prevTrips, trip]),
-            handleSaveItinerary: (id, itinerary) => setTrips((prevTrips) =>
+            handleSaveTripEdits: (id, itinerary) => setTrips((prevTrips) =>
               prevTrips.map((trip) =>
-                trip.id === parseInt(id) ? { ...trip, itinerary } : trip
+                trip.id === parseInt(id) ? { ...trip, ...itinerary } : trip
               )
             ),
             handleSaveReview: (id, review) => setTrips((prevTrips) =>
               prevTrips.map((trip) =>
-                trip.id === parseInt(id) ? { ...trip, review } : trip
+                trip.id === parseInt(id) ? { ...trip, ...review } : trip
               )
             ),
             handleAddPhoto: (id, photo) => setTrips((prevTrips) =>

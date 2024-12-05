@@ -99,30 +99,14 @@ function deleteJSONFromDb(dbKey, Id) {
   .catch(e => console.error(e));
 }
 
-const apiKey = "BLbgpm4rGVFKAlK5lBvZ0ROthNRuGYb0"
-
 function getWeatherForecast(locationSearch) {
   const locSearchRev = locationSearch.replace(/ /g, "%20");
-  const url = `http://dataservice.accuweather.com/locations/v1/cities/search?q=${locSearchRev}&apikey=${apiKey}`
-  console.log(url)
 
-  return fetch(url)
-  .then(res => {
+  // Make the API call to your Lambda (via API Gateway)
+  return fetch(`https://ieqgd271i6.execute-api.us-east-1.amazonaws.com/prod/weather?location=${locSearchRev}`)
+    .then(res => {
       if (!res.ok) {
-        throw new Error(`HTTP error finding location code! Status: ${res.status}`);
-      }
-      return res.json();
-    })
-    .then(data=>getForecastByLocKey(data[0].Key))
-}
-
-function getForecastByLocKey(locationKey) {
-  const url = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${apiKey}`;
-
-  return fetch(url)
-  .then(res => {
-      if (!res.ok) {
-        throw new Error(`HTTP error loading forecast! Status: ${res.status}`);
+        throw new Error(`Error fetching forecast! Status: ${res.status}`);
       }
       return res.json();
     })
