@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Attendees from "../components/Attendees";
 import styled from "styled-components";
-import { IndivTripMain, StyledForm, StyledButton } from "../MiscStyling";
+import { IndivTripMain, StyledForm, StyledButton, TempMessage, AddPersonBtn } from "../MiscStyling";
 import { useOutletContext } from "react-router-dom";
 
 const StyledMark = styled.mark`
@@ -11,28 +11,12 @@ const StyledMark = styled.mark`
     width: 100%;
 `
 
-const AddPersonBtn = styled.button`
-    position: absolute;
-    right: 0;
-    width: 30px;
-    top: 0;
-    margin: 0;
-    border: 2px solid black;
-    background-color: var(--dark-green);
-`;
-
 const DescriptionLabel = styled.label`
   padding-bottom: 100px;
 `
 
-const TempMessage = styled.p`
-  font-size: 25px;
-  color: var(--dark-green);
-  font-style: italic;
-`
-
 function NewTrip() {
-  const {onAddTrip} = useOutletContext();
+  const {addTrip} = useOutletContext();
 
   const emptyObj = {
       image: "",
@@ -111,7 +95,7 @@ function NewTrip() {
       })
       .then(res=>res.json())
       .then(trip=>{
-        onAddTrip(trip);
+        addTrip(trip);
         setFormData(emptyObj);
         console.log("Added:", trip);
         showMessage(trip.location);
