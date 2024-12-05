@@ -1,6 +1,6 @@
-Wandr: Virtual Travel Diary
+Welcome to Wandr! Your Virtual Travel Journal
 
-![Wandr App Preview](image.png)
+![Wandr Website Preview](public/images/demoImages/mainpage.gif)
 
 A React-based application designed to document your travels, build itineraries for bucket list destinations, leave reviews and photos, and track visited places.
 
@@ -12,7 +12,6 @@ Table of Contents
 	•	Usage
 	•	Future Enhancements
 	•	Contributors
-	•	License
 
 Features
 
@@ -71,7 +70,6 @@ Usage
 
 Future Enhancements
 
-	•	Backend Integration: Connect to a real database for persistent data storage.
 	•	Improved Authentication: Add password encryption and user management.
 	•	Mobile Responsiveness: Optimize the app for mobile devices.
 	•	Social Features: Allow users to share itineraries and reviews.
@@ -81,9 +79,17 @@ Contributors
 	•	Jacqueline Trapp
     •	Kelsey Roche
     
+Plan Your Itinerary:
+![Itinerary Preview](public/images/demoImages/itineraryPreview.png)
 
-License
+Leave Reviews/ Upload Photos:
+![Review Preview](public/images/demoImages/reviewPreview.png)
 
-This project is licensed under the MIT License.
+Add To Bucket List:
+![Add to Bucket List Preview](public/images/demoImages/addToBucketListPreview.png)
+
+
+
+This project was created as a group project at the Flatiron School.
 
 Feel free to customize further based on your specific implementation and goals!
