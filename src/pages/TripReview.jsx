@@ -35,8 +35,8 @@ const TripReview = () => {
   const trip = trips.find((trip) => trip.id === parseInt(id)); 
 
   const [review, setReview] = useState({
-    title: "",
-    description: trip.review,
+    reviewTitle: trip.reviewTitle,
+    reviewDescr: trip.reviewDescr,
     rating: trip.rating,
   });
 
@@ -76,8 +76,9 @@ const TripReview = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          reviewTitle: reviewData.reviewTitle,
           rating: reviewData.rating,
-          review: reviewData.description,
+          reviewDescr: reviewData.reviewDescr,
         }),
       });
 
@@ -103,8 +104,8 @@ const TripReview = () => {
       {isSubmitted ? (
         <SubmittedReview>
           <h2>Review Submitted!</h2>
-          <p>{`Title: ${review.title}`}</p>
-          <p>{`Description: ${review.description}`}</p>
+          <p>{`Title: ${review.reviewTitle}`}</p>
+          <p>{`Description: ${review.reviewDescr}`}</p>
           <p>{`Rating: ${review.rating}/5`}</p>
         </SubmittedReview>
       ) : (
@@ -113,8 +114,8 @@ const TripReview = () => {
             Review Title:
             <input
               type="text"
-              name="title"
-              value={review.title}
+              name="reviewTitle"
+              value={review.reviewTitle}
               onChange={handleChange}
               placeholder="Enter a title for your review"
               required
@@ -124,8 +125,8 @@ const TripReview = () => {
           <DescriptionLabel>
             Description:
             <textarea
-              name="description"
-              value={review.description}
+              name="reviewDescr"
+              value={review.reviewDescr}
               onChange={handleChange}
               placeholder="How was your trip?"
               required
