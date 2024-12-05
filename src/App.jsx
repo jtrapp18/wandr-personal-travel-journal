@@ -52,7 +52,7 @@ function App() {
             ),
             handleSaveReview: (id, review) => setTrips((prevTrips) =>
               prevTrips.map((trip) =>
-                trip.id === parseInt(id) ? { ...trip, review } : trip
+                trip.id == parseInt(id) ? { ...trip, ...review } : trip
               )
             ),
             handleAddPhoto: (id, photo) => setTrips((prevTrips) =>
