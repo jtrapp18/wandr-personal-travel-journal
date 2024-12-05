@@ -106,10 +106,15 @@ function getWeatherForecast(locationSearch) {
   return fetch(`https://ieqgd271i6.execute-api.us-east-1.amazonaws.com/prod/weather?location=${locSearchRev}`)
     .then(res => {
       if (!res.ok) {
-        throw new Error(`Error fetching forecast! Status: ${res.status}`);
+        console.error(`Error fetching forecast! Status: ${res.status}`);
+        // throw new Error(`Error fetching forecast! Status: ${res.status}`);
       }
       return res.json();
     })
+    .catch(err => {
+      console.error('Request failed', err);
+      // You can handle further error logic here if needed
+    });
 }
 
 function formatDate(dateString) {

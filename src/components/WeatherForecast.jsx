@@ -43,18 +43,18 @@ const WeatherForecast = ({location}) => {
                 } else {
                     console.error("Daily Forecast data is not available at this time");
                     setFiveDayForecast([]); // Set an empty forecast to avoid breaking the app
-                    setForecastError("Daily Forecast data is not available at this time");
+                    setForecastError("");
                 }
             })
             .catch(error => {
                 console.error("Failed to fetch weather data:", error);
                 setFiveDayForecast([]); // Handle API failure by setting an empty array
-                setForecastError("Not able to load forecast at this time");
+                setForecastError("");
             });
     }, [location]);
 
     if (forecastError!=="") return <p>{forecastError}</p>
-    if (fiveDayForecast.length===0) return <p>Loading forecast...</p>
+    if (fiveDayForecast.length===0) return <p></p>
 
     return (
         <ForecastContainer>

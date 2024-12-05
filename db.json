@@ -35,7 +35,8 @@
       "attendees": [
         "Kelsey",
         "Jacqueline",
-        "Lantz"
+        "Lantz",
+        "Stuart"
       ],
       "description": "Going to broadway shows and shopping!",
       "complete": true,
@@ -102,7 +103,11 @@
       "startDate": "2024-11-30",
       "endDate": "2024-12-04",
       "location": "Costa Rica",
-      "attendees": ["Lantz", "Kelsey", "Jacqueline"],
+      "attendees": [
+        "Lantz",
+        "Kelsey",
+        "Jacqueline"
+      ],
       "description": "visit the jungle",
       "reviewTitle": "Relaxing trip",
       "rating": 4,
@@ -274,11 +279,46 @@
         "Jacqueline"
       ],
       "description": "Hiking in the beautiful fall foliage! Cat friendly!",
+      "rating": 5,
+      "review": "",
+      "photos": [
+        "https://res.cloudinary.com/djd2t7uvb/image/upload/v1733426938/dnv7leyjx7obup82pkqj.jpg"
+      ],
+      "complete": true,
+      "id": 21,
+      "reviewTitle": "Had a great time",
+      "reviewDescr": "Got to hang out with my cats and it was wonderful, the foliage was beautiful"
+    },
+    {
+      "image": "https://i.natgeofe.com/k/f9900e65-609e-4f60-86db-04d3df135eb8/greece-island_3x2.jpg",
+      "startDate": "2025-01-01",
+      "endDate": "2025-01-11",
+      "location": "Greece",
+      "attendees": [
+        "Kelsey"
+      ],
+      "description": "Swimming and eat seafood",
       "rating": 0,
       "review": "",
       "photos": [],
-      "complete": true,
-      "id": 21
+      "complete": false,
+      "id": 22
+    },
+    {
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Saint_Basil%27s_Cathedral_and_the_Red_Square.jpg/800px-Saint_Basil%27s_Cathedral_and_the_Red_Square.jpg",
+      "startDate": "2024-12-06",
+      "endDate": "2024-12-20",
+      "location": "Moscow",
+      "attendees": [
+        "Gregory",
+        "Stuart"
+      ],
+      "description": "Protest",
+      "rating": 0,
+      "review": "",
+      "photos": [],
+      "complete": false,
+      "id": 23
     }
   ],
   "activities": [
@@ -397,6 +437,18 @@
       "activity": "Explore the Vatican Museums",
       "date": "2024-12-25",
       "id": 19
+    },
+    {
+      "tripId": 2,
+      "activity": "See Christmas Tree",
+      "date": "2024-12-07",
+      "id": 20
+    },
+    {
+      "tripId": 2,
+      "activity": "See basketball game",
+      "date": "2024-12-07",
+      "id": 21
     }
   ]
 }
