@@ -8,11 +8,6 @@
       "reviewTitle": "Best trip ever",
       "rating": 4,
       "reviewDescr": "Amazing food, sites, people. Everything was perfect!",
-      "startDate": "2024-11-01",
-      "endDate": "2024-12-03",
-      "reviewTitle": "Best trip ever",
-      "rating": 4,
-      "reviewDescr": "Amazing food, sites, people. Everything was perfect!",
       "photos": [],
       "location": "Paris",
       "attendees": [
@@ -30,11 +25,7 @@
       "startDate": "2024-12-06",
       "endDate": "2024-12-20",
       "reviewTitle": "",
-      "startDate": "2024-12-06",
-      "endDate": "2024-12-20",
-      "reviewTitle": "",
       "rating": 3,
-      "reviewDescr": "",
       "reviewDescr": "",
       "photos": [
         "https://res.cloudinary.com/djd2t7uvb/image/upload/v1733330783/b7jgd2szfb53buww4qic.jpg",
@@ -45,11 +36,7 @@
         "Kelsey",
         "Jacqueline",
         "Lantz"
-        "Kelsey",
-        "Jacqueline",
-        "Lantz"
       ],
-      "description": "Going to broadway shows and shopping!",
       "description": "Going to broadway shows and shopping!",
       "complete": true,
       "itinerary": ""
@@ -62,9 +49,7 @@
       "attendees": [],
       "description": "Visit Sydney Australia with friends for fun!",
       "reviewTitle": "",
-      "reviewTitle": "",
       "rating": 0,
-      "reviewDescr": "",
       "reviewDescr": "",
       "photos": [],
       "complete": false,
@@ -78,9 +63,7 @@
       "attendees": [],
       "description": "Going to Iceland to tour",
       "reviewTitle": "",
-      "reviewTitle": "",
       "rating": 0,
-      "reviewDescr": "",
       "reviewDescr": "",
       "photos": [],
       "complete": false,
@@ -94,9 +77,7 @@
       "attendees": [],
       "description": "Site seeing",
       "reviewTitle": "",
-      "reviewTitle": "",
       "rating": 0,
-      "reviewDescr": "",
       "reviewDescr": "",
       "photos": [],
       "complete": false,
@@ -110,9 +91,7 @@
       "attendees": [],
       "description": "visit various temples and gardens",
       "reviewTitle": "",
-      "reviewTitle": "",
       "rating": 0,
-      "reviewDescr": "",
       "reviewDescr": "",
       "photos": [],
       "complete": false,
@@ -124,9 +103,7 @@
       "startDate": "2024-11-30",
       "endDate": "2024-12-04",
       "reviewTitle": "",
-      "reviewTitle": "",
       "rating": 5,
-      "reviewDescr": {
       "reviewDescr": {
         "title": "Great trip!",
         "description": "Had a wonderful time visiting family!",
@@ -143,18 +120,13 @@
     },
     {
       "image": "https://explorerspassage.com/wp-content/uploads/2023/03/costa-rica-beach-Cahuita-National-Park.jpg",
-      "image": "https://explorerspassage.com/wp-content/uploads/2023/03/costa-rica-beach-Cahuita-National-Park.jpg",
       "startDate": "2024-12-08",
       "endDate": "2024-12-14",
       "location": "Costa Rica",
       "attendees": [],
       "description": "visit the jungle",
       "reviewTitle": "",
-      "attendees": [],
-      "description": "visit the jungle",
-      "reviewTitle": "",
       "rating": 0,
-      "reviewDescr": "",
       "reviewDescr": "",
       "photos": [],
       "complete": false,
@@ -165,22 +137,13 @@
       "startDate": "2024-12-16",
       "endDate": "2024-12-27",
       "location": "Saint Thomas",
-      "image": "https://www.travelandleisure.com/thmb/mi8zsDSM8k-IeRUy9DFN-V5Aqcg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/coki-point-STTOM0722-c9956da41adc4ce78ee0f9ceb350f1a1.jpg",
-      "startDate": "2024-12-16",
-      "endDate": "2024-12-27",
-      "location": "Saint Thomas",
       "attendees": [
-        "Jacqueline",
-        "Jessie"
         "Jacqueline",
         "Jessie"
       ],
       "description": "Scuba diving",
       "reviewTitle": "",
-      "description": "Scuba diving",
-      "reviewTitle": "",
       "rating": 0,
-      "reviewDescr": "",
       "reviewDescr": "",
       "photos": [],
       "complete": false,
@@ -234,7 +197,10 @@
       "startDate": "2025-03-05",
       "endDate": "2025-03-15",
       "location": "Barcelona",
-      "attendees": ["Sophie", "Derek"],
+      "attendees": [
+        "Sophie",
+        "Derek"
+      ],
       "description": "Explore Gaudi’s architecture and enjoy tapas.",
       "reviewTitle": "",
       "rating": 0,
@@ -248,7 +214,9 @@
       "startDate": "2025-06-01",
       "endDate": "2025-06-07",
       "location": "San Francisco",
-      "attendees": ["Amanda"],
+      "attendees": [
+        "Amanda"
+      ],
       "description": "Ride a cable car and visit Alcatraz.",
       "reviewTitle": "",
       "rating": 0,
@@ -262,7 +230,10 @@
       "startDate": "2024-12-15",
       "endDate": "2024-12-25",
       "location": "Bora Bora",
-      "attendees": ["Megan", "Lucas"],
+      "attendees": [
+        "Megan",
+        "Lucas"
+      ],
       "description": "Relax at a luxury resort in an overwater bungalow.",
       "reviewTitle": "",
       "rating": 0,
@@ -290,7 +261,10 @@
       "startDate": "2024-11-25",
       "endDate": "2024-11-30",
       "location": "Dubai",
-      "attendees": ["Olivia", "James"],
+      "attendees": [
+        "Olivia",
+        "James"
+      ],
       "description": "Visit the Burj Khalifa and desert safari.",
       "reviewTitle": "",
       "rating": 0,
@@ -311,6 +285,21 @@
       "reviewDescr": "",
       "photos": [],
       "complete": false
+    },
+    {
+      "image": "https://bearfoottheory.com/wp-content/uploads/2021/09/Artists-Bluff-New-Hampshire-fall.jpeg",
+      "startDate": "2024-10-13",
+      "endDate": "2024-10-19",
+      "location": "New Hampshire",
+      "attendees": [
+        "Jacqueline"
+      ],
+      "description": "Hiking in the beautiful fall foliage! Cat friendly!",
+      "rating": 0,
+      "review": "",
+      "photos": [],
+      "complete": true,
+      "id": 21
     }
   ],
   "activities": [
@@ -324,7 +313,7 @@
     },
     {
       "tripId": 1,
-      "activity": "See the Eiffel tower",
+      "activity": "See the Eiffel Tower",
       "date": "2024-12-07",
       "id": 2
     },
@@ -336,7 +325,7 @@
     },
     {
       "tripId": 1,
-      "activity": "See the louvre",
+      "activity": "See the Louvre",
       "date": "2024-12-07",
       "id": 4
     },
@@ -357,6 +346,78 @@
       "activity": "Shopping",
       "date": "2024-12-07",
       "id": 7
+    },
+    {
+      "tripId": 5,
+      "activity": "Climb the Sydney Harbour Bridge",
+      "date": "2024-12-10",
+      "id": 8
+    },
+    {
+      "tripId": 5,
+      "activity": "Visit the Sydney Opera House",
+      "date": "2024-12-12",
+      "id": 9
+    },
+    {
+      "tripId": 6,
+      "activity": "Relax in the Blue Lagoon",
+      "date": "2025-01-03",
+      "id": 10
+    },
+    {
+      "tripId": 6,
+      "activity": "Visit Hallgrimskirkja",
+      "date": "2025-01-04",
+      "id": 11
+    },
+    {
+      "tripId": 7,
+      "activity": "Tour the Acropolis",
+      "date": "2025-04-05",
+      "id": 12
+    },
+    {
+      "tripId": 8,
+      "activity": "Explore the Meiji Shrine",
+      "date": "2025-05-03",
+      "id": 13
+    },
+    {
+      "tripId": 8,
+      "activity": "Stroll through Shinjuku Gyoen National Garden",
+      "date": "2025-05-04",
+      "id": 14
+    },
+    {
+      "tripId": 10,
+      "activity": "Hike through Manuel Antonio National Park",
+      "date": "2024-12-10",
+      "id": 15
+    },
+    {
+      "tripId": 10,
+      "activity": "Relax at Playa Flamingo",
+      "date": "2024-12-12",
+      "id": 16
+    },
+    {
+      "tripId": 11,
+      "activity": "Scuba dive at Coki Point Beach",
+      "date": "2024-12-17",
+      "id": 17
+    },
+    {
+      "tripId": 13,
+      "activity": "Visit the Colosseum",
+      "date": "2024-12-23",
+      "id": 18
+    },
+    {
+      "tripId": 13,
+      "activity": "Explore the Vatican Museums",
+      "date": "2024-12-25",
+      "id": 19
     }
   ]
 }
