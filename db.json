@@ -23,7 +23,7 @@
       "id": 2,
       "image": "https://idsb.tmgrup.com.tr/ly/uploads/images/2024/04/09/thumbs/800x531/323101.jpg",
       "startDate": "2024-12-05",
-      "endDate": "2024-12-06",
+      "endDate": "2024-12-19",
       "reviewTitle": "",
       "rating": 3,
       "reviewDescr": "",
@@ -33,9 +33,11 @@
       ],
       "location": "New York City",
       "attendees": [
-        "Kelsey"
+        "Kelsey",
+        "Jacqueline",
+        "Lantz"
       ],
-      "description": "Touring the city with friends and family",
+      "description": "Going to broadway shows and shopping!",
       "complete": true,
       "itinerary": ""
     },
@@ -174,6 +176,24 @@
       "activity": "See the louvre",
       "date": "2024-12-07",
       "id": 4
+    },
+    {
+      "tripId": 2,
+      "activity": "Broadway",
+      "date": "2024-12-06",
+      "id": 5
+    },
+    {
+      "tripId": 2,
+      "activity": "Sushi",
+      "date": "2024-12-06",
+      "id": 6
+    },
+    {
+      "tripId": 2,
+      "activity": "Shopping",
+      "date": "2024-12-07",
+      "id": 7
     }
   ],
   "uploadFiles": []
