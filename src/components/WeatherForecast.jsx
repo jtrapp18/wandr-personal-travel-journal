@@ -22,8 +22,11 @@ const WeatherForecast = ({location}) => {
     }
 
     useEffect(()=> {
+        console.log("getting weather for ", location);
+
         getWeatherForecast(location)
         .then(data => {
+            console.log(data)
             const weatherArr = data.DailyForecasts.map(day=> ({
                     date: formatDate(day.Date),
                     tempMin: day.Temperature.Minimum.Value,

@@ -111,14 +111,14 @@ const SideBar = ({filterInput, setFilterInput}) => {
             </label>
             <ClearFilter onClick={()=>clearFilter("status")}>clear status filter</ClearFilter>
             <h3>Dates</h3>
-            <label for="startDate">Start Date</label>
+            <label htmlFor="startDate">Start Date</label>
             <input
                 value={filterInput.startDate}
                 type="date"
                 name="startDate"
                 onChange={handleChange}
             />
-            <label for="endDate">End Date</label>
+            <label htmlFor="endDate">End Date</label>
             <input
                 value={filterInput.endDate}
                 type="date"

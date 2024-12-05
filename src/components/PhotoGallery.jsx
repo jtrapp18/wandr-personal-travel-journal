@@ -42,7 +42,7 @@ const PhotoGallery = ({photos}) => {
         return () => {
             window.removeEventListener("keydown", handleKeyDown);
         };
-    }, []);
+    }, [prevImage, nextImage]);
 
     return (
         <TripPhotoContainer>
