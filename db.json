@@ -98,36 +98,15 @@
       "id": 8
     },
     {
-      "id": 4,
-      "image": "https://idsb.tmgrup.com.tr/ly/uploads/images/2024/04/09/thumbs/800x531/323101.jpg",
+      "image": "https://explorerspassage.com/wp-content/uploads/2023/03/costa-rica-beach-Cahuita-National-Park.jpg",
       "startDate": "2024-11-30",
       "endDate": "2024-12-04",
-      "reviewTitle": "",
-      "rating": 5,
-      "reviewDescr": {
-        "title": "Great trip!",
-        "description": "Had a wonderful time visiting family!",
-        "rating": 4
-      },
-      "photos": [
-        "https://res.cloudinary.com/djd2t7uvb/image/upload/v1733350370/gtihpwkqidhkp4x9u1tr.jpg"
-      ],
-      "location": "New York City",
-      "attendees": [],
-      "description": "",
-      "complete": true,
-      "itinerary": ""
-    },
-    {
-      "image": "https://explorerspassage.com/wp-content/uploads/2023/03/costa-rica-beach-Cahuita-National-Park.jpg",
-      "startDate": "2024-12-08",
-      "endDate": "2024-12-14",
       "location": "Costa Rica",
-      "attendees": [],
+      "attendees": ["Lantz", "Kelsey", "Jacqueline"],
       "description": "visit the jungle",
-      "reviewTitle": "",
-      "rating": 0,
-      "reviewDescr": "",
+      "reviewTitle": "Relaxing trip",
+      "rating": 4,
+      "reviewDescr": "Really nice time visiting the jungle",
       "photos": [],
       "complete": false,
       "id": 10

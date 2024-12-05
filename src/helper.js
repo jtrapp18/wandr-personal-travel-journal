@@ -113,7 +113,14 @@ function getWeatherForecast(locationSearch) {
 }
 
 function formatDate(dateString) {
-  const date = new Date(dateString);
+  let date;
+  
+  // Handle ISO 8601 format correctly
+  if (dateString.includes('T')) {
+    date = new Date(dateString); // Handles both '2025-02-15T00:00:00Z' and similar formats
+  } else {
+    date = new Date(dateString.replace(/-/g, '/')); // For simple '2025-02-15' format
+  }
 
   const day = date.getDate();
   const month = date.getMonth() + 1;
@@ -121,6 +128,7 @@ function formatDate(dateString) {
 
   return `${month}/${day}/${year}`;
 }
+
 
 function isPastDate(dateString) {
   const today = new Date();
