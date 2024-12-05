@@ -22,38 +22,27 @@ const WeatherForecast = ({location}) => {
         return `images/weather_icons_by_id/${numFmt}.png`
     }
 
-    useEffect(() => {
-        console.log("Getting weather for", location);
-    
-        getWeatherForecast(location)
-            .then(data => {
-                if (data?.DailyForecasts) {
-                    const weatherArr = data.DailyForecasts.map(day => ({
-                        date: formatDate(day.Date),
-                        tempMin: day.Temperature.Minimum.Value,
-                        tempMax: day.Temperature.Maximum.Value,
-                        iconDay: findIcon(day.Day.Icon),
-                        descrDay: day.Day.IconPhrase,
-                        iconNight: findIcon(day.Night.Icon),
-                        descrNight: day.Night.IconPhrase, 
-                    }));
-    
-                    console.log(weatherArr);
-                    setFiveDayForecast(weatherArr);
-                } else {
-                    console.error("Daily Forecast data is not available at this time");
-                    setFiveDayForecast([]); // Set an empty forecast to avoid breaking the app
-                    setForecastError("Daily Forecast data is not available at this time");
-                }
-            })
-            .catch(error => {
-                console.error("Failed to fetch weather data:", error);
-                setFiveDayForecast([]); // Handle API failure by setting an empty array
-                setForecastError("Not able to load forecast at this time");
-            });
-    }, [location]);
+    useEffect(()=> {
+        console.log("getting weather for ", location);
 
-    if (forecastError!=="") return <p>{forecastError}</p>
+        getWeatherForecast(location)
+        .then(data => {
+            console.log(data)
+            const weatherArr = data.DailyForecasts.map(day=> ({
+                    date: formatDate(day.Date),
+                    tempMin: day.Temperature.Minimum.Value,
+                    tempMax: day.Temperature.Maximum.Value,
+                    iconDay: findIcon(day.Day.Icon),
+                    descrDay: day.Day.IconPhrase,
+                    iconNight: findIcon(day.Night.Icon),
+                    descrNight: day.Night.IconPhrase, 
+                }));
+
+            console.log(weatherArr);
+            setFiveDayForecast(weatherArr);
+        })
+    }, [location])
+
     if (fiveDayForecast.length===0) return <p>Loading forecast...</p>
 
     return (
