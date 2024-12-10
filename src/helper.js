@@ -1,42 +1,28 @@
 //****************************************************************************************************
 // JSON-server CRUD functionality
 
-function getJSONByKey(dbKey) {
+const baseURL = 'https://wandr-personal-travel-journal-be-production.up.railway.app';
 
-    return fetch(`http://localhost:6001/${dbKey}`)
+function getJSONByUserId(userId) {
+
+  // Make the API call to your Lambda (via API Gateway)
+  return fetch(`${baseURL}/trips?userId=${userId}`)
     .then(res => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! Status: ${res.status}`);
-        }
-        return res.json();
-      })
+      if (!res.ok) {
+        console.error(`Error fetching user information! Status: ${res.status}`);
+        // throw new Error(`Error fetching forecast! Status: ${res.status}`);
+      }
+      return res.json();
+    })
+    .catch(err => {
+      console.error('Request failed', err);
+      // You can handle further error logic here if needed
+    });
 }
 
-function getJSONById(dbKey, Id) {
+function getActivitiesByTripId(tripId) {
 
-    return fetch(`http://localhost:6001/${dbKey}/${Id}`)
-    .then(res => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! Status: ${res.status}`);
-        }
-        return res.json();
-      })
-}
-
-function getEmbeddedJSON(baseKey, embeddedKey) {
-
-    return fetch(`http://localhost:6001/${baseKey}?_embed=${embeddedKey}`)
-    .then(res => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! Status: ${res.status}`);
-        }
-        return res.json();
-      })
-}
-
-function getEmbeddedJSONById(baseKey, baseId, embeddedKey) {
-
-    return fetch(`http://localhost:6001/${baseKey}/${baseId}?_embed=${embeddedKey}`)
+  return fetch(`${baseURL}/activities?tripId=${tripId}`)
     .then(res => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
@@ -47,12 +33,14 @@ function getEmbeddedJSONById(baseKey, baseId, embeddedKey) {
 
 function postJSONToDb(dbKey, jsonObj) {
 
-    return fetch(`http://localhost:6001/${dbKey}`, {
+    const snake_object = camelToSnake(jsonObj);
+
+    return fetch(`${baseURL}/new/${dbKey}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(jsonObj)
+        body: JSON.stringify(snake_object)
         })
         .then(res => {
             if (!res.ok) {
@@ -64,12 +52,14 @@ function postJSONToDb(dbKey, jsonObj) {
 
 function patchJSONToDb(dbKey, Id, jsonObj) {
 
-    fetch(`http://localhost:6001/${dbKey}/${Id}`, {
+    const snake_object = camelToSnake(jsonObj);
+
+    fetch(`${baseURL}/update/${dbKey}/${Id}`, {
     method: 'PATCH',
     headers: {
         'Content-Type': 'application/json'
     },
-    body: JSON.stringify(jsonObj)
+    body: JSON.stringify(snake_object)
     })
     .then(res => {
       if (!res.ok) {
@@ -145,4 +135,38 @@ function isPastDate(dateString) {
   return compareDate < today;
 }
 
-export {getJSONByKey, getJSONById, getEmbeddedJSON, getEmbeddedJSONById, postJSONToDb, patchJSONToDb, deleteJSONFromDb, getWeatherForecast, formatDate, isPastDate};
+// Utility to convert snake_case to camelCase
+const snakeToCamel = (obj) => {
+  if (Array.isArray(obj)) {
+    return obj.map(snakeToCamel);
+  }
+
+  if (obj && typeof obj === 'object') {
+    return Object.keys(obj).reduce((result, key) => {
+      const camelCaseKey = key.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase());
+      result[camelCaseKey] = snakeToCamel(obj[key]);
+      return result;
+    }, {});
+  }
+
+  return obj;
+};
+
+// Utility to convert camelCase to snake_case
+const camelToSnake = (obj) => {
+  if (Array.isArray(obj)) {
+    return obj.map(camelToSnake);
+  }
+
+  if (obj && typeof obj === 'object') {
+    return Object.keys(obj).reduce((result, key) => {
+      const snakeCaseKey = key.replace(/([A-Z])/g, '_$1').toLowerCase();
+      result[snakeCaseKey] = camelToSnake(obj[key]);
+      return result;
+    }, {});
+  }
+
+  return obj;
+};
+
+export {getJSONByUserId, getActivitiesByTripId, postJSONToDb, patchJSONToDb, deleteJSONFromDb, getWeatherForecast, formatDate, isPastDate, snakeToCamel};

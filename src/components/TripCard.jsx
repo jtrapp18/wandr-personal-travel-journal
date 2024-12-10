@@ -74,7 +74,7 @@ const GlobeContainer = styled.div`
   justify-content: left;
 `
 
-const TripCard = ({id, image, location, description, startDate, endDate, attendees, rating}) => {
+const TripCard = ({id, image, tripLocation, tripDescription, startDate, endDate, attendees, rating}) => {
     const navigate = useNavigate();
 
     function handleClick() {
@@ -92,7 +92,7 @@ const TripCard = ({id, image, location, description, startDate, endDate, attende
 
     return (
         <StyledTripCard>
-            <h2>{location}</h2>    
+            <h2>{tripLocation}</h2>    
                 {isPastDate(endDate) && <span className="rating">{stars[rating]}</span>}     
             <img src={image} alt={image} onClick={handleClick} />
             <TripInfo>
@@ -105,7 +105,7 @@ const TripCard = ({id, image, location, description, startDate, endDate, attende
             </TripInfo>
             <details>
                 <summary>Details</summary>
-                <p>{description}</p>
+                <p>{tripDescription}</p>
                 <Attendees attendees={attendees}/>
             </details>
         </StyledTripCard>

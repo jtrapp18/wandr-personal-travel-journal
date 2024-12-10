@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useOutletContext, useParams } from "react-router-dom";
-import { getEmbeddedJSONById, patchJSONToDb, postJSONToDb } from "../helper.js";
+import { getActivitiesByTripId, patchJSONToDb, postJSONToDb } from "../helper.js";
 import { StyledForm, IndivTripMain, StyledButton, TempMessage, AddPersonBtn } from "../MiscStyling";
 import styled from "styled-components";
 import { formatDate } from "../helper.js";
@@ -14,8 +14,11 @@ const TripItinerary = () => {
   const {handleSaveTripEdits} = useOutletContext();
 
   const { id } = useParams();
+  const {trips} = useOutletContext();
+  const data = trips.find((trip) => trip.id === parseInt(id));
+
   const [tempMsg, setTempMsg] = useState("");
-  const [description, setDescription] = useState("");
+  const [tripDescription, setDescription] = useState("");
   const [activities, setActivities] = useState([]);
   const [newActivity, setNewActivity] = useState("");
   const [newActivityDate, setNewActivityDate] = useState(""); // New state for activity date
@@ -26,29 +29,38 @@ const TripItinerary = () => {
   const [attendee, setAttendee] = useState("");
 
   useEffect(() => {
+    
+    setTrip(data);
+    setDescription(data.tripDescription || "");
+    setAttendees(data.attendees || "");        
+    setActivities(data.activities || []);
+    setStartDate(data.startDate || "");
+    setEndDate(data.endDate || "");
+
     const fetchTripWithActivities = async () => {
       try {
-        const data = await getEmbeddedJSONById("trips", id, "activities");
-        setTrip(data);
-        setDescription(data.description || "");
-        setAttendees(data.attendees || "");        
-        setActivities(data.activities || []);
-        setStartDate(data.startDate || "");
-        setEndDate(data.endDate || "");
+        const activities = await getActivitiesByTripId(id);
+     
+        setActivities(activities || []);
+
       } catch (error) {
         console.error("Error fetching trip with activities:", error);
       }
     };
 
     fetchTripWithActivities();
-  }, [id]);
+  }, [data, id]);
 
   const handleSaveItinerary = async () => {
     try {
-      await patchJSONToDb("trips", id, { startDate, endDate, description, attendees });
+      await patchJSONToDb("trips", id, { startDate, endDate, tripDescription });
       console.log("Itinerary saved successfully!");
-      handleSaveTripEdits(id, { startDate, endDate, description, attendees });
-      showMessage(trip.location);
+
+      // await postJSONToDb("attendees", { attendees });
+      // console.log("Itinerary saved successfully!");
+
+      handleSaveTripEdits(id, { startDate, endDate, tripDescription, attendees });
+      showMessage(trip.tripLocation);
     } catch (error) {
       console.error("Error saving itinerary:", error);
     }
@@ -63,7 +75,7 @@ const TripItinerary = () => {
       const newActivityObj = {
         tripId: parseInt(id),
         activity: newActivity,
-        date: newActivityDate, // Include date in new activity
+        activityDate: newActivityDate, // Include date in new activity
       };
       const activity = await postJSONToDb("activities", newActivityObj);
       setActivities((prev) => [...prev, activity]);
@@ -74,8 +86,8 @@ const TripItinerary = () => {
     }
   };
 
-  const showMessage = (location) => {
-    setTempMsg(`Changes to ${location} trip successfully saved`);
+  const showMessage = (tripLocation) => {
+    setTempMsg(`Changes to ${tripLocation} trip successfully saved`);
 
     // Hide the message after 2 seconds
     setTimeout(() => {
@@ -87,7 +99,7 @@ const TripItinerary = () => {
 
   return (
     <IndivTripMain>
-      <h1 className="itinerary-title">Plan your itinerary for {trip.location}</h1>
+      <h1 className="itinerary-title">Plan your itinerary for {trip.tripLocation}</h1>
       <StyledForm>
         <label>
           Start Date:
@@ -124,7 +136,7 @@ const TripItinerary = () => {
           Description:
           <textarea
             className="itinerary-textarea"
-            value={description}
+            value={tripDescription}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Add your itinerary details"
           />
@@ -139,7 +151,7 @@ const TripItinerary = () => {
         <ul className="activities-list">
           {activities.map((act) => (
             <li key={act.id} className="activity-item">
-              {act.activity} - {act.date ? formatDate(act.date) : 'No date set'}
+              {act.activity} - {act.activityDate ? formatDate(act.activityDate) : 'No date set'}
             </li>
           ))}
         </ul>

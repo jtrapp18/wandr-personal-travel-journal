@@ -47,7 +47,9 @@
       "startDate": "2024-12-09",
       "endDate": "2024-12-26",
       "location": "Sydney",
-      "attendees": [],
+      "attendees": [
+        "Jacqueline"
+      ],
       "description": "Visit Sydney Australia with friends for fun!",
       "reviewTitle": "",
       "rating": 0,
@@ -109,7 +111,7 @@
         "Jacqueline"
       ],
       "description": "visit the jungle",
-      "reviewTitle": "Relaxing trip",
+      "reviewTitle": "Very relaxing trip",
       "rating": 4,
       "reviewDescr": "Really nice time visiting the jungle",
       "photos": [],
@@ -150,11 +152,11 @@
     {
       "id": 13,
       "image": "https://i.natgeofe.com/n/3012ffcc-7361-45f6-98b3-a36d4153f660/colosseum-daylight-rome-italy.jpg?w=2560&h=1706",
-      "startDate": "2024-12-22",
+      "startDate": "2028-03-14",
       "endDate": "2024-12-28",
       "location": "Rome",
       "attendees": [],
-      "description": "Visit the Colosseum and Vatican City.",
+      "description": "Visit the Colosseum and eat bread and cheese and espresso and wine.",
       "reviewTitle": "",
       "rating": 0,
       "reviewDescr": "",
@@ -319,6 +321,19 @@
       "photos": [],
       "complete": false,
       "id": 23
+    },
+    {
+      "image": "https://uploads.visitseattle.org/2024/02/26114037/VS_base.jpg",
+      "startDate": "2025-01-01",
+      "endDate": "2024-12-14",
+      "location": "Seattle",
+      "attendees": [],
+      "description": "Exploring the city",
+      "rating": 0,
+      "review": "",
+      "photos": [],
+      "complete": false,
+      "id": 24
     }
   ],
   "activities": [
@@ -449,6 +464,12 @@
       "activity": "See basketball game",
       "date": "2024-12-07",
       "id": 21
+    },
+    {
+      "tripId": 5,
+      "activity": "Go shopping",
+      "date": "2024-12-14",
+      "id": 22
     }
   ]
 }

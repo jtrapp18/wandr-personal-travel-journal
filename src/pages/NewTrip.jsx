@@ -3,6 +3,7 @@ import Attendees from "../components/Attendees";
 import styled from "styled-components";
 import { IndivTripMain, StyledForm, StyledButton, TempMessage, AddPersonBtn } from "../MiscStyling";
 import { useOutletContext } from "react-router-dom";
+import { postJSONToDb } from "../helper";
 
 const StyledMark = styled.mark`
     background-color: var(--yellow);
@@ -16,15 +17,15 @@ const DescriptionLabel = styled.label`
 `
 
 function NewTrip() {
-  const {addTrip} = useOutletContext();
+  const {addTrip, user} = useOutletContext();
 
   const emptyObj = {
       image: "",
       startDate: "",
       endDate: "",
-      location: "",
+      tripLocation: "",
       attendees: [],
-      description: "",
+      tripDescription: "",
     }
     const [formData, setFormData] = useState(emptyObj);
     const [attendee, setAttendee] = useState("");
@@ -81,24 +82,20 @@ function NewTrip() {
     else  {
       setPassVal(true);
       const newTrip = {
-        ...formData,
-        rating: 0,
-        review: "",
-        photos: [],
-        complete: false,
+        userId: 1, 
+        image: formData.image,
+        startDate: formData.startDate,
+        endDate: formData.endDate,
+        tripLocation: formData.tripLocation,
+        tripDescription: formData.tripDescription,
       }
 
-      fetch("http://localhost:6001/trips", {
-        method: "POST",
-        headers: {"Content-Type": "Application/JSON"},
-        body: JSON.stringify(newTrip)
-      })
-      .then(res=>res.json())
+      postJSONToDb("trips", newTrip)
       .then(trip=>{
         addTrip(trip);
         setFormData(emptyObj);
         console.log("Added:", trip);
-        showMessage(trip.location);
+        showMessage(trip.tripLocation);
       })
       .catch(e=>console.error(e));
     }
@@ -110,7 +107,7 @@ function NewTrip() {
       <StyledForm onSubmit={handleSubmit}>
         <label>
             Location: 
-            <input type="text" name="location" placeholder="Trip Location" value={formData.location} onChange={handleChange}/>
+            <input type="text" name="tripLocation" placeholder="Trip Location" value={formData.tripLocation} onChange={handleChange}/>
         </label>
         <br />
         <label>
@@ -130,7 +127,7 @@ function NewTrip() {
         <br />
         <DescriptionLabel>
             Description: 
-            <textarea name="description" placeholder="Description" value={formData.description} onChange={handleChange}></textarea>
+            <textarea name="tripDescription" placeholder="Description" value={formData.tripDescription} onChange={handleChange}></textarea>
         </DescriptionLabel>
         <br />
         <label>
