@@ -60,11 +60,11 @@ const Footer = () => {
 
     return (
         <StyledFooter>
-            <FooterDivider src="/images/plane.png" alt="airplane"/>
-            <LandMarks src="/images/landmarks.png" alt="landmarks" />
+            <FooterDivider src={`${process.env.PUBLIC_URL}/images/plane.png`} alt="airplane"/>
+            <LandMarks src={`${process.env.PUBLIC_URL}/images/landmarks.png`} alt="landmarks" />
             <EndNote>
                 <NavLink to="/" >
-                    <LogoImg src="/images/logos/logo_transparent.png" alt="logo" />
+                    <LogoImg src={`${process.env.PUBLIC_URL}/images/logos/logo_transparent.png`} alt="logo" />
                 </NavLink>
                 <div>
                     <a href="example.com">About</a>

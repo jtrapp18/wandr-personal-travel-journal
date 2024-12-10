@@ -7,8 +7,10 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import "./helper.js"
 
-const router = createBrowserRouter(routes);
-
+const router = createBrowserRouter(routes, {
+    basename: "/wandr-personal-travel-journal", // Add this line
+  });
+  
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(<RouterProvider router={router} />);

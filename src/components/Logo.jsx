@@ -17,7 +17,7 @@ function Logo() {
           to="/"
           className="home"
         >
-          <img src="/images/logos/wandr.png" alt="home"/>
+          <img src={`${process.env.PUBLIC_URL}/images/logos/wandr.png`} alt="home"/>
         </StyledNavLink>
       </LogoContainer>
   );

@@ -26,7 +26,7 @@ const Header = ({ user, onLoginClick, onLogoutClick }) => {
     <header>
       <ExtendedHeader>
         <Link to="/">
-          <img src="/images/logos/logo_header.png" alt="logo" />
+          <img src={`${process.env.PUBLIC_URL}/images/logos/logo_header.png`} alt="logo" />
         </Link>
       </ExtendedHeader>
       <NavBar user={user} onLoginClick={onLoginClick} onLogoutClick={onLogoutClick} />

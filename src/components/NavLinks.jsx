@@ -14,7 +14,7 @@ function NavLinks() {
   return (
     <LinkContainer>
       <StyledNavLink to="/new-trip">
-        <img src="/images/icons/suitcase.png" alt="suitcase" />
+        <img src={`${process.env.PUBLIC_URL}/images/icons/suitcase.png`} alt="suitcase" />
         Add to Bucket List
       </StyledNavLink>
     </LinkContainer>
