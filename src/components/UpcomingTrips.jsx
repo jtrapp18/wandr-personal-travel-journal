@@ -43,7 +43,7 @@ const UpcomingTrips = ({trips}) => {
                     nextImage={nextImage}
                 />
                 <WeatherForecast
-                    location={trip.location}
+                    tripLocation={trip.tripLocation}
                 />
             </UpcomingTripsMain>
             <PrevButton onClick={prevImage}>

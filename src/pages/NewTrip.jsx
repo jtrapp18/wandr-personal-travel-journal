@@ -92,6 +92,19 @@ function NewTrip() {
 
       postJSONToDb("trips", newTrip)
       .then(trip=>{
+        console.log("New trip to add:", trip, trip.id)
+
+        const newAttendees = formData.attendees.map(attendee => ({
+          tripId: trip.id,
+          attendeeName: attendee
+        }));
+
+        postJSONToDb("attendees", newAttendees)
+        .then(attendees=>{
+          console.log("Added:", attendees);
+        })
+        .catch(e=>console.error(e));
+
         addTrip(trip);
         setFormData(emptyObj);
         console.log("Added:", trip);
@@ -99,6 +112,7 @@ function NewTrip() {
       })
       .catch(e=>console.error(e));
     }
+
   }
 
   return (

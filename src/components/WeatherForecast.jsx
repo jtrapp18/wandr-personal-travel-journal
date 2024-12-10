@@ -12,7 +12,7 @@ const ForecastMain = styled.div`
   display: flex;
 `;
 
-const WeatherForecast = ({location}) => {
+const WeatherForecast = ({tripLocation}) => {
     const [forecastError, setForecastError] = useState("");
     const [fiveDayForecast, setFiveDayForecast] = useState([]);
 
@@ -23,10 +23,11 @@ const WeatherForecast = ({location}) => {
     }
 
     useEffect(()=> {
-        console.log("getting weather for ", location);
+        console.log("getting weather for ", tripLocation);
 
-        getWeatherForecast(location)
+        getWeatherForecast(tripLocation)
             .then(data => {
+                console.log(data)
                 if (data?.DailyForecasts) {
                     const weatherArr = data.DailyForecasts.map(day => ({
                         date: formatDate(day.Date),
@@ -51,14 +52,14 @@ const WeatherForecast = ({location}) => {
                 setFiveDayForecast([]); // Handle API failure by setting an empty array
                 setForecastError("");
             });
-    }, [location]);
+    }, [tripLocation]);
 
     if (forecastError!=="") return <p>{forecastError}</p>
     if (fiveDayForecast.length===0) return <p></p>
 
     return (
         <ForecastContainer>
-            <h3>{`5-day Forecast for ${location}`}</h3>
+            <h3>{`5-day Forecast for ${tripLocation}`}</h3>
             <ForecastMain>
                 {fiveDayForecast.map(day=>
                     <WeatherCard

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useOutletContext, useParams } from "react-router-dom";
-import { getActivitiesByTripId, patchJSONToDb, postJSONToDb } from "../helper.js";
+import { getActivitiesByTripId, patchJSONToDb, postJSONToDb, snakeToCamel } from "../helper.js";
 import { StyledForm, IndivTripMain, StyledButton, TempMessage, AddPersonBtn } from "../MiscStyling";
 import styled from "styled-components";
 import { formatDate } from "../helper.js";
@@ -15,8 +15,7 @@ const TripItinerary = () => {
 
   const { id } = useParams();
   const {trips} = useOutletContext();
-  const data = trips.find((trip) => trip.id === parseInt(id));
-
+  
   const [tempMsg, setTempMsg] = useState("");
   const [tripDescription, setDescription] = useState("");
   const [activities, setActivities] = useState([]);
@@ -29,6 +28,8 @@ const TripItinerary = () => {
   const [attendee, setAttendee] = useState("");
 
   useEffect(() => {
+
+    const data = trips.find((trip) => trip.id === parseInt(id));
     
     setTrip(data);
     setDescription(data.tripDescription || "");
@@ -39,9 +40,14 @@ const TripItinerary = () => {
 
     const fetchTripWithActivities = async () => {
       try {
-        const activities = await getActivitiesByTripId(id);
+        const activitiesOrig = await getActivitiesByTripId(id);
+
+        const activitiesTransformed = snakeToCamel(activitiesOrig).map(activity => ({
+          ...activity,
+          activityDate: new Date(activity.activityDate).toISOString().split("T")[0],
+        }));
      
-        setActivities(activities || []);
+        setActivities(activitiesTransformed || []);
 
       } catch (error) {
         console.error("Error fetching trip with activities:", error);
@@ -49,15 +55,12 @@ const TripItinerary = () => {
     };
 
     fetchTripWithActivities();
-  }, [data, id]);
+  }, [trips, id]);
 
   const handleSaveItinerary = async () => {
     try {
       await patchJSONToDb("trips", id, { startDate, endDate, tripDescription });
       console.log("Itinerary saved successfully!");
-
-      // await postJSONToDb("attendees", { attendees });
-      // console.log("Itinerary saved successfully!");
 
       handleSaveTripEdits(id, { startDate, endDate, tripDescription, attendees });
       showMessage(trip.tripLocation);
@@ -68,6 +71,20 @@ const TripItinerary = () => {
 
   const handleAddAttendee = async () => {
     setAttendees(attendees=>[...attendees, attendee]);
+
+    const newAttendee = {
+      tripId: id,
+      attendeeName: attendee
+    };
+
+    postJSONToDb("attendees", newAttendee)
+    .then(attendee=>{
+      console.log("Added:", attendee);
+    })
+    .catch(e=>console.error(e));
+
+    setAttendee("");
+
   };
 
   const handleAddActivity = async () => {

@@ -22,7 +22,9 @@ function App() {
       const tripsTransformed = snakeToCamel(trips).map(trip => ({
         ...trip,
         attendees: trip.attendees ? trip.attendees.split(",") : [],
-        photos: trip.photos ? trip.photos.split(",") : []
+        photos: trip.photos ? trip.photos.split(",") : [],
+        startDate: new Date(trip.startDate).toISOString().split("T")[0],
+        endDate: new Date(trip.endDate).toISOString().split("T")[0]
       }));
       setTrips(tripsTransformed);
     });

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { patchJSONToDb } from "../helper";
+import { postJSONToDb } from "../helper";
 import styled from "styled-components";
 import { StyledButton } from "../MiscStyling";
 
@@ -29,12 +29,12 @@ const UploadImage = ({trip, handleAddPhoto}) => {
 
                 const url = result.info.secure_url;
 
-                const updatedTrip = {
-                    ...trip,
-                    photos: [...trip.photos, url]
+                const newPhoto = {
+                    tripId: trip.id,
+                    photoUrl: url
                 }
 
-                patchJSONToDb("trips", trip.id, updatedTrip);
+                postJSONToDb("photos", newPhoto);
                 handleAddPhoto(trip.id, url);}
 
             else if (error) {
