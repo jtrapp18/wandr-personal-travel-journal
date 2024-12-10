@@ -93,7 +93,7 @@ function getWeatherForecast(locationSearch) {
   const locSearchRev = locationSearch.replace(/ /g, "%20");
 
   // Make the API call to your Lambda (via API Gateway)
-  return fetch(`https://ieqgd271i6.execute-api.us-east-1.amazonaws.com/prod/weather?location=${locSearchRev}`)
+  return fetch(`${baseURL}/weather?location=${locSearchRev}`)
     .then(res => {
       if (!res.ok) {
         console.error(`Error fetching forecast! Status: ${res.status}`);

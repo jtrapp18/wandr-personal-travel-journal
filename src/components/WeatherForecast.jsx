@@ -19,7 +19,7 @@ const WeatherForecast = ({tripLocation}) => {
     function findIcon(number) {
         const numFmt = number.toString().padStart(2, '0');
 
-        return `images/weather_icons_by_id/${numFmt}.png`
+        return `${process.env.PUBLIC_URL}/images/weather_icons_by_id/${numFmt}.png`
     }
 
     useEffect(()=> {
