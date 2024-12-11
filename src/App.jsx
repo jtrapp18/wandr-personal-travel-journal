@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Headroom from 'react-headroom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -6,6 +6,7 @@ import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import { snakeToCamel, getJSONByUserId } from './helper';
 import Login from './components/Login'; 
+import { UserContext } from './context/users';
 
 const Loading = styled.p`
   font-size: 75px;
@@ -13,12 +14,16 @@ const Loading = styled.p`
 `;
 
 function App() {
+  const { user, setUser } = useContext(UserContext);
   const [trips, setTrips] = useState([]);
-  const [user, setUser] = useState(null); 
-  const [showLogin, setShowLogin] = useState(true); 
+  const [showLogin, setShowLogin] = useState(true);
 
   useEffect(() => {
-    getJSONByUserId(1).then((trips) => {
+
+    if (!user) {
+      return;
+    }
+    getJSONByUserId(user.id).then((trips) => {
       const tripsTransformed = snakeToCamel(trips).map(trip => ({
         ...trip,
         attendees: trip.attendees ? trip.attendees.split(",") : [],
@@ -27,15 +32,16 @@ function App() {
         endDate: new Date(trip.endDate).toISOString().split("T")[0]
       }));
       setTrips(tripsTransformed);
+      console.log(`${user.email} info:`, trips)       
     });
+
   }, [user]);
 
-  console.log("user info:", trips)
-
-  if (trips.length === 0) return <Loading>Loading...</Loading>;
+  if (!showLogin & !user) return <Loading>Loading...</Loading>;
 
   const handleLogin = (userData) => {
     setUser(userData);
+    console.log(userData)
     setShowLogin(false); 
   };
 
@@ -47,7 +53,7 @@ function App() {
   return (
     <>
       <Headroom>
-        <Header onLoginClick={() => setShowLogin(true)} onLogoutClick={handleLogout} user={user} />
+        <Header onLoginClick={() => setShowLogin(true)} onLogoutClick={handleLogout} />
       </Headroom>
       {showLogin ? (
         <Login onLogin={handleLogin} />
@@ -55,7 +61,6 @@ function App() {
         <Outlet
           context={{
             trips,
-            user,
             addTrip: (trip) => setTrips((prevTrips) => [...prevTrips, trip]),
             handleSaveTripEdits: (id, itinerary) => setTrips((prevTrips) =>
               prevTrips.map((trip) =>

@@ -3,6 +3,23 @@
 
 const baseURL = 'https://wandr-personal-travel-journal-be-production.up.railway.app';
 
+function getAllUsers() {
+
+  // Make the API call to your Lambda (via API Gateway)
+  return fetch(`${baseURL}/users`)
+    .then(res => {
+      if (!res.ok) {
+        console.error(`Error fetching user information! Status: ${res.status}`);
+        // throw new Error(`Error fetching forecast! Status: ${res.status}`);
+      }
+      return res.json();
+    })
+    .catch(err => {
+      console.error('Request failed', err);
+      // You can handle further error logic here if needed
+    });
+}
+
 function getJSONByUserId(userId) {
 
   // Make the API call to your Lambda (via API Gateway)
@@ -169,4 +186,4 @@ const camelToSnake = (obj) => {
   return obj;
 };
 
-export {getJSONByUserId, getActivitiesByTripId, postJSONToDb, patchJSONToDb, deleteJSONFromDb, getWeatherForecast, formatDate, isPastDate, snakeToCamel};
+export {getAllUsers, getJSONByUserId, getActivitiesByTripId, postJSONToDb, patchJSONToDb, deleteJSONFromDb, getWeatherForecast, formatDate, isPastDate, snakeToCamel};

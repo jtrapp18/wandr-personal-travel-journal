@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useContext} from "react";
 import Logo from "./Logo";
 import NavLinks from "./NavLinks";
 import styled from "styled-components";
+import { UserContext } from "../context/users";
 
 const StyledNavBar = styled.nav`
   position: fixed;
@@ -32,14 +33,16 @@ const Button = styled.button`
   border-radius: 4px;
 `;
 
-function NavBar({ user, onLoginClick, onLogoutClick }) {
+function NavBar({ onLoginClick, onLogoutClick }) {
+  const { user } = useContext(UserContext);
+
   return (
     <StyledNavBar>
       <Logo />
       <ActionsContainer>
         <NavLinks />
         {user ? (
-          <Button onClick={onLogoutClick}>Logout</Button>
+            <Button onClick={onLogoutClick}>Logout</Button>
         ) : (
           <Button onClick={onLoginClick}>Login</Button>
         )}
