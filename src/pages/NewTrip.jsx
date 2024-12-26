@@ -3,7 +3,7 @@ import Attendees from "../components/Attendees";
 import styled from "styled-components";
 import { IndivTripMain, StyledForm, StyledButton, TempMessage, AddPersonBtn } from "../MiscStyling";
 import { useOutletContext } from "react-router-dom";
-import { postJSONToDb } from "../helper";
+import { postJSONToDb, snakeToCamel } from "../helper";
 
 const StyledMark = styled.mark`
     background-color: var(--yellow);
@@ -63,8 +63,8 @@ function NewTrip() {
         return Object.keys(formData).filter(key=>
         formData[key]==="")}
 
-    const showMessage = (location) => {
-        setTempMsg(`Added ${location} to Bucket List!`);
+    const showMessage = (tripLocation) => {
+        setTempMsg(`Added ${tripLocation} to Bucket List!`);
 
         // Hide the message after 2 seconds
         setTimeout(() => {
@@ -102,13 +102,20 @@ function NewTrip() {
         postJSONToDb("attendees", newAttendees)
         .then(attendees=>{
           console.log("Added:", attendees);
+          const tripsTransformed = {
+            ...snakeToCamel(trip),
+            attendees: formData.attendees,
+            photos: [],
+          }
+
+          addTrip(tripsTransformed);
+          console.log("Added:", tripsTransformed);
+          showMessage(tripsTransformed.tripLocation);
         })
         .catch(e=>console.error(e));
 
-        addTrip(trip);
         setFormData(emptyObj);
-        console.log("Added:", trip);
-        showMessage(trip.tripLocation);
+
       })
       .catch(e=>console.error(e));
     }

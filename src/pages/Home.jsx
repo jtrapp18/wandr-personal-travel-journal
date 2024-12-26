@@ -70,11 +70,6 @@ const Home = () => {
 
     const showTrips = trips.filter(trip=>{
 
-        console.log("search", searchInput)
-        console.log("trip", trip)
-
-
-
         const searchFilter = searchInput==="" ? true : trip.tripLocation.toLowerCase().includes(searchInput.toLowerCase());
         const completeFilter = filterInput.complete ? true : !isPastDate(trip.endDate);
         const incompleteFilter = filterInput.incomplete ? true : isPastDate(trip.endDate);
