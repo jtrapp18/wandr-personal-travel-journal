@@ -69,7 +69,13 @@ const Home = () => {
     const [showUpcoming, setShowUpcoming] = useState(upcomingTrips.length > 0);
 
     const showTrips = trips.filter(trip=>{
-        const searchFilter = searchInput==="" ? true : trip.location.toLowerCase().includes(searchInput.toLowerCase());
+
+        console.log("search", searchInput)
+        console.log("trip", trip)
+
+
+
+        const searchFilter = searchInput==="" ? true : trip.tripLocation.toLowerCase().includes(searchInput.toLowerCase());
         const completeFilter = filterInput.complete ? true : !isPastDate(trip.endDate);
         const incompleteFilter = filterInput.incomplete ? true : isPastDate(trip.endDate);
         const startDateFilter = filterInput.startDate ? filterInput.startDate < trip.endDate : true;
