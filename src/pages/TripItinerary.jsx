@@ -95,7 +95,7 @@ const TripItinerary = () => {
         activityDate: newActivityDate, // Include date in new activity
       };
       const activity = await postJSONToDb("activities", newActivityObj);
-      setActivities((prev) => [...prev, activity]);
+      setActivities((prev) => [...prev, snakeToCamel(activity)]);
       setNewActivity("");
       setNewActivityDate(""); // Reset date input
     } catch (error) {
