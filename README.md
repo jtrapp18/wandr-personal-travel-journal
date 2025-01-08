@@ -1,6 +1,6 @@
 Welcome to Wandr! Your Virtual Travel Journal
 
-![Wandr Website Preview](public/images/demoImages/mainpage.gif)
+![Wandr Website Preview](https://github.com/jtrapp18/wandr-personal-travel-journal/blob/main/public/images/demoImages/mainpage.gif?raw=true)
 
 A React-based application designed to document your travels, build itineraries for bucket list destinations, leave reviews and photos, and track visited places.
 
@@ -80,13 +80,13 @@ Contributors
     •	Kelsey Roche
     
 Plan Your Itinerary:
-![Itinerary Preview](public/images/demoImages/itineraryPreview.png)
+![Itinerary Preview](https://github.com/jtrapp18/wandr-personal-travel-journal/blob/main/public/images/demoImages/itineraryPreview.png?raw=true)
 
 Leave Reviews/ Upload Photos:
-![Review Preview](public/images/demoImages/reviewPreview.png)
+![Review Preview](https://github.com/jtrapp18/wandr-personal-travel-journal/blob/main/public/images/demoImages/reviewPreview.png?raw=true)
 
 Add To Bucket List:
-![Add to Bucket List Preview](public/images/demoImages/addToBucketListPreview.png)
+![Add to Bucket List Preview](https://github.com/jtrapp18/wandr-personal-travel-journal/blob/main/public/images/demoImages/addToBucketListPreview.png?raw=true)
 
 
 
