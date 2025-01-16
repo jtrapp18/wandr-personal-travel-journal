@@ -25,6 +25,7 @@ const LandMarks = styled.img`
 const EndNote = styled.span`
     background-color: var(--blue);
     width: 100%;
+    max-width: 100vh;
     display: flex;
     align-items: center;
     padding: 10px 30px 10px 30px;

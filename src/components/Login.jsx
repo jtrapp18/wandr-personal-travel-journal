@@ -47,6 +47,17 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
+const GuestButton = styled.button`
+  padding: 10px;
+  font-size: 16px;
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+`;
+
 const Login = ({ onLogin }) => {
   const [userList, setUserList] = useState([])
   const [email, setEmail] = useState('');
@@ -69,6 +80,15 @@ const Login = ({ onLogin }) => {
     }
   };
 
+  const handleGuestLogin = (event) => {
+
+    const guestEmail = 'example@gmail.com';
+
+    // do we need to do some sort of fetch request and update the db.json to include users?
+    const user = userList.find(user => user.username === guestEmail)
+    onLogin({ email, id: user.id });
+  };
+
   return (
     <LoginContainer>
       <LoginForm onSubmit={handleSubmit}>
@@ -88,6 +108,12 @@ const Login = ({ onLogin }) => {
           required
         />
         <Button type="submit">Login</Button>
+        <GuestButton 
+          type="button"
+          onClick={handleGuestLogin}
+        >
+          Continue as Guest
+        </GuestButton>
       </LoginForm>
     </LoginContainer>
   );
