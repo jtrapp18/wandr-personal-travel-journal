@@ -20,7 +20,7 @@ const ExtendedHeader = styled.div`
     height: auto; 
     max-height: 150px; 
     width: auto; 
-    max-width: 100%; 
+    max-width: 90%;
     cursor: pointer; 
   }
 

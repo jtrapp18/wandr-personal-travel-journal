@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import { UserProvider } from './context/users';
 import routes from "./routes.js";
 import "semantic-ui-css/semantic.min.css";
@@ -9,8 +9,9 @@ import reportWebVitals from './reportWebVitals';
 import "./helper.js"
 import { WindowWidthProvider } from './context/windowSize';
 
-const router = createBrowserRouter(routes, {
-    basename: "/wandr-personal-travel-journal", // Add this line
+const router = createHashRouter(routes, {
+    // basename: "/wandr-personal-travel-journal", // Add this line
+    basename: process.env.NODE_ENV === 'production' ? '/wandr-personal-travel-journal/' : '/',
   });
   
 const root = ReactDOM.createRoot(document.getElementById('root'));
