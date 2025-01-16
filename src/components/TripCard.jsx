@@ -6,7 +6,7 @@ import { isPastDate } from "../helper";
 
 const StyledTripCard = styled.article`
     height: 300px;
-    max-width: 95vw;
+    max-width: 90vw;
     padding: 10px;
     margin-bottom: 10px;
     position: relative;

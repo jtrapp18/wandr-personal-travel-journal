@@ -7,6 +7,8 @@ const SearchContainer = styled.div`
     align-items: center;
     height: 100px;
     background-color: var(--blue);
+    padding: 0;
+    width: 100%;
 
     input {
         border-radius: 20px;
