@@ -101,7 +101,7 @@ const Button = styled.button`
 `;
 
 // MobileNavBar Component
-const MobileNavBar = ({ onLoginClick, onLogoutClick }) => {
+const MobileNavBar = ({ onLogoutClick }) => {
   const { user } = useContext(UserContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const cardRef = useRef(null); // Create a reference to the card element
@@ -118,6 +118,11 @@ const MobileNavBar = ({ onLoginClick, onLogoutClick }) => {
 
   const handleClick = () => {
     scrollToTop(); // Custom click handler
+    setIsMenuOpen(false); // Close menu after navigation
+  };
+
+  const handleLogoutClick = () => {
+    onLogoutClick(); // Custom click handler
     setIsMenuOpen(false); // Close menu after navigation
   };
 
@@ -152,10 +157,9 @@ const MobileNavBar = ({ onLoginClick, onLogoutClick }) => {
           Add to Bucket List
       </StyledNavLink>
       <StyledNavLink 
-          to="/logout"
-          onClick={handleClick}
+          to="/"
         >
-          <Button onClick={onLogoutClick}>Logout</Button>
+          <Button onClick={handleLogoutClick}>Logout</Button>
       </StyledNavLink>
       </LinkContainer>
       {user &&
