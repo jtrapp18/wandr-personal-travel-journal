@@ -5,9 +5,8 @@ import styled from 'styled-components';
 import { useEffect } from 'react';
 
 const TripPhotoContainer = styled.div`
-    width: 90%;
-    max-width: 700px;
-    min-width: 500px;
+    width: 600px;
+    max-width: 90%;
     position: relative;
 `
 

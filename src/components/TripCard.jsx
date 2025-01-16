@@ -12,6 +12,7 @@ const StyledTripCard = styled.article`
 
     img {
         width: 100%;
+        max-width: 88vw;
         height: 85%;
         object-fit: cover;
         overflow: hidden;

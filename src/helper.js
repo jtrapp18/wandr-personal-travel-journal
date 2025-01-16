@@ -186,4 +186,12 @@ const camelToSnake = (obj) => {
   return obj;
 };
 
-export {getAllUsers, getJSONByUserId, getActivitiesByTripId, postJSONToDb, patchJSONToDb, deleteJSONFromDb, getWeatherForecast, formatDate, isPastDate, snakeToCamel};
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Smooth scroll to the top
+  });
+};
+
+export {getAllUsers, getJSONByUserId, getActivitiesByTripId, postJSONToDb, patchJSONToDb, 
+  deleteJSONFromDb, getWeatherForecast, formatDate, isPastDate, snakeToCamel, scrollToTop};

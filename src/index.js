@@ -7,6 +7,7 @@ import "semantic-ui-css/semantic.min.css";
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import "./helper.js"
+import { WindowWidthProvider } from './context/windowSize';
 
 const router = createBrowserRouter(routes, {
     basename: "/wandr-personal-travel-journal", // Add this line
@@ -15,9 +16,11 @@ const router = createBrowserRouter(routes, {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <UserProvider>
-    <RouterProvider router={router} />
-  </UserProvider>
+  <WindowWidthProvider>
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
+  </WindowWidthProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

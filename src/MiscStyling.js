@@ -77,9 +77,9 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   margin-top: 20px;
-  width: 90%;
-  max-width: 700px;
-  min-width: 500px;
+  width: 700px;
+  min-width: 40%;
+  max-width: 90%;
   justify-content: center;
   align-items: center;
 
@@ -90,7 +90,8 @@ const StyledForm = styled.form`
   }
   
   input, textarea {
-    width: 80%;
+    width: 400px;
+    max-width: 70%;
     position: absolute;
     right: 0;
     ${ConditionalHighlight};

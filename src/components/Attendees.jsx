@@ -10,7 +10,7 @@ const NewAttendees = styled.div`
         background-color: var(--green);
         border: 2px solid var(--dark-green);
         border-radius: 5px;
-        font-size: 15px;
+        font-size: var(--default-font-size);
     }
 `
 const Attendees = ({attendees}) => {

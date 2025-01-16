@@ -7,6 +7,7 @@ import UpcomingTrips from "../components/UpcomingTrips";
 import styled from "styled-components";
 import {useOutletContext} from "react-router-dom";
 import {isPastDate} from "../helper"
+import { useWindowWidth } from "../context/windowSize";
 
 const ShowHide = styled.div`
     cursor: pointer;
@@ -28,7 +29,7 @@ const TripsMain = styled.section`
   flex: 1;
 
   > div {
-    padding: 20px;
+    padding: ${(props => props.isMobile ? "0" : "20px")};
   }
 `
 
@@ -39,6 +40,8 @@ const TripCardContainer = styled.div`
 `
 
 const Home = () => {
+    const isMobile = useWindowWidth();
+    console.log("ismobile", isMobile)
     const {trips} = useOutletContext();
 
     const [searchInput, setSearchInput] = useState("");
@@ -100,11 +103,13 @@ const Home = () => {
             </div>
             
             <TripsContainer>
-                <SideBar
-                    filterInput={filterInput}
-                    setFilterInput={setFilterInput}
-                />
-                <TripsMain>
+                {!isMobile && 
+                    <SideBar
+                        filterInput={filterInput}
+                        setFilterInput={setFilterInput}
+                    />
+                }
+                <TripsMain isMobile={isMobile}>
                     <SearchBar
                         searchInput={searchInput}
                         setSearchInput={setSearchInput}

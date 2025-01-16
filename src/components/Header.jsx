@@ -3,6 +3,8 @@ import NavBar from "./NavBar";
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { UserContext } from "../context/users";
+import { useWindowWidth } from "../context/windowSize";
+import MobileNavBar from "./MobileNavBar"
 
 const ExtendedHeader = styled.div`
   display: flex;
@@ -33,6 +35,7 @@ const ExtendedHeader = styled.div`
 `;
 
 const Header = ({ onLoginClick, onLogoutClick }) => {
+  const isMobile = useWindowWidth();
   const { user } = useContext(UserContext);
 
   return (
@@ -45,7 +48,11 @@ const Header = ({ onLoginClick, onLogoutClick }) => {
           )}
         </Link>
       </ExtendedHeader>
-      <NavBar onLoginClick={onLoginClick} onLogoutClick={onLogoutClick} />
+
+      {isMobile ? 
+        <MobileNavBar onLoginClick={onLoginClick} onLogoutClick={onLogoutClick} />
+        : <NavBar onLoginClick={onLoginClick} onLogoutClick={onLogoutClick} />
+      }
     </header>
   );
 }

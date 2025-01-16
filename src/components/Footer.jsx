@@ -14,7 +14,8 @@ const StyledFooter = styled.footer`
 `
 
 const FooterDivider = styled.img` 
-    max-width: 700px;
+    width: 700px;
+    max-width: 80%;
 `;
 
 const LandMarks = styled.img`
