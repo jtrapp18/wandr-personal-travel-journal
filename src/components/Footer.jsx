@@ -27,18 +27,19 @@ const EndNote = styled.span`
     width: 100%;
     display: flex;
     align-items: center;
-    padding: 10px 10px 10px 30px;
+    padding: 10px 30px 10px 30px;
 
     * {
       color: white;
     }
 
     div {
+        width: 100%;
+        max-width: 95%;
         display: flex;
+        margin 0 auto;
         flex-direction: column;
         position: relative;
-        left: 50%;
-        transform: translateX(-50%);
     }
 
     p {

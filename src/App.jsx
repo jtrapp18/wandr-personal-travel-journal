@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-import Headroom from 'react-headroom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { Outlet } from 'react-router-dom';
@@ -52,9 +51,7 @@ function App() {
 
   return (
     <>
-      <Headroom>
-        <Header onLoginClick={() => setShowLogin(true)} onLogoutClick={handleLogout} />
-      </Headroom>
+      <Header onLoginClick={() => setShowLogin(true)} onLogoutClick={handleLogout} />
       {showLogin ? (
         <Login onLogin={handleLogin} />
       ) : (

@@ -5,6 +5,13 @@ import { Link } from 'react-router-dom';
 import { UserContext } from "../context/users";
 import { useWindowWidth } from "../context/windowSize";
 import MobileNavBar from "./MobileNavBar"
+import Headroom from 'react-headroom';
+
+const StyledHeadroom = styled(Headroom)`
+  &  + * {
+    padding-top: ${props => props.isMobile ? '0' : 'var(--height-header)'};
+  }
+`
 
 const ExtendedHeader = styled.div`
   display: flex;
@@ -39,21 +46,23 @@ const Header = ({ onLoginClick, onLogoutClick }) => {
   const { user } = useContext(UserContext);
 
   return (
-    <header>
-      <ExtendedHeader>
-        <Link to="/">
-          <img src={`${process.env.PUBLIC_URL}/images/logos/logo_header.png`} alt="logo" />
-          {user && (
-            <i>{`Logged in as ${user.email}`}</i>
-          )}
-        </Link>
-      </ExtendedHeader>
+    <StyledHeadroom isMobile={isMobile}>
+      <header>
+        <ExtendedHeader>
+          <Link to="/">
+            <img src={`${process.env.PUBLIC_URL}/images/logos/logo_header.png`} alt="logo" />
+            {user && (
+              <i>{`Logged in as ${user.email}`}</i>
+            )}
+          </Link>
+        </ExtendedHeader>
 
-      {isMobile ? 
-        <MobileNavBar onLoginClick={onLoginClick} onLogoutClick={onLogoutClick} />
-        : <NavBar onLoginClick={onLoginClick} onLogoutClick={onLogoutClick} />
-      }
-    </header>
+        {isMobile ? 
+          <MobileNavBar onLoginClick={onLoginClick} onLogoutClick={onLogoutClick} />
+          : <NavBar onLoginClick={onLoginClick} onLogoutClick={onLogoutClick} />
+        }
+      </header>
+    </StyledHeadroom>
   );
 }
 

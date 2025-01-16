@@ -7,15 +7,17 @@ import { UserContext } from "../context/users";
 
 // Styled components
 
-const StyledDiv = styled.div`
-    justify-content: right;
+const StyledNavBar = styled.nav`
+    position: fixed;
+    padding-top: 10px;
+    background-color: var(--green);
     height: var(--height-header);
+    justify-content: right;
     position: relative;
-    background: white;
     display: flex;
-    border-bottom: 3px solid var(--green);
     align-items: center;
 `
+
 const LinkContainer = styled.div`
   position: absolute;
   top: 45px;
@@ -130,7 +132,7 @@ const MobileNavBar = ({ onLoginClick, onLogoutClick }) => {
   }, [isMenuOpen]);
 
   return (
-    <StyledDiv
+    <StyledNavBar
       ref={cardRef}
     >
       <LinkContainer 
@@ -166,7 +168,7 @@ const MobileNavBar = ({ onLoginClick, onLogoutClick }) => {
           </span>
         </HamburgerButton>
       }
-    </StyledDiv>
+    </StyledNavBar>
   );
 };
 

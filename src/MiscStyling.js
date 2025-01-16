@@ -100,6 +100,11 @@ const StyledForm = styled.form`
   textarea {
     height: 100px;
   }
+
+  button:hover {
+    background-color: var(--navy);
+    color: var(--gray);
+  }
 `
 
 const PrevButton = styled.button`

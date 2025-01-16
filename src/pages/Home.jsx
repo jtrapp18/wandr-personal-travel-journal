@@ -29,7 +29,7 @@ const TripsMain = styled.section`
   flex: 1;
 
   > div {
-    padding: ${(props => props.isMobile ? "0" : "20px")};
+    padding: ${(props => props.isMobile ? "2vw" : "20px")};
   }
 `
 

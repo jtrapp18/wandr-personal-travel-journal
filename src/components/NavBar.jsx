@@ -8,7 +8,7 @@ const StyledNavBar = styled.nav`
   position: fixed;
   padding-top: 10px;
   background-color: var(--green);
-  height: 45px;
+  height: var(--height-header);
   display: flex;
   justify-content: space-between;
   align-items: center;

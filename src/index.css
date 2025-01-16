@@ -7,6 +7,7 @@
   --navy: #142f41;
   --yellow: #FFFDD0;
   --default-font-size: clamp(0.7rem, 1.7vw, .9rem);
+  --height-header: 45px;
 }
 
 body {
@@ -52,19 +53,6 @@ hr {
   border: .5px solid grey;
   margin: 20px 0;
   width: 100%;
-}
-
-/* Formatting header */
-
-.headroom-wrapper + * {
-  padding-top: 45px; /* adjust based on the height of the header */
-}
-
-/* Misc hover effects */
-
-button:hover {
-  background-color: var(--navy);
-  color: var(--gray);
 }
 
 /* Error Page Styles */

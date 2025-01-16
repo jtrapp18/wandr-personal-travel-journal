@@ -24,6 +24,11 @@ const LoginForm = styled.form`
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  button:hover {
+    background-color: var(--navy);
+    color: var(--gray);
+  }
 `;
 
 const Input = styled.input`
