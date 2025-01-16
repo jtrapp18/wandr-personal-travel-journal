@@ -9,14 +9,11 @@ import reportWebVitals from './reportWebVitals';
 import "./helper.js"
 import { WindowWidthProvider } from './context/windowSize';
 
-console.log('app opened')
 const router = createHashRouter(routes, {
-    // basename: "/wandr-personal-travel-journal", // Add this line
-    basename: process.env.NODE_ENV === 'production' ? '/wandr-personal-travel-journal/' : '/',
+    basename: "/", // Add this line
+    // basename: process.env.NODE_ENV === 'production' ? '/wandr-personal-travel-journal/' : '/',
   });
 
-console.log(process.env.NODE_ENV)
-  
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
