@@ -84,14 +84,15 @@ const StyledForm = styled.form`
   align-items: center;
 
   label {
-    width: 100%;
+    width: 500px;
+    max-width: 95%;
     position: relative;
     display: flex;
   }
   
   input, textarea {
     width: 400px;
-    max-width: 80%;
+    max-width: 75%;
     position: absolute;
     right: 0;
     ${ConditionalHighlight};
