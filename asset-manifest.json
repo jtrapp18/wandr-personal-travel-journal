@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/wandr-personal-travel-journal/static/css/main.08da2eae.css",
-    "main.js": "/wandr-personal-travel-journal/static/js/main.49a1a04c.js",
+    "main.js": "/wandr-personal-travel-journal/static/js/main.ffeec8ae.js",
     "static/js/453.ad6eb26e.chunk.js": "/wandr-personal-travel-journal/static/js/453.ad6eb26e.chunk.js",
     "static/media/brand-icons.svg": "/wandr-personal-travel-journal/static/media/brand-icons.6729d29753e000c17489.svg",
     "static/media/icons.svg": "/wandr-personal-travel-journal/static/media/icons.62d9dae4e0040e81c980.svg",
@@ -21,11 +21,11 @@
     "static/media/outline-icons.woff2": "/wandr-personal-travel-journal/static/media/outline-icons.687a4990ea22bb1a49d4.woff2",
     "index.html": "/wandr-personal-travel-journal/index.html",
     "main.08da2eae.css.map": "/wandr-personal-travel-journal/static/css/main.08da2eae.css.map",
-    "main.49a1a04c.js.map": "/wandr-personal-travel-journal/static/js/main.49a1a04c.js.map",
+    "main.ffeec8ae.js.map": "/wandr-personal-travel-journal/static/js/main.ffeec8ae.js.map",
     "453.ad6eb26e.chunk.js.map": "/wandr-personal-travel-journal/static/js/453.ad6eb26e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.08da2eae.css",
-    "static/js/main.49a1a04c.js"
+    "static/js/main.ffeec8ae.js"
   ]
 }
