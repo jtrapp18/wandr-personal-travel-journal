@@ -27,7 +27,7 @@ const TripsContainer = styled.main`
 
 const TripsMain = styled.section`
   flex: 1;
-  max-width: 96vw;
+  width: 100%;
 
   > div {
     padding: ${(props => props.isMobile ? "2vw" : "20px")};
