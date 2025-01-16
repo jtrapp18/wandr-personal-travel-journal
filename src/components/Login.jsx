@@ -80,13 +80,13 @@ const Login = ({ onLogin }) => {
     }
   };
 
-  const handleGuestLogin = (event) => {
+  const handleGuestLogin = () => {
 
     const guestEmail = 'example@gmail.com';
 
     // do we need to do some sort of fetch request and update the db.json to include users?
     const user = userList.find(user => user.username === guestEmail)
-    onLogin({ email, id: user.id });
+    onLogin({ email: guestEmail, id: user.id });
   };
 
   return (

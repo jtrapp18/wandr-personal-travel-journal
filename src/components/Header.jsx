@@ -52,7 +52,7 @@ const Header = ({ onLoginClick, onLogoutClick }) => {
           <Link to="/">
             <img src={`${process.env.PUBLIC_URL}/images/logos/logo_header.png`} alt="logo" />
             {user && (
-              <i>{`Logged in as ${user.email}`}</i>
+              <i>{`Logged in as ${user.email==='example@gmail.com' ? 'Guest' : user.email}`}</i>
             )}
           </Link>
         </ExtendedHeader>
