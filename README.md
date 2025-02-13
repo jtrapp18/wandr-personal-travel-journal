@@ -1,4 +1,5 @@
 Welcome to Wandr! Your Virtual Travel Journal
+
 [Click to Navigate to Deployed Project](https://jtrapp18.github.io/wandr-personal-travel-journal/)
 
 ![Wandr Website Preview](https://github.com/jtrapp18/wandr-personal-travel-journal/blob/main/public/images/demoImages/mainpage.gif?raw=true)
